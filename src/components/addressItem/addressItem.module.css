@@ -1,0 +1,73 @@
+.container {
+  width: 100%;
+  padding: 2rem;
+  border-bottom: var(--border-100) solid var(--color-gray-100);
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .type {
+      padding: 0.5rem 1rem;
+      border-radius: var(--rounded-md);
+      background-color: var(--color-gray-200);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      width: 8rem;
+      align-items: start;
+      border-radius: var(--rounded-md);
+      background-color: var(--color-white-0);
+      position: absolute;
+      top: 0;
+      right: 0;
+      box-shadow: var(--shadow-md);
+
+      .option {
+        padding: 1rem 2rem;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+
+        &:hover {
+          background-color: var(--color-gray-100);
+          color: var(--color-primary-500);
+        }
+      }
+    }
+  }
+
+  .personInfo {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+
+    .phone {
+      font-weight: 400;
+    }
+
+    .name {
+      font-weight: 500;
+    }
+  }
+
+  .addressInfo {
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+}

@@ -1,0 +1,218 @@
+:root {
+  /* COLORS */
+  /* DOMINENT COLOR HSL VALUES */
+  --color-primary-100: hsl(271, 100%, 96%);
+  --color-primary-200: hsl(271, 100%, 86%);
+  --color-primary-300: hsl(271, 87%, 74%);
+  --color-primary-400: hsl(271, 76%, 63%);
+  --color-primary-500: hsl(271, 80%, 56%);
+  --color-primary-600: hsl(271, 67%, 46%);
+  --color-primary-700: hsl(271, 81%, 38%);
+  --color-primary-800: hsl(271, 93%, 30%);
+  --color-primary-900: hsl(271, 96%, 17%);
+
+  /* SUPORTING COLORS */
+
+  /* RED COLOR */
+  --color-red-100: hsl(0, 100%, 96%);
+  --color-red-200: hsl(0, 100%, 86%);
+  --color-red-300: hsl(0, 87%, 74%);
+  --color-red-400: hsl(0, 76%, 63%);
+  --color-red-500: hsl(0, 80%, 56%);
+  --color-red-600: hsl(0, 67%, 46%);
+  --color-red-700: hsl(0, 81%, 38%);
+  --color-red-800: hsl(0, 93%, 30%);
+  --color-red-900: hsl(0, 96%, 17%);
+
+  /* BLUE COLOR */
+  --color-blue-100: hsl(227, 100%, 96%);
+  --color-blue-200: hsl(227, 100%, 86%);
+  --color-blue-300: hsl(227, 87%, 74%);
+  --color-blue-400: hsl(227, 76%, 63%);
+  --color-blue-500: hsl(227, 80%, 56%);
+  --color-blue-600: hsl(227, 67%, 46%);
+  --color-blue-700: hsl(227, 81%, 38%);
+  --color-blue-800: hsl(227, 93%, 30%);
+  --color-blue-900: hsl(227, 96%, 17%);
+
+  /* GREEN COLOR */
+  --color-green-100: hsl(126, 100%, 96%);
+  --color-green-200: hsl(126, 100%, 86%);
+  --color-green-300: hsl(126, 87%, 74%);
+  --color-green-400: hsl(126, 76%, 63%);
+  --color-green-500: hsl(126, 80%, 56%);
+  --color-green-600: hsl(126, 67%, 46%);
+  --color-green-700: hsl(126, 81%, 38%);
+  --color-green-800: hsl(126, 93%, 30%);
+  --color-green-900: hsl(126, 96%, 17%);
+
+  /* YELLOW COLOR */
+  --color-yellow-100: hsl(47, 100%, 96%);
+  --color-yellow-200: hsl(47, 100%, 86%);
+  --color-yellow-300: hsl(47, 87%, 74%);
+  --color-yellow-400: hsl(47, 76%, 63%);
+  --color-yellow-500: hsl(47, 80%, 56%);
+  --color-yellow-600: hsl(47, 67%, 46%);
+  --color-yellow-700: hsl(47, 81%, 38%);
+  --color-yellow-800: hsl(47, 93%, 30%);
+  --color-yellow-900: hsl(47, 96%, 17%);
+
+  /* NEUTRAL COLORS */
+
+  /* GRAY COLOR */
+  --color-gray-100: hsl(220, 14%, 96%);
+  --color-gray-200: hsl(220, 13%, 91%);
+  --color-gray-300: hsl(216, 12%, 84%);
+  --color-gray-400: hsl(218, 11%, 65%);
+  --color-gray-500: hsl(220, 9%, 46%);
+  --color-gray-600: hsl(215, 14%, 34%);
+  --color-gray-700: hsl(217, 19%, 27%);
+  --color-gray-800: hsl(215, 28%, 17%);
+  --color-gray-900: hsl(221, 39%, 11%);
+
+  /* WHITE COLOR */
+  --color-white-0: hsl(0, 0%, 100%);
+
+  /* BLACK COLOR */
+  --color-black-0: hsl(0, 0%, 0%);
+
+  /* GOLD COLOR */
+  --color-gold: hsl(36, 100%, 55%);
+
+  /* SLATE COLOR */
+  --color-slate: hsl(215, 24%, 58%);
+
+  --color-facebook: #4167B2;
+  --color-instagram: #D52D85;
+  --color-twitter: #1DA1F1;
+  --color-linkedin: #0077B5;
+
+  /* BORDER WIDTHS */
+  --border-100: 1px;
+  --border-200: 2px;
+  --border-300: 3px;
+  --border-400: 4px;
+  --border-500: 5px;
+  --border-600: 6px;
+
+  /* BORDER RADIUS */
+  --rounded-none: 0;
+  --rounded-xs: 2px;
+  --rounded-sm: 4px;
+  --rounded-md: 6px;
+  --rounded-lg: 8px;
+  --rounded-xl: 10px;
+  --rounded-2xl: 12px;
+  --rounded-3xl: 14px;
+  --rounded-full: 999px;
+
+  /* BOX SHADOWS */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  --shadow-all-sides: 0 0 10px rgb(0 0 0 / 0.1);
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  font-size: 37.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--color-white-0);
+  overflow-x: hidden;
+}
+
+a,
+a:link,
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+:global(.container) {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+:global(.shimmer-animation) {
+  background-color: #f6f7f8;
+  background-image: linear-gradient(to right,
+      #f6f7f8 0%,
+      #edeef1 20%,
+      #f6f7f8 40%,
+      #f6f7f8 100%);
+  background-repeat: no-repeat;
+  animation-duration: 1s;
+  height: 100%;
+  width: 100%;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: shimmer;
+  animation-timing-function: linear;
+}
+
+:global(.lazy-loader) {
+  width: 100%;
+  height: calc(100vh - 8.6rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+/* MEDIA QURIES */
+@media (min-width: 420px) {
+  html {
+    font-size: 43.75%;
+  }
+}
+
+@media (min-width: 640px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (min-width: 860px) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media (min-width: 1080px) {
+  html {
+    font-size: 62.5%;
+  }
+}

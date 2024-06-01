@@ -1,0 +1,148 @@
+.footer {
+  width: 100%;
+  padding-block: 10rem;
+  background-color: var(--color-gray-100);
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding-inline: 2rem;
+
+    .links {
+      display: flex;
+      align-items: start;
+      flex-direction: column;
+      gap: 3rem;
+      margin-bottom: 3rem;
+      font-weight: 400;
+      font-size: 1.4rem;
+      color: var(--color-gray-600);
+
+      .link {
+        cursor: pointer;
+
+        &:hover {
+          color: var(--color-black-0);
+          text-decoration: underline;
+        }
+      }
+    }
+
+    p {
+      width: 100%;
+      margin-bottom: 3rem;
+      font-size: 1.3rem;
+      text-align: start;
+      color: var(--color-gray-500);
+    }
+
+    .socialLinks {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+
+      .btnLink {
+        width: 4rem;
+        height: 4rem;
+        border-radius: var(--rounded-full);
+        background-color: var(--color-white-0);
+        color: var(--color-black-0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: none;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+          color: var(--color-white-0);
+        }
+      }
+
+      .facebook {
+        &:hover {
+          background-color: var(--color-facebook);
+        }
+      }
+
+      .instagram {
+        &:hover {
+          background-color: var(--color-instagram);
+        }
+      }
+
+      .twitter {
+        &:hover {
+          background-color: var(--color-twitter);
+        }
+      }
+
+      .linkedin {
+        &:hover {
+          background-color: var(--color-linkedin);
+        }
+      }
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 400px) {
+  .footer {
+    .wrapper {
+      .links {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .socialLinks {
+        gap: 3rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 660px) {
+  .footer {
+    .wrapper {
+      align-items: center;
+
+      p {
+        width: 80%;
+        text-align: center;
+      }
+    }
+  }
+
+}
+
+@media (min-width: 700px) {
+  .footer {
+    .wrapper {
+      p {
+        width: 70%;
+      }
+    }
+  }
+}
+
+@media (min-width: 820px) {
+  .footer {
+    .wrapper {
+      p {
+        width: 60%;
+      }
+    }
+  }
+}
+
+@media (min-width: 1180px) {
+  .footer {
+    .wrapper {
+      p {
+        width: 50%;
+      }
+    }
+  }
+}

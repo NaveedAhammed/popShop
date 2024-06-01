@@ -1,0 +1,952 @@
+.account {
+  width: 100%;
+
+  .navbar {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+
+    .link {
+      display: inline-block;
+      color: var(--color-gray-800);
+      background-color: var(--color-gray-100);
+      padding: 0.8rem 1.6rem;
+      border-radius: var(--rounded-full);
+      font-weight: 400;
+      font-size: 1.4rem;
+      transition: all 0.2s ease;
+    }
+
+    .link.active {
+      font-weight: 500;
+      background-color: var(--color-primary-100);
+      color: var(--color-primary-500);
+    }
+
+    .link.inActive {
+      &:hover {
+        color: var(--color-black);
+        background-color: var(--color-gray-200);
+      }
+    }
+  }
+
+  .outlet {
+    padding: 2rem;
+
+    .lazyLoader {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+    }
+
+    /* MY PROFILE STYLES */
+    .myProfile {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .profileWrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 2rem;
+        border: var(--border-100) solid var(--color-gray-200);
+        border-radius: var(--rounded-xl);
+        gap: 2rem;
+
+        .header {
+          display: flex;
+          gap: 2rem;
+          align-items: center;
+
+          .profileImg {
+            height: 6rem;
+            width: 6rem;
+            border-radius: var(--rounded-full);
+            overflow: hidden;
+            margin-right: 0.5rem;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+          }
+
+          .profileInfo {
+            display: flex;
+            flex-direction: column;
+
+            .profileName {
+              font-size: 1.6rem;
+              font-weight: 500;
+            }
+          }
+
+          .btnEdit {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+          }
+        }
+
+        .personalInfo {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          gap: 2rem;
+
+          .separator {
+            border: none;
+            border-top: var(--border-100) solid var(--color-gray-100);
+          }
+
+          .profileForm {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            .gender {
+              display: flex;
+              align-items: center;
+              gap: 2rem;
+              padding-left: 1rem;
+
+              .genderItem {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                font-size: 1.4rem;
+              }
+            }
+
+            .profileSubmit {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: end;
+              gap: 2rem;
+              margin-top: 3rem;
+            }
+          }
+        }
+      }
+    }
+
+    /* MANAGE ADDRESSES STYLES */
+    .manageAddresses {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .addressWrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 2rem;
+        gap: 2rem;
+
+        .add {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          width: 100%;
+          padding: 1rem;
+          border-radius: var(--rounded-md);
+          border: var(--border-100) solid var(--color-gray-200);
+          background-color: var(--color-gray-100);
+          font-size: 1.4rem;
+          font-weight: 400;
+          cursor: pointer;
+          transition: all 0.2s ease;
+
+          &:hover {
+            background-color: var(--color-gray-200);
+          }
+        }
+      }
+    }
+
+    /* MY ORDERS STYLES */
+    .myOrders {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .ordersWrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        /* padding: 2rem; */
+        gap: 5rem;
+
+        .header {
+          display: flex;
+          flex-direction: row;
+          gap: 5rem;
+          width: 100%;
+          flex-wrap: wrap;
+
+          .searchBar {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex: 3;
+          }
+
+          .filters {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex: 1;
+
+            .filterItem {
+              flex: 1;
+            }
+          }
+        }
+
+        .ordersContainer {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+
+          .shimmerOrderItem {
+            width: 100%;
+            background-color: var(--color-white-0);
+            border-radius: var(--rounded-md);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            transition: all 0.2s;
+            border: var(--border-100) solid var(--color-gray-100);
+
+            &:hover {
+              box-shadow: var(--shadow-md);
+            }
+
+            .shimmerHeader {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              font-size: 1.6rem;
+
+              .shimmerOrderInfo {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+
+                .shimmerOrderId {
+                  width: 22rem;
+                  height: 3.3rem;
+                  border-radius: var(--rounded-full);
+                }
+
+                .shimmerOrderDetails {
+                  display: flex;
+                  align-items: center;
+                  gap: 2rem;
+
+                  .shimmerOrderedDate,
+                  .shimmerOrderStatus {
+                    width: 14.2rem;
+                    height: 1.7rem;
+                    border-radius: var(--rounded-full);
+                  }
+                }
+              }
+
+              .shimmerAmountPaid {
+                width: 6.4rem;
+                height: 3.0rem;
+                border-radius: var(--rounded-full);
+              }
+            }
+
+            .shimmerSeperator {
+              border: none;
+              border-top: var(--border-100) solid var(--color-gray-100);
+            }
+
+            .shimmerItem {
+              display: flex;
+              gap: 2rem;
+              padding-block: 1rem;
+
+              .shimmerProductImg {
+                height: 8rem;
+                width: 8rem;
+                border-radius: var(--rounded-lg);
+              }
+
+              .shimmerProductInfo {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                flex: 2;
+                width: 100%;
+                overflow: hidden;
+
+                .shimmerProductBrand {
+                  height: 1.7rem;
+                  width: 5rem;
+                  border-radius: var(--rounded-full);
+                }
+
+                .shimmerProductTitle {
+                  height: 2.1rem;
+                  width: 20rem;
+                  border-radius: var(--rounded-full);
+                }
+
+                .shimmerMinDiscount {
+                  display: flex;
+                  align-items: center;
+
+                  div {
+                    width: 15rem;
+                    height: 2rem;
+                    border-radius: var(--rounded-full);
+                  }
+                }
+
+                .shimmerSubInfo {
+                  display: flex;
+                  align-items: center;
+                  gap: 2rem;
+
+                  .shimmerInfoItem {
+                    height: 1.8rem;
+                    width: 10rem;
+                    border-radius: var(--rounded-full);
+                  }
+                }
+              }
+
+              .shimmerDiscount {
+                flex: 1;
+                display: none;
+                align-items: center;
+                justify-content: center;
+
+                div {
+                  width: 15rem;
+                  height: 2.4rem;
+                  border-radius: var(--rounded-full);
+                }
+              }
+
+              .shimmerPrice {
+                padding-inline: 2rem;
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                justify-content: center;
+                align-items: center;
+
+                .price {
+                  width: 6rem;
+                  height: 2.4rem;
+                  border-radius: var(--rounded-full);
+                }
+
+                .quantity {
+                  width: 3.5rem;
+                  height: 2.1rem;
+                  border-radius: var(--rounded-full);
+                }
+              }
+            }
+          }
+        }
+
+        .pagination {
+          width: 100%;
+          padding-block: 3rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 2rem;
+
+          .numPage {
+            font-size: 2rem;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+
+    /* MY WISHLIST STYLES */
+    .myWishlist {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .wishlistWrapper {
+        width: 100%;
+        padding-inline: 2rem;
+
+        .shimmerH1 {
+          height: 3rem;
+          width: 15.6rem;
+          border-radius: var(--rounded-full);
+        }
+
+        h1 {
+          font-size: 2rem;
+          font-weight: 500;
+          margin-bottom: 3rem;
+          width: fit-content;
+
+          span {
+            color: var(--color-gray-400);
+          }
+        }
+
+        .wishlistItems {
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(1, 1fr);
+          row-gap: 2rem;
+          column-gap: 2rem;
+
+          .shimmerProductItem {
+            width: 100%;
+            padding: 1rem;
+            border-radius: var(--rounded-lg);
+
+            .shimmerItemWrapper {
+              width: 100%;
+
+              .shimmerProductImg {
+                width: 100%;
+                height: 100%;
+                aspect-ratio: 11 / 12;
+                border-radius: var(--rounded-lg);
+                margin-bottom: 1rem;
+              }
+
+              .shimmerTextSmall {
+                height: 2rem;
+                margin-bottom: 0.5rem;
+                width: 40%;
+                border-radius: var(--rounded-full);
+              }
+
+              .shimmerTextMedium {
+                height: 2rem;
+                margin-bottom: 0.5rem;
+                width: 70%;
+                border-radius: var(--rounded-full);
+              }
+
+              .shimmerTextLarge {
+                height: 2rem;
+                width: 90%;
+                border-radius: var(--rounded-full);
+              }
+            }
+          }
+
+          .productItem {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 1rem;
+            border-radius: var(--rounded-lg);
+
+            .itemWrapper {
+              width: 100%;
+
+              .productImgs {
+                width: 100%;
+                position: relative;
+                margin-bottom: 1rem;
+
+                .discountTag {
+                  position: absolute;
+                  top: 1rem;
+                  left: 1rem;
+                  z-index: 10;
+                  display: flex;
+                  align-items: center;
+                  color: var(--color-white-0);
+                  background-color: var(--color-primary-500);
+                  font-weight: 400;
+                  padding: 0.4rem 0.8rem;
+                  border-radius: var(--rounded-full);
+
+                  span {
+                    font-size: 1.1rem;
+                  }
+
+                  .percentIcon {
+                    width: 0.9rem;
+                    height: 0.9rem;
+                  }
+                }
+
+                .arrowIcon {
+                  position: absolute;
+                  top: 50%;
+                  z-index: 10;
+                  transform: translateY(-50%);
+                  visibility: hidden;
+                  opacity: 0;
+                  transition: all 0.3s ease;
+                  display: none;
+                }
+
+                .arrowIconLeft {
+                  left: 1rem;
+                }
+
+                .arrowIconRight {
+                  right: 1rem;
+                }
+
+                .arrowIconLeft.active,
+                .arrowIconRight.active {
+                  display: inline-block;
+                }
+
+                .imgsSlider {
+                  width: 100%;
+                  position: relative;
+                  display: grid;
+                  grid-auto-flow: column;
+                  grid-auto-columns: 100%;
+                  overflow-y: hidden;
+                  scroll-behavior: smooth;
+                  scrollbar-width: none;
+                  border-radius: var(--rounded-lg);
+                  scroll-behavior: smooth;
+                  width: 100%;
+                  overflow-x: auto;
+                  overscroll-behavior-inline: contain;
+                  scroll-snap-type: inline mandatory;
+
+                  &::-webkit-scrollbar {
+                    display: none;
+                  }
+
+                  .img {
+                    width: 100%;
+                    height: 100%;
+                    scroll-snap-align: start;
+                    scroll-snap-stop: always;
+
+                    img {
+                      width: 100%;
+                      height: 100%;
+                      aspect-ratio: 11 / 12;
+                      object-fit: contain;
+                      object-position: center;
+                    }
+                  }
+                }
+
+                .heartIcon {
+                  position: absolute;
+                  background-color: var(--color-white-0);
+                  width: 22%;
+                  height: 20%;
+                  border-radius: var(--rounded-full);
+                  border: var(--border-100) solid var(--color-gray-100);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 2rem;
+                  bottom: 0;
+                  right: 0;
+                  transform: translateY(40%);
+                  box-shadow: var(--shadow-sm);
+                  cursor: pointer;
+
+                  .heartFill {
+                    color: var(--color-red-500);
+                  }
+                }
+              }
+
+              .productBrand {
+                font-size: 1.1rem;
+                color: var(--color-gray-500);
+                display: flex;
+                align-items: center;
+                gap: 2px;
+                font-weight: 500;
+
+                .icon {
+                  color: var(--color-blue-500);
+                  font-size: 1.3rem;
+                }
+              }
+
+              .productTitle {
+                display: inline-block;
+                width: 100%;
+                font-size: 1.3rem;
+                font-weight: 400;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                padding-right: 1rem;
+              }
+
+              .productPrice {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+
+                .originalPrice {
+                  color: var(--color-gray-500);
+                  text-decoration: line-through;
+                  font-weight: 400;
+                  font-size: 1.2rem;
+                }
+
+                .discountPrice {
+                  font-weight: 500;
+                  font-size: 1.6rem;
+                  color: var(--color-green-600);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    /* MY REVIEWS */
+    .myReviews {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .myReviewsWrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 2rem;
+        min-height: 70vh;
+
+        .shimmerH1 {
+          height: 3rem;
+          width: 15.6rem;
+          border-radius: var(--rounded-full);
+        }
+
+        h1 {
+          font-size: 2rem;
+          font-weight: 500;
+
+          span {
+            color: var(--color-gray-400);
+          }
+        }
+
+        .shimmerReviewItem {
+          display: flex;
+          gap: 2rem;
+          width: 100%;
+          background-color: var(--color-white-0);
+          border-radius: var(--rounded-md);
+          padding: 2rem;
+          transition: all 0.2s;
+          border: var(--border-100) solid var(--color-gray-100);
+
+          &:hover {
+            box-shadow: var(--shadow-md);
+          }
+
+          .shimmerProductImg {
+            width: 10rem;
+            height: 12rem;
+            overflow: hidden;
+            border-radius: var(--rounded-md);
+          }
+
+          .info {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            width: 100%;
+            overflow: hidden;
+            gap: 1rem;
+
+            .shimmerBrand {
+              width: 14%;
+              height: 2rem;
+              border-radius: var(--rounded-full);
+            }
+
+            .shimmerTitle {
+              width: 70%;
+              height: 2.6rem;
+              border-radius: var(--rounded-full);
+            }
+
+            .shimmerUserInfo {
+              display: flex;
+              align-items: center;
+              gap: 1rem;
+              margin-top: auto;
+
+              .shimmerUsername {
+                width: 10%;
+                height: 2rem;
+                border-radius: var(--rounded-full);
+              }
+
+              .shimmerPostedAt {
+                width: 10%;
+                height: 2rem;
+                border-radius: var(--rounded-full);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 300px) {
+  .account {
+    .outlet {
+      .myWishlist {
+        .wishlistWrapper {
+          .wishlistItems {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 370px) {
+  .account {
+    .outlet {
+      .myOrders {
+        .ordersWrapper {
+          .ordersContainer {
+            .shimmerOrderItem {
+              .shimmerHeader {
+                .shimmerOrderInfo {
+                  .shimmerOrderId {
+                    width: 32rem;
+                  }
+                }
+
+                .shimmerAmountPaid {
+                  width: 12.4rem;
+                }
+              }
+
+              .shimmerItem {
+                .shimmerProductInfo {
+                  .shimmerProductTitle {
+                    width: 30rem;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 500px) {
+  .account {
+    .outlet {
+      .myProfile {
+        .profileWrapper {
+          width: 80%;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 520px) {
+  .account {
+    .outlet {
+      .myWishlist {
+        .wishlistWrapper {
+          .wishlistItems {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 530px) {
+  .account {
+    .outlet {
+      .myOrders {
+        .ordersWrapper {
+          .ordersContainer {
+            .shimmerOrderItem {
+              .shimmerHeader {
+                .shimmerOrderInfo {
+                  .shimmerOrderId {
+                    width: 42rem;
+                  }
+                }
+
+                .shimmerAmountPaid {
+                  width: 22.4rem;
+                }
+              }
+
+              .shimmerItem {
+                .shimmerProductInfo {
+                  .shimmerMinDiscount {
+                    display: none;
+                  }
+                }
+
+                .shimmerDiscount {
+                  display: flex;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 720px) {
+  .account {
+    .outlet {
+      .myWishlist {
+        .wishlistWrapper {
+          .wishlistItems {
+            grid-template-columns: repeat(4, 1fr);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 760px) {
+  .account {
+    .outlet {
+      .myProfile {
+        .profileWrapper {
+          width: 60%;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 788px) {
+  .account {
+    .outlet {
+      .myOrders {
+        .ordersWrapper {
+          .ordersContainer {
+            .shimmerOrderItem {
+              .shimmerItem {
+                .shimmerProductInfo {
+                  .shimmerProductTitle {
+                    width: 50rem;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 960px) {
+  .account {
+    .outlet {
+      .myProfile {
+        .profileWrapper {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1110px) {
+  .account {
+    .outlet {
+      .myWishlist {
+        .wishlistWrapper {
+          .wishlistItems {
+            grid-template-columns: repeat(5, 1fr);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1282px) {
+  .account {
+    .navbar {
+      padding-inline: 0;
+    }
+
+    .outlet {
+      padding-inline: 0;
+
+      .myWishlist {
+        .wishlistWrapper {
+          .wishlistItems {
+            .productItem {
+              &:hover {
+                box-shadow: var(--shadow);
+
+              }
+
+              .itemWrapper {
+                .productImgs {
+                  &:hover>.arrowIcon {
+                    visibility: visible;
+                    opacity: 1;
+                  }
+
+                  .imgsSlider {
+                    overflow-x: hidden;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

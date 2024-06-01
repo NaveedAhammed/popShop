@@ -1,0 +1,16 @@
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--color-gold);
+
+  .numReviews {
+    color: var(--color-gray-400);
+    margin-left: 5px;
+  }
+
+  .reviewsCount {
+    color: var(--color-gray-800);
+    margin-left: 1rem;
+  }
+}

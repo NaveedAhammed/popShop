@@ -1,0 +1,127 @@
+.chipCarousel {
+  width: 100%;
+
+  .wrapper {
+    width: 100%;
+
+    .heading {
+      font-size: 2rem;
+      font-weight: 500;
+      padding-inline: 2rem;
+    }
+
+    .links {
+      width: 100%;
+      position: relative;
+
+      .actionBtn {
+        position: absolute;
+        height: 100%;
+        width: 8rem;
+        top: 0;
+        display: none;
+        align-items: center;
+      }
+
+      .actionBtn.inactive {
+        display: none;
+      }
+
+      .btnLeft {
+        left: 0;
+        background: linear-gradient(to right, var(--color-white-0) 50%, transparent);
+        padding-inline-start: 1rem;
+      }
+
+      .btnRight {
+        right: 0;
+        justify-content: end;
+        background: linear-gradient(to left, var(--color-white-0) 50%, transparent);
+        padding-inline-end: 1rem;
+      }
+
+      .slider {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        scrollbar-width: none;
+        padding-block: 2rem;
+        padding-inline: 2rem;
+        scroll-padding-inline: 2rem;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        .shimmerChipItem {
+          height: 4rem;
+          width: 12rem;
+          border-radius: var(--rounded-full);
+        }
+
+        .chipItem {
+          padding-inline: 1.8rem;
+          padding-block: 0.9rem;
+          border-radius: var(--rounded-full);
+          background-color: var(--color-gray-200);
+          font-size: 1.3rem;
+          user-select: none;
+          white-space: nowrap;
+          transition: all 0.2s ease;
+
+          &:hover {
+            background-color: var(--color-primary-400);
+            color: var(--color-white-0);
+          }
+        }
+      }
+
+      .slider.dragging {
+        scroll-behavior: auto;
+      }
+
+      .slider.scrolling {
+        scroll-behavior: smooth;
+      }
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 440px) {
+  .chipCarousel {
+    .wrapper {
+      .actionBtn.active {
+        display: flex;
+      }
+    }
+  }
+}
+
+@media (min-width: 1282px) {
+  .chipCarousel {
+    .wrapper {
+      .heading {
+        padding-inline: 0;
+      }
+
+      .links {
+        .btnLeft {
+          padding-inline-start: 0;
+        }
+
+        .btnRight {
+          padding-inline-end: 0;
+        }
+
+        .slider {
+          padding-inline: 0;
+          scroll-padding-inline: 0;
+        }
+      }
+    }
+  }
+}
