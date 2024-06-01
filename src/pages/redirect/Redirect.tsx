@@ -31,9 +31,9 @@ const Redirect = () => {
 			<div className="wrapper">
 				<div className="authBody">
 					{formType === "login" ? (
-						<Login setFromType={setFromType} />
+						<Login setFromType={setFromType} reload={false} />
 					) : (
-						<Register setFromType={setFromType} />
+						<Register reload={false} setFromType={setFromType} />
 					)}
 				</div>
 			</div>

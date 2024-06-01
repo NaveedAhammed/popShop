@@ -22,6 +22,7 @@ const UserMenu = () => {
 				navigate("/");
 				setUser(null);
 				localStorage.setItem("isLoggedIn", "false");
+				location.reload();
 				return "Logged out!";
 			},
 			error: (err) => {

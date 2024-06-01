@@ -29,7 +29,8 @@ const schema = yup.object().shape({
 
 const Login: React.FC<{
 	setFromType: React.Dispatch<React.SetStateAction<"register" | "login">>;
-}> = ({ setFromType }) => {
+	reload: boolean;
+}> = ({ setFromType, reload }) => {
 	const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 
@@ -61,7 +62,9 @@ const Login: React.FC<{
 					shippingAddresses: userData?.shippingAddresses || [],
 				});
 				onClose();
-				location.reload();
+				if (reload) {
+					location.reload();
+				}
 				localStorage.setItem("isLoggedIn", "true");
 				console.log(userData);
 			})

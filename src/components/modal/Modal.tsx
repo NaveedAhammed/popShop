@@ -45,7 +45,7 @@ const Modal: React.FC<ModalProps> = ({
 		<div className={`modal ${showModal ? "modal-open" : "close"}`}>
 			<div className="overlay"></div>
 			<div className={`wrapper ${showModal ? "active" : "inactive"}`}>
-				<div className="header">
+				<div className="modalHeader">
 					<HeaderIcon
 						className="headerIcon"
 						onClick={headerIconOnClick}

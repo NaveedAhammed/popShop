@@ -15,11 +15,11 @@ const AuthModal = () => {
 
 	const body = (
 		<div className="authBody">
-			<div className="wrapper">
+			<div className="authWrapper">
 				{formType === "login" ? (
-					<Login setFromType={setFromType} />
+					<Login setFromType={setFromType} reload={true} />
 				) : (
-					<Register setFromType={setFromType} />
+					<Register setFromType={setFromType} reload={true} />
 				)}
 			</div>
 		</div>
