@@ -1,4 +1,4 @@
-import styles from "../addAddressForm.module.css";
+import "./addAddressForm.css";
 
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import Input from "../input/Input";
@@ -18,10 +18,7 @@ const AddAddressForm: React.FC<{
 
 	return (
 		<FormProvider {...methods}>
-			<form
-				className={styles.form}
-				onSubmit={methods.handleSubmit(onSubmit)}
-			>
+			<form className="form" onSubmit={methods.handleSubmit(onSubmit)}>
 				<h2>Add New Address</h2>
 				<Input
 					autoComplete="off"
@@ -80,10 +77,10 @@ const AddAddressForm: React.FC<{
 					type="number"
 					placeholder="Alternate Phone"
 				/>
-				<div className={styles.addressType}>
+				<div className="addressType">
 					<span>Address Type</span>
-					<div className={styles.types}>
-						<div className={styles.item}>
+					<div className="types">
+						<div className="item">
 							<label htmlFor="home">Home</label>
 							<input
 								autoComplete="off"
@@ -93,7 +90,7 @@ const AddAddressForm: React.FC<{
 								{...methods.register("addressType")}
 							/>
 						</div>
-						<div className={styles.item}>
+						<div className="item">
 							<label htmlFor="work">Work</label>
 							<input
 								autoComplete="off"
@@ -105,7 +102,7 @@ const AddAddressForm: React.FC<{
 						</div>
 					</div>
 				</div>
-				<div className={styles.submit}>
+				<div className="submit">
 					<Button
 						size="md"
 						backgroundColor="gray"

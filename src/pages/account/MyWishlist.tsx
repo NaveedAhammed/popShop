@@ -1,4 +1,4 @@
-import styles from "../account.module.css";
+import "./account.css";
 
 import { useEffect, useState } from "react";
 import { ProductType } from "../../types";
@@ -30,46 +30,34 @@ const MyWishlist = () => {
 	}, [axiosPrivate]);
 
 	const shimmerElements = Array.from({ length: 10 }).map((_, i) => (
-		<div className={styles.shimmerProductItem} key={i}>
-			<div className={styles.shimmerItemWrapper}>
-				<div
-					className={`${styles.shimmerProductImg} shimmer-animation`}
-				></div>
-				<div
-					className={`${styles.shimmerTextSmall} shimmer-animation`}
-				></div>
-				<div
-					className={`${styles.shimmerTextMedium} shimmer-animation`}
-				></div>
-				<div
-					className={`${styles.shimmerTextLarge} shimmer-animation`}
-				></div>
+		<div className="shimmerProductItem" key={i}>
+			<div className="shimmerItemWrapper">
+				<div className="shimmerProductImg shimmer-animation"></div>
+				<div className="shimmerTextSmall shimmer-animation"></div>
+				<div className="shimmerTextMedium shimmer-animation"></div>
+				<div className="shimmerTextLarge shimmer-animation"></div>
 			</div>
 		</div>
 	));
 
 	if (isLoading) {
 		return (
-			<div className={styles.myWishlist}>
-				<div className={styles.wishlistWrapper}>
-					<div
-						className={`${styles.shimmerH1} shimmer-animation`}
-					></div>
-					<div className={styles.wishlistItems}>
-						{shimmerElements}
-					</div>
+			<div className="myWishlist">
+				<div className="wishlistWrapper">
+					<div className="shimmerH1 shimmer-animation"></div>
+					<div className="wishlistItems">{shimmerElements}</div>
 				</div>
 			</div>
 		);
 	}
 
 	return (
-		<div className={styles.myWishlist}>
-			<div className={styles.wishlistWrapper}>
+		<div className="myWishlist">
+			<div className="wishlistWrapper">
 				<h1>
 					My Wishlist <span>({wishlistProducts.length})</span>
 				</h1>
-				<div className={styles.wishlistItems}>
+				<div className="wishlistItems">
 					{wishlistProducts.map((product) => (
 						<WishlistItem
 							key={product._id}

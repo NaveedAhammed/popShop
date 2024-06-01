@@ -1,4 +1,4 @@
-import styles from "../button.module.css";
+import "./button.css";
 
 interface ButtonProps {
 	size: "default" | "sm" | "md" | "lg" | "icon";
@@ -97,9 +97,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
 	return (
 		<button
-			className={`${styles.btn} ${styles[`size-${size}`]} ${
-				isIcon ? styles.icon : ""
-			}`}
+			className={`btn size-${size} ${isIcon ? "icon" : ""}`}
 			style={{
 				color: `var(--color-${color}-${colorCode})`,
 				backgroundColor: `var(--color-${backgroundColor}-${backgroundColorCode})`,

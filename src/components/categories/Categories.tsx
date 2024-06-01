@@ -1,5 +1,5 @@
 // STYLES MODULE IMPORT
-import styles from "../categories.module.css";
+import "./categories.css";
 
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
@@ -58,28 +58,21 @@ const Categories: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
 	};
 
 	const shimmerElements = Array.from({ length: 10 }).map((_, i) => (
-		<div
-			className={`${styles.shimmerCategoryItem} shimmer-animation`}
-			key={i}
-		></div>
+		<div className={`shimmerCategoryItem shimmer-animation`} key={i}></div>
 	));
 
 	return (
-		<div className={styles.categories}>
-			<div className={styles.wrapper}>
+		<div className="categories">
+			<div className="wrapper">
 				{isLoading ? (
-					<div
-						className={`${styles.shimmerHeading} shimmer-animation`}
-					></div>
+					<div className={`shimmerHeading shimmer-animation`}></div>
 				) : (
-					<div className={styles.heading}>
-						Explore Popular Categories
-					</div>
+					<div className="heading">Explore Popular Categories</div>
 				)}
-				<div className={styles.items}>
+				<div className="items">
 					<div
-						className={`${styles.arrowBtn} ${styles.arrowLeft} ${
-							prevBtnVisible ? styles.active : styles.inactive
+						className={`arrowBtn arrowLeft ${
+							prevBtnVisible ? "active" : "inactive"
 						}`}
 					>
 						<Button
@@ -99,7 +92,7 @@ const Categories: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
 						</Button>
 					</div>
 					<div
-						className={styles.slider}
+						className="slider"
 						ref={sliderRef}
 						onScroll={handleOnScroll}
 					>
@@ -139,8 +132,8 @@ const Categories: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
 						)}
 					</div>
 					<div
-						className={`${styles.arrowBtn} ${styles.arrowRight} ${
-							nextBtnVisible ? styles.active : styles.inactive
+						className={`arrowBtn arrowRight ${
+							nextBtnVisible ? "active" : "inactive"
 						}`}
 					>
 						<Button

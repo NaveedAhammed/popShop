@@ -1,4 +1,4 @@
-import styles from "../rateProduct.module.css";
+import "./rateProduct.css";
 
 import { useEffect, useState } from "react";
 
@@ -131,17 +131,17 @@ const RateProduct = () => {
 	}, [id, hasPurchased]);
 
 	return (
-		<div className={styles.rateProduct}>
+		<div className="rateProduct">
 			<div className="container">
-				<div className={styles.wrapper}>
+				<div className="wrapper">
 					{isLoading ? (
 						<Loader width="3rem" height="3rem" color="black" />
 					) : (
 						<>
 							{product && (
-								<div className={styles.body}>
+								<div className="body">
 									{!hasPurchased ? (
-										<div className={styles.notAllowed}>
+										<div className="notAllowed">
 											<img
 												src={sadGif}
 												alt="Not Allowed"
@@ -158,16 +158,8 @@ const RateProduct = () => {
 									) : (
 										<>
 											<h1>Rating & Review</h1>
-											<div
-												className={
-													styles.productDetails
-												}
-											>
-												<div
-													className={
-														styles.productImg
-													}
-												>
+											<div className="productDetails">
+												<div className="productImg">
 													<img
 														src={
 															product?.images[0]
@@ -178,9 +170,7 @@ const RateProduct = () => {
 												</div>
 												<Link
 													to={`/product/${product._id}`}
-													className={
-														styles.productTitle
-													}
+													className="productTitle"
 												>
 													{product.title}
 												</Link>
@@ -191,13 +181,9 @@ const RateProduct = () => {
 														onSubmit,
 														onInvalid
 													)}
-													className={styles.form}
+													className="form"
 												>
-													<div
-														className={
-															styles.rating
-														}
-													>
+													<div className="rating">
 														<CustomRating
 															rating={rating}
 															tempRating={
@@ -214,21 +200,13 @@ const RateProduct = () => {
 															}
 														/>
 														{!isValidRate && (
-															<span
-																className={
-																	styles.errorMsg
-																}
-															>
+															<span className="errorMsg">
 																Rating is
 																required
 															</span>
 														)}
 													</div>
-													<div
-														className={
-															styles.comment
-														}
-													>
+													<div className="comment">
 														<Textarea
 															autoComplete="off"
 															cols={30}
@@ -242,11 +220,7 @@ const RateProduct = () => {
 														/>
 														{methods.formState
 															.errors.comment && (
-															<span
-																className={
-																	styles.errorMsg
-																}
-															>
+															<span className="errorMsg">
 																{
 																	methods
 																		.formState

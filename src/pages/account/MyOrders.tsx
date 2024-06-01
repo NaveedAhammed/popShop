@@ -1,10 +1,11 @@
+import "./account.css";
+
 import { useEffect, useState } from "react";
 import Button from "../../components/button/Button";
 import Input from "../../components/input/Input";
 import OrderItem from "../../components/orderItem/OrderItem";
 import Select from "../../components/select/Select";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
-import styles from "../account.module.css";
 
 import { FormProvider, useForm } from "react-hook-form";
 import { OrderType } from "../../types";
@@ -55,68 +56,48 @@ const MyOrders = () => {
 	}, [axiosPrivate, pageNum]);
 
 	const shimmerElements = Array.from({ length: 4 }).map((_, i) => (
-		<div className={styles.shimmerOrderItem} key={i}>
-			<div className={styles.shimmerHeader}>
-				<div className={styles.shimmerOrderInfo}>
-					<div
-						className={`${styles.shimmerOrderId} shimmer-animation`}
-					></div>
-					<div className={styles.shimmerOrderDetails}>
-						<div
-							className={`${styles.shimmerOrderedDate} shimmer-animation`}
-						></div>
-						<div
-							className={`${styles.shimmerOrderStatus} shimmer-animation`}
-						></div>
+		<div className="shimmerOrderItem" key={i}>
+			<div className="shimmerHeader">
+				<div className="shimmerOrderInfo">
+					<div className="shimmerOrderId shimmer-animation"></div>
+					<div className="shimmerOrderDetails">
+						<div className="shimmerOrderedDate shimmer-animation"></div>
+						<div className="shimmerOrderStatus shimmer-animation"></div>
 					</div>
 				</div>
-				<div
-					className={`${styles.shimmerAmountPaid} shimmer-animation`}
-				></div>
+				<div className="shimmerAmountPaid shimmer-animation"></div>
 			</div>
-			<hr className={styles.shimmerSeperator} />
-			<div className={styles.shimmerItem}>
-				<div
-					className={`${styles.shimmerProductImg} shimmer-animation`}
-				></div>
-				<div className={styles.shimmerProductInfo}>
-					<div
-						className={`${styles.shimmerProductBrand} shimmer-animation`}
-					></div>
-					<div
-						className={`${styles.shimmerProductTitle} shimmer-animation`}
-					></div>
-					<div className={styles.shimmerMinDiscount}>
+			<hr className="shimmerSeperator" />
+			<div className="shimmerItem">
+				<div className="shimmerProductImg shimmer-animation"></div>
+				<div className="shimmerProductInfo">
+					<div className="shimmerProductBrand shimmer-animation"></div>
+					<div className="shimmerProductTitle shimmer-animation"></div>
+					<div className="shimmerMinDiscount">
 						<div className="shimmer-animation"></div>
 					</div>
-					<div className={styles.shimmerSubInfo}>
-						<div
-							className={`${styles.shimmerInfoItem} shimmer-animation`}
-						></div>
-						<div
-							className={`${styles.shimmerInfoItem} shimmer-animation`}
-						></div>
+					<div className="shimmerSubInfo">
+						<div className="shimmerInfoItem shimmer-animation"></div>
+						<div className="shimmerInfoItem shimmer-animation"></div>
 					</div>
 				</div>
-				<div className={styles.shimmerDiscount}>
+				<div className="shimmerDiscount">
 					<div className="shimmer-animation"></div>
 				</div>
-				<div className={styles.shimmerPrice}>
-					<div className={`${styles.price} shimmer-animation`}></div>
-					<div
-						className={`${styles.quantity} shimmer-animation`}
-					></div>
+				<div className="shimmerPrice">
+					<div className="price shimmer-animation"></div>
+					<div className="quantity shimmer-animation"></div>
 				</div>
 			</div>
 		</div>
 	));
 
 	return (
-		<div className={styles.myOrders}>
-			<div className={styles.ordersWrapper}>
-				<div className={styles.header}>
+		<div className="myOrders">
+			<div className="ordersWrapper">
+				<div className="header">
 					<FormProvider {...methods}>
-						<form className={styles.searchBar}>
+						<form className="searchBar">
 							<Input
 								id="searchQuery"
 								name="searchQuery"
@@ -135,17 +116,17 @@ const MyOrders = () => {
 								Search
 							</Button>
 						</form>
-						<div className={styles.filters}>
-							<form className={styles.filterItem}>
+						<div className="filters">
+							<form className="filterItem">
 								<Select id="type" name="type" options={[]} />
 							</form>
-							<form className={styles.filterItem}>
+							<form className="filterItem">
 								<Select id="type" name="type" options={[]} />
 							</form>
 						</div>
 					</FormProvider>
 				</div>
-				<div className={styles.ordersContainer}>
+				<div className="ordersContainer">
 					{isLoading
 						? shimmerElements
 						: orders.map((order) => (
@@ -157,7 +138,7 @@ const MyOrders = () => {
 								/>
 						  ))}
 				</div>
-				<div className={styles.pagination}>
+				<div className="pagination">
 					<Button
 						backgroundColor="white"
 						backgroundColorCode="0"
@@ -173,7 +154,7 @@ const MyOrders = () => {
 					>
 						Prev
 					</Button>
-					<span className={styles.numPage}>{pageNum}</span>
+					<span className="numPage">{pageNum}</span>
 					<Button
 						backgroundColor="white"
 						backgroundColorCode="0"

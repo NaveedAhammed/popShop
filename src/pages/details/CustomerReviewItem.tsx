@@ -1,27 +1,26 @@
+import "./details.css";
+
 import { GoPerson } from "react-icons/go";
 import Rating from "../../components/rating/Rating";
 import { ReviewType } from "../../types";
-import styles from "../details.module.css";
 import { formatDistance } from "date-fns";
 
 const CustomerReviewItem: React.FC<{ review: ReviewType }> = ({ review }) => {
 	return (
-		<div className={styles.customerReviewItem}>
-			<div className={styles.customerDetails}>
-				<div className={styles.profilePic}>
+		<div className="customerReviewItem">
+			<div className="customerDetails">
+				<div className="profilePic">
 					{review.userId.avatar ? (
 						<img
 							src={review.userId.avatar}
 							alt={review.userId.username}
 						/>
 					) : (
-						<GoPerson className={styles.userIcon} />
+						<GoPerson className="userIcon" />
 					)}
 				</div>
-				<span className={styles.username}>
-					{review.userId.username}
-				</span>
-				<span className={styles.postedAt}>
+				<span className="username">{review.userId.username}</span>
+				<span className="postedAt">
 					{formatDistance(
 						new Date(Date.now()),
 						new Date(review.postedAt)
@@ -29,7 +28,7 @@ const CustomerReviewItem: React.FC<{ review: ReviewType }> = ({ review }) => {
 					ago
 				</span>
 			</div>
-			<div className={styles.review}>
+			<div className="review">
 				<Rating
 					iconSize="1.6rem"
 					numRate={review.numRating}

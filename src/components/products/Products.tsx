@@ -1,7 +1,7 @@
 // STYLES MODULE IMPORT
-import { useRef, useState } from "react";
-import styles from "../products.module.css";
+import "./products.css";
 
+import { useRef, useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Button from "../button/Button";
 import ProductItem from "./ProductItem";
@@ -52,42 +52,32 @@ const Products: React.FC<{
 	};
 
 	const shimmerElements = Array.from({ length: 15 }).map((_, i) => (
-		<div className={styles.shimmerProductItem} key={i}>
-			<div className={styles.shimmerItemWrapper}>
-				<div
-					className={`${styles.shimmerProductImg} shimmer-animation`}
-				></div>
-				<div
-					className={`${styles.shimmerTextSmall} shimmer-animation`}
-				></div>
-				<div
-					className={`${styles.shimmerTextMedium} shimmer-animation`}
-				></div>
-				<div
-					className={`${styles.shimmerTextLarge} shimmer-animation`}
-				></div>
+		<div className="shimmerProductItem" key={i}>
+			<div className="shimmerItemWrapper">
+				<div className="shimmerProductImg shimmer-animation"></div>
+				<div className="shimmerTextSmall shimmer-animation"></div>
+				<div className="shimmerTextMedium shimmer-animation"></div>
+				<div className="shimmerTextLarge shimmer-animation"></div>
 			</div>
 		</div>
 	));
 
 	return (
-		<div className={styles.products}>
-			<div className={styles.wrapper}>
+		<div className="products">
+			<div className="wrapper">
 				{heading && (
 					<>
 						{isLoading ? (
-							<div
-								className={`${styles.shimmerHeading} shimmer-animation`}
-							></div>
+							<div className="shimmerHeading shimmer-animation"></div>
 						) : (
-							<div className={styles.heading}>{heading}</div>
+							<div className="heading">{heading}</div>
 						)}
 					</>
 				)}
-				<div className={styles.items}>
+				<div className="items">
 					<div
-						className={`${styles.arrowBtn} ${styles.arrowLeft} ${
-							prevBtnVisible ? styles.active : styles.inactive
+						className={`arrowBtn arrowLeft ${
+							prevBtnVisible ? "active" : "inactive"
 						}`}
 					>
 						<Button
@@ -112,7 +102,7 @@ const Products: React.FC<{
 						</Button>
 					</div>
 					<div
-						className={styles.slider}
+						className="slider"
 						ref={sliderRef}
 						onScroll={handleOnScroll}
 					>
@@ -126,8 +116,8 @@ const Products: React.FC<{
 							  ))}
 					</div>
 					<div
-						className={`${styles.arrowBtn} ${styles.arrowRight} ${
-							nextBtnVisible ? styles.active : styles.inactive
+						className={`arrowBtn arrowRight ${
+							nextBtnVisible ? "active" : "inactive"
 						}`}
 					>
 						<Button

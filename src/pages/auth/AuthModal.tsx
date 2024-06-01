@@ -1,5 +1,5 @@
 // STYLES IMPORT
-import styles from "../styles.module.css";
+import "./styles.css";
 
 import { RxCross2 } from "react-icons/rx";
 import Modal from "../../components/modal/Modal";
@@ -14,8 +14,8 @@ const AuthModal = () => {
 	const { isOpen, onClose } = useAuthModal();
 
 	const body = (
-		<div className={styles.authBody}>
-			<div className={styles.wrapper}>
+		<div className="authBody">
+			<div className="wrapper">
 				{formType === "login" ? (
 					<Login setFromType={setFromType} />
 				) : (

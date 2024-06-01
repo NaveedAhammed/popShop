@@ -1,4 +1,4 @@
-import styles from "../products.module.css";
+import "./products.css";
 
 import { RxCross2 } from "react-icons/rx";
 import { useEffect, useMemo, useState } from "react";
@@ -247,39 +247,27 @@ const Products = () => {
 	}, [parentCategoryParam, parentCategories]);
 
 	const shimmerElements = Array.from({ length: 10 }).map((_, i) => (
-		<div className={styles.shimmerProductItem} key={i}>
-			<div className={styles.shimmerItemWrapper}>
-				<div
-					className={`${styles.shimmerProductImg} shimmer-animation`}
-				></div>
-				<div
-					className={`${styles.shimmerTextSmall} shimmer-animation`}
-				></div>
-				<div
-					className={`${styles.shimmerTextMedium} shimmer-animation`}
-				></div>
-				<div
-					className={`${styles.shimmerTextLarge} shimmer-animation`}
-				></div>
+		<div className="shimmerProductItem" key={i}>
+			<div className="shimmerItemWrapper">
+				<div className="shimmerProductImg shimmer-animation"></div>
+				<div className="shimmerTextSmall shimmer-animation"></div>
+				<div className="shimmerTextMedium shimmer-animation"></div>
+				<div className="shimmerTextLarge shimmer-animation"></div>
 			</div>
 		</div>
 	));
 
 	return (
-		<div className={styles.products}>
+		<div className="products">
 			<div className="container">
-				<div className={styles.wrapper}>
-					<div
-						className={`${styles.left} ${
-							isFiltersOpen ? styles.open : styles.close
-						}`}
-					>
+				<div className="wrapper">
+					<div className={`left ${isFiltersOpen ? "open" : "close"}`}>
 						<RxCross2
-							className={styles.closeIcon}
+							className="closeIcon"
 							onClick={() => setIsFiltersOpen((prev) => !prev)}
 						/>
-						<div className={styles.header}>
-							<div className={styles.heading}>
+						<div className="header">
+							<div className="heading">
 								<span>Filters</span>
 								{(parentCategoryParam ||
 									childCategoryParam ||
@@ -299,13 +287,13 @@ const Products = () => {
 									</Button>
 								)}
 							</div>
-							<div className={styles.appliedFilterItems}>
+							<div className="appliedFilterItems">
 								{parentCategoryParam && (
 									<div
-										className={styles.filterItem}
+										className="filterItem"
 										onClick={handleCategoriesClear}
 									>
-										<span className={styles.filterName}>
+										<span className="filterName">
 											{parentCategoryParam}
 										</span>
 										<RxCross2 />
@@ -313,7 +301,7 @@ const Products = () => {
 								)}
 								{childCategoryParam && (
 									<div
-										className={styles.filterItem}
+										className="filterItem"
 										onClick={() =>
 											updateSearchParams(
 												"childCategory",
@@ -321,7 +309,7 @@ const Products = () => {
 											)
 										}
 									>
-										<span className={styles.filterName}>
+										<span className="filterName">
 											{childCategoryParam}
 										</span>
 										<RxCross2 />
@@ -329,12 +317,12 @@ const Products = () => {
 								)}
 								{featured && (
 									<div
-										className={styles.filterItem}
+										className="filterItem"
 										onClick={() =>
 											updateSearchParams("featured", "")
 										}
 									>
-										<span className={styles.filterName}>
+										<span className="filterName">
 											Featured
 										</span>
 										<RxCross2 />
@@ -342,7 +330,7 @@ const Products = () => {
 								)}
 								{newArrivals && (
 									<div
-										className={styles.filterItem}
+										className="filterItem"
 										onClick={() =>
 											updateSearchParams(
 												"newArrivals",
@@ -350,7 +338,7 @@ const Products = () => {
 											)
 										}
 									>
-										<span className={styles.filterName}>
+										<span className="filterName">
 											New Arrivals
 										</span>
 										<RxCross2 />
@@ -360,17 +348,13 @@ const Products = () => {
 									JSON.parse(brandsParam).map(
 										(it: string) => (
 											<div
-												className={styles.filterItem}
+												className="filterItem"
 												onClick={() =>
 													handleBrandAddition(it)
 												}
 												key={it}
 											>
-												<span
-													className={
-														styles.filterName
-													}
-												>
+												<span className="filterName">
 													{it}
 												</span>
 												<RxCross2 />
@@ -379,7 +363,7 @@ const Products = () => {
 									)}
 								{customerRatingParam && (
 									<div
-										className={styles.filterItem}
+										className="filterItem"
 										onClick={() =>
 											updateSearchParams(
 												"customerRating",
@@ -387,11 +371,9 @@ const Products = () => {
 											)
 										}
 									>
-										<span className={styles.filterName}>
+										<span className="filterName">
 											{customerRatingParam}{" "}
-											<PiStarFill
-												className={styles.starIcon}
-											/>{" "}
+											<PiStarFill className="starIcon" />{" "}
 											& above
 										</span>
 										<RxCross2 />
@@ -399,12 +381,12 @@ const Products = () => {
 								)}
 								{discountParam && (
 									<div
-										className={styles.filterItem}
+										className="filterItem"
 										onClick={() =>
 											updateSearchParams("discount", "")
 										}
 									>
-										<span className={styles.filterName}>
+										<span className="filterName">
 											{discountParam}% or more
 										</span>
 										<RxCross2 />
@@ -412,13 +394,13 @@ const Products = () => {
 								)}
 								{minPriceParam > 0 && (
 									<div
-										className={styles.filterItem}
+										className="filterItem"
 										onClick={() => {
 											updateSearchParams("minPrice", "");
 											setPrice((prev) => [0, prev[1]]);
 										}}
 									>
-										<span className={styles.filterName}>
+										<span className="filterName">
 											Min Price: {minPriceParam}
 										</span>
 										<RxCross2 />
@@ -426,7 +408,7 @@ const Products = () => {
 								)}
 								{maxPriceParam < 50000 && (
 									<div
-										className={styles.filterItem}
+										className="filterItem"
 										onClick={() => {
 											updateSearchParams("maxPrice", "");
 											setPrice((prev) => [
@@ -435,7 +417,7 @@ const Products = () => {
 											]);
 										}}
 									>
-										<span className={styles.filterName}>
+										<span className="filterName">
 											Max Price: {maxPriceParam}
 										</span>
 										<RxCross2 />
@@ -443,9 +425,9 @@ const Products = () => {
 								)}
 							</div>
 						</div>
-						<div className={styles.filters}>
-							<div className={styles.filter}>
-								<div className={styles.filterHeading}>
+						<div className="filters">
+							<div className="filter">
+								<div className="filterHeading">
 									<span>Categories</span>
 									{parentCategoryParam && (
 										<Button
@@ -461,32 +443,28 @@ const Products = () => {
 										</Button>
 									)}
 								</div>
-								<div className={styles.list}>
+								<div className="list">
 									{parentCategories.length > 0 &&
 										parentCategories.map(
 											(parentCategory) => (
 												<div
-													className={`${
-														styles.parentCategory
-													} ${
+													className={`parentCategory ${
 														parentCategory.name.includes(
 															parentCategoryParam ||
 																""
 														)
-															? styles.block
-															: styles.hidden
+															? "block"
+															: "hidden"
 													} ${
 														parentCategoryParam ===
 														parentCategory.name
-															? styles.active
+															? "active"
 															: ""
 													}`}
 													key={parentCategory._id}
 												>
 													<div
-														className={
-															styles.listItem
-														}
+														className="listItem"
 														onClick={() =>
 															updateSearchParams(
 																"parentCategory",
@@ -510,29 +488,16 @@ const Products = () => {
 													{parentCategoryParam &&
 														childCategories.length >
 															0 && (
-															<div
-																className={
-																	styles.subList
-																}
-															>
+															<div className="subList">
 																{childCategories.map(
 																	(
 																		childCategory
 																	) => (
 																		<span
-																			className={`${
-																				styles.subListItem
-																			} ${
-																				childCategory.name.includes(
-																					childCategoryParam ||
-																						""
-																				)
-																					? "text-secondaryForeground"
-																					: "text-mutedForeground"
-																			} ${
+																			className={`subListItem ${
 																				childCategoryParam ===
 																				childCategory.name
-																					? styles.active
+																					? "active"
 																					: ""
 																			}`}
 																			key={
@@ -557,8 +522,8 @@ const Products = () => {
 										)}
 								</div>
 							</div>
-							<div className={styles.filter}>
-								<div className={styles.filterHeading}>
+							<div className="filter">
+								<div className="filterHeading">
 									<span>Price</span>
 									{(minPriceParam > 0 ||
 										maxPriceParam < 50000) && (
@@ -587,8 +552,8 @@ const Products = () => {
 								/>
 							</div>
 							{brands.length > 0 && (
-								<div className={styles.filter}>
-									<div className={styles.filterHeading}>
+								<div className="filter">
+									<div className="filterHeading">
 										<span>Brand</span>
 										{brandsParam && (
 											<Button
@@ -609,10 +574,10 @@ const Products = () => {
 											</Button>
 										)}
 									</div>
-									<div className={styles.list}>
+									<div className="list">
 										{brands.map((brand) => (
 											<div
-												className={styles.listItem}
+												className="listItem"
 												key={brand}
 											>
 												<input
@@ -635,8 +600,8 @@ const Products = () => {
 									</div>
 								</div>
 							)}
-							<div className={styles.filter}>
-								<div className={styles.filterHeading}>
+							<div className="filter">
+								<div className="filterHeading">
 									<span>Customer Ratings</span>
 									{customerRatingParam && (
 										<Button
@@ -657,8 +622,8 @@ const Products = () => {
 										</Button>
 									)}
 								</div>
-								<div className={styles.list}>
-									<div className={styles.listItem}>
+								<div className="list">
+									<div className="listItem">
 										<input
 											type="radio"
 											id="4"
@@ -673,13 +638,11 @@ const Products = () => {
 										/>
 										<label htmlFor="4">
 											4{" "}
-											<PiStarFill
-												className={styles.starIcon}
-											/>{" "}
+											<PiStarFill className="starIcon" />{" "}
 											& above
 										</label>
 									</div>
-									<div className={styles.listItem}>
+									<div className="listItem">
 										<input
 											type="radio"
 											id="3"
@@ -694,13 +657,11 @@ const Products = () => {
 										/>
 										<label htmlFor="3">
 											3{" "}
-											<PiStarFill
-												className={styles.starIcon}
-											/>{" "}
+											<PiStarFill className="starIcon" />{" "}
 											& above
 										</label>
 									</div>
-									<div className={styles.listItem}>
+									<div className="listItem">
 										<input
 											type="radio"
 											id="2"
@@ -715,16 +676,14 @@ const Products = () => {
 										/>
 										<label htmlFor="2">
 											2{" "}
-											<PiStarFill
-												className={styles.starIcon}
-											/>{" "}
+											<PiStarFill className="starIcon" />{" "}
 											& above
 										</label>
 									</div>
 								</div>
 							</div>
-							<div className={styles.filter}>
-								<div className={styles.filterHeading}>
+							<div className="filter">
+								<div className="filterHeading">
 									<span>Discount</span>
 									{discountParam && (
 										<Button
@@ -745,8 +704,8 @@ const Products = () => {
 										</Button>
 									)}
 								</div>
-								<div className={styles.list}>
-									<div className={styles.listItem}>
+								<div className="list">
+									<div className="listItem">
 										<input
 											type="radio"
 											id="50"
@@ -760,7 +719,7 @@ const Products = () => {
 										/>
 										<label htmlFor="50">50% or more</label>
 									</div>
-									<div className={styles.listItem}>
+									<div className="listItem">
 										<input
 											type="radio"
 											name="discount"
@@ -774,7 +733,7 @@ const Products = () => {
 										/>
 										<label htmlFor="40">40% or more</label>
 									</div>
-									<div className={styles.listItem}>
+									<div className="listItem">
 										<input
 											id="30"
 											type="radio"
@@ -792,8 +751,8 @@ const Products = () => {
 							</div>
 						</div>
 					</div>
-					<div className={styles.right}>
-						<div className={styles.options}>
+					<div className="right">
+						<div className="options">
 							<Button
 								backgroundColor="white"
 								backgroundColorCode="0"
@@ -814,7 +773,7 @@ const Products = () => {
 								/>
 							</FormProvider>
 						</div>
-						<div className={styles.productItems}>
+						<div className="productItems">
 							{isLoading
 								? shimmerElements
 								: filteredProducts.length > 0 &&

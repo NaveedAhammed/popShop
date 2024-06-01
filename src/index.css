@@ -151,13 +151,13 @@ ul {
   list-style: none;
 }
 
-:global(.container) {
+.container {
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
 }
 
-:global(.shimmer-animation) {
+.shimmer-animation {
   background-color: #f6f7f8;
   background-image: linear-gradient(to right,
       #f6f7f8 0%,
@@ -174,7 +174,7 @@ ul {
   animation-timing-function: linear;
 }
 
-:global(.lazy-loader) {
+.lazy-loader {
   width: 100%;
   height: calc(100vh - 8.6rem);
   display: flex;

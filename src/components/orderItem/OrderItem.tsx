@@ -1,6 +1,7 @@
+import "./orderItem.css";
+
 import dayjs from "dayjs";
 import { OrderItemType } from "../../types";
-import styles from "../orderItem.module.css";
 import { currencyFormatter } from "../../utils/currencyFormat";
 import { PiStarFill } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
@@ -18,59 +19,59 @@ const OrderItem: React.FC<{
 	const navigate = useNavigate();
 
 	return (
-		<div className={styles.orderItem}>
-			<div className={styles.header}>
-				<div className={styles.orderInfo}>
-					<div className={styles.orderId}>
-						<span className={styles.orderIdHeading}>Order ID:</span>
+		<div className="orderItem">
+			<div className="header">
+				<div className="orderInfo">
+					<div className="orderId">
+						<span className="orderIdHeading">Order ID:</span>
 						<span>{orderId}</span>
 					</div>
-					<div className={styles.orderDetails}>
-						<div className={styles.item}>
-							<span className={styles.key}>Order Date:</span>
-							<span className={styles.value}>
+					<div className="orderDetails">
+						<div className="item">
+							<span className="key">Order Date:</span>
+							<span className="value">
 								{dayjs(orderedDate.split("T")[0]).format(
 									"MMM D, YYYY"
 								)}
 							</span>
 						</div>
-						<div className={styles.item}>
-							<span className={styles.key}>Order Status:</span>
-							<span className={styles.value}>{orderStatus}</span>
+						<div className="item">
+							<span className="key">Order Status:</span>
+							<span className="value">{orderStatus}</span>
 						</div>
 					</div>
 				</div>
-				<div className={styles.orderAmount}>
-					<span className={styles.key}>Amount Paid:</span>
-					<span className={styles.value}>
+				<div className="orderAmount">
+					<span className="key">Amount Paid:</span>
+					<span className="value">
 						{currencyFormatter.format(amountPaid).split(".")[0]}
 					</span>
 				</div>
 			</div>
-			<hr className={styles.seperator} />
-			<div className={styles.items}>
+			<hr className="seperator" />
+			<div className="items">
 				{orderItems.map((item) => (
-					<div className={styles.item} key={item._id}>
-						<div className={styles.productImg}>
+					<div className="item" key={item._id}>
+						<div className="productImg">
 							<img
 								src={item.productId.images[0].url}
 								alt={item.productId.title}
 							/>
 						</div>
-						<div className={styles.productInfo}>
-							<span className={styles.productBrand}>
+						<div className="productInfo">
+							<span className="productBrand">
 								{item.productId.brand}
 							</span>
-							<div className={styles.productTitle}>
+							<div className="productTitle">
 								{item.productId.title}
 							</div>
-							<div className={styles.minDiscount}>
+							<div className="minDiscount">
 								{item.productId.discount && (
-									<span className={styles.numDiscount}>
+									<span className="numDiscount">
 										{item.discount}% Off on
 									</span>
 								)}
-								<span className={styles.numOgPrice}>
+								<span className="numOgPrice">
 									{
 										currencyFormatter
 											.format(item.price)
@@ -78,14 +79,12 @@ const OrderItem: React.FC<{
 									}
 								</span>
 							</div>
-							<div className={styles.subInfo}>
+							<div className="subInfo">
 								{item.productId.color && (
-									<div className={styles.item}>
-										<span className={styles.key}>
-											Color:
-										</span>
+									<div className="item">
+										<span className="key">Color:</span>
 										<div
-											className={styles.color}
+											className="color"
 											style={{
 												backgroundColor: `${item.productId.color.value}`,
 											}}
@@ -93,26 +92,24 @@ const OrderItem: React.FC<{
 									</div>
 								)}
 								{item.productId.unit && (
-									<div className={styles.item}>
-										<span className={styles.key}>
+									<div className="item">
+										<span className="key">
 											{item.productId.unit.name}:
 										</span>
-										<span className={styles.value}>
+										<span className="value">
 											{item.productId.unit.value}
 										</span>
 									</div>
 								)}
-								<div className={styles.item}>
-									<span className={styles.key}>
-										Category:
-									</span>
-									<span className={styles.value}>
+								<div className="item">
+									<span className="key">Category:</span>
+									<span className="value">
 										{item.productId.category.name}
 									</span>
 								</div>
 								{orderStatus === "delivered" && (
 									<div
-										className={styles.rateProduct}
+										className="rateProduct"
 										onClick={() =>
 											navigate(
 												`/rate-review/product/${item.productId._id}`
@@ -125,13 +122,13 @@ const OrderItem: React.FC<{
 								)}
 							</div>
 						</div>
-						<div className={styles.discount}>
+						<div className="discount">
 							{item.productId.discount && (
-								<span className={styles.numDiscount}>
+								<span className="numDiscount">
 									{item.discount}% Off on
 								</span>
 							)}
-							<span className={styles.numOgPrice}>
+							<span className="numOgPrice">
 								{
 									currencyFormatter
 										.format(item.price)
@@ -139,8 +136,8 @@ const OrderItem: React.FC<{
 								}
 							</span>
 						</div>
-						<div className={styles.price}>
-							<span className={styles.numPrice}>
+						<div className="price">
+							<span className="numPrice">
 								{
 									currencyFormatter
 										.format(
@@ -151,7 +148,7 @@ const OrderItem: React.FC<{
 										.split(".")[0]
 								}
 							</span>
-							<span className={styles.numQuantity}>
+							<span className="numQuantity">
 								Qty: {item.quantity}
 							</span>
 						</div>

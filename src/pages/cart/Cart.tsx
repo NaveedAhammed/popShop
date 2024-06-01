@@ -1,8 +1,9 @@
+import "./cart.css";
+
 import { useEffect, useState } from "react";
 import Button from "../../components/button/Button";
 import CartItem from "../../components/cartItem/CartItem";
 import { errorHandler } from "../../utils/errorHandler";
-import styles from "../cart.module.css";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { CartItemType } from "../../types";
 import { currencyFormatter } from "../../utils/currencyFormat";
@@ -46,46 +47,32 @@ const Cart = () => {
 	}, [axiosPrivate]);
 
 	const shimmerElements = Array.from({ length: 4 }).map((_, i) => (
-		<div className={styles.shimmerCartItem} key={i}>
-			<div
-				className={`${styles.shimmerProductImg} shimmer-animation`}
-			></div>
-			<div className={styles.shimmerProductInfo}>
-				<div
-					className={`${styles.shimmerProductBrand} shimmer-animation`}
-				></div>
-				<div
-					className={`${styles.shimmerProductTitle} shimmer-animation`}
-				></div>
-				<div className={styles.subInfo}>
-					<div
-						className={`${styles.infoItem} shimmer-animation`}
-					></div>
-					<div
-						className={`${styles.infoItem} shimmer-animation`}
-					></div>
+		<div className="shimmerCartItem" key={i}>
+			<div className="shimmerProductImg shimmer-animation"></div>
+			<div className="shimmerProductInfo">
+				<div className="shimmerProductBrand shimmer-animation"></div>
+				<div className="shimmerProductTitle shimmer-animation"></div>
+				<div className="subInfo">
+					<div className="infoItem shimmer-animation"></div>
+					<div className="infoItem shimmer-animation"></div>
 				</div>
 			</div>
-			<div
-				className={`${styles.shimmerQuantity} shimmer-animation`}
-			></div>
-			<div className={`${styles.shimmerTotal} shimmer-animation`}></div>
+			<div className="shimmerQuantity shimmer-animation"></div>
+			<div className="shimmerTotal shimmer-animation"></div>
 		</div>
 	));
 
 	const shimmerOrderSummary = (
-		<div
-			className={`${styles.shimmerOrderSummary} shimmer-animation`}
-		></div>
+		<div className="shimmerOrderSummary shimmer-animation"></div>
 	);
 
 	return (
-		<div className={`container ${styles.cart}`}>
+		<div className="container cart">
 			<h1>
 				Shopping Bag <span>({cart.length})</span>
 			</h1>
-			<div className={styles.wrapper}>
-				<div className={styles.left}>
+			<div className="wrapper">
+				<div className="left">
 					{isLoading
 						? shimmerElements
 						: cart.map((cartItem) => (
@@ -96,17 +83,15 @@ const Cart = () => {
 								/>
 						  ))}
 				</div>
-				<div className={styles.right}>
+				<div className="right">
 					{isLoading ? (
 						shimmerOrderSummary
 					) : (
-						<div className={styles.rightWrapper}>
-							<span className={styles.heading}>
-								Order Summary
-							</span>
-							<div className={styles.item}>
+						<div className="rightWrapper">
+							<span className="heading">Order Summary</span>
+							<div className="item">
 								<span>Sub Total</span>
-								<span className={styles.value}>
+								<span className="value">
 									{
 										currencyFormatter
 											.format(subTotal)
@@ -114,9 +99,9 @@ const Cart = () => {
 									}
 								</span>
 							</div>
-							<div className={styles.item}>
+							<div className="item">
 								<span>Discount</span>
-								<span className={styles.value}>
+								<span className="value">
 									{
 										currencyFormatter
 											.format(discount)
@@ -124,21 +109,17 @@ const Cart = () => {
 									}
 								</span>
 							</div>
-							<div className={styles.item}>
+							<div className="item">
 								<span>Tax</span>
-								<span className={styles.value}>₹0</span>
+								<span className="value">₹0</span>
 							</div>
-							<div className={styles.item}>
+							<div className="item">
 								<span>Shipping</span>
-								<span
-									className={`${styles.value} ${styles.free}`}
-								>
-									Free
-								</span>
+								<span className="value free">Free</span>
 							</div>
-							<div className={styles.item}>
+							<div className="item">
 								<span>Total</span>
-								<span className={styles.value}>
+								<span className="value">
 									{
 										currencyFormatter
 											.format(total)
@@ -146,7 +127,7 @@ const Cart = () => {
 									}
 								</span>
 							</div>
-							<div className={styles.btnCheckout}>
+							<div className="btnCheckout">
 								<Button
 									backgroundColor="primary"
 									backgroundColorCode="600"
@@ -159,11 +140,9 @@ const Cart = () => {
 									Proceed to Checkout
 								</Button>
 							</div>
-							<div className={styles.delivery}>
+							<div className="delivery">
 								<span>Estimated Delivery by</span>
-								<span className={styles.date}>
-									25 May, 2024
-								</span>
+								<span className="date">25 May, 2024</span>
 							</div>
 						</div>
 					)}

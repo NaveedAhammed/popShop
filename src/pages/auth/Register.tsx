@@ -1,4 +1,4 @@
-import styles from "../styles.module.css";
+import "./styles.css";
 
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { GoEye, GoEyeClosed } from "react-icons/go";
@@ -80,14 +80,14 @@ const Register: React.FC<{
 	}, [methods]);
 
 	return (
-		<div className={styles.registerForm}>
-			<div className={styles.heading}>
-				<h1 className={styles.title}>Welcome to popShop</h1>
+		<div className="registerForm">
+			<div className="heading">
+				<h1 className="title">Welcome to popShop</h1>
 				<span>Create your account</span>
 			</div>
 			<FormProvider {...methods}>
 				<form
-					className={styles.form}
+					className="form"
 					onSubmit={methods.handleSubmit(onSubmit)}
 				>
 					<Input
@@ -130,12 +130,10 @@ const Register: React.FC<{
 						)}
 						Continue
 					</Button>
-					<div className={styles.alternate}>
-						<span className={styles.sub}>
-							Already have an account?
-						</span>
+					<div className="alternate">
+						<span className="sub">Already have an account?</span>
 						<span
-							className={styles.main}
+							className="main"
 							onClick={() => setFromType("login")}
 						>
 							Login
@@ -143,10 +141,10 @@ const Register: React.FC<{
 					</div>
 				</form>
 			</FormProvider>
-			<div className={styles.seperator}>
+			<div className="seperator">
 				<span>or</span>
 			</div>
-			<div className={styles.socialAccounts}>
+			<div className="socialAccounts">
 				<Button
 					backgroundColor="white"
 					backgroundColorCode="0"

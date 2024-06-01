@@ -1,4 +1,4 @@
-import styles from "../footer.module.css";
+import "./footer.css";
 
 import {
 	FaFacebookF,
@@ -9,14 +9,14 @@ import {
 
 const Footer = () => {
 	return (
-		<footer className={styles.footer}>
-			<div className={`container ${styles.wrapper}`}>
-				<ul className={styles.links}>
-					<li className={styles.link}>Terms Of Use</li>
-					<li className={styles.link}>Privacy-Policy</li>
-					<li className={styles.link}>About</li>
-					<li className={styles.link}>Blog</li>
-					<li className={styles.link}>FAQ</li>
+		<footer className="footer">
+			<div className="container wrapper">
+				<ul className="links">
+					<li className="link">Terms Of Use</li>
+					<li className="link">Privacy-Policy</li>
+					<li className="link">About</li>
+					<li className="link">Blog</li>
+					<li className="link">FAQ</li>
 				</ul>
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -26,17 +26,17 @@ const Footer = () => {
 					Duis aute irure dolor in reprehenderit in voluptate velit
 					esse cillum dolore eu fugiat nulla pariatur.
 				</p>
-				<div className={styles.socialLinks}>
-					<button className={`${styles.btnLink} ${styles.facebook}`}>
+				<div className="socialLinks">
+					<button className="btnLink facebook">
 						<FaFacebookF />
 					</button>
-					<button className={`${styles.btnLink} ${styles.instagram}`}>
+					<button className="btnLink instagram">
 						<FaInstagram />
 					</button>
-					<button className={`${styles.btnLink} ${styles.twitter}`}>
+					<button className="btnLink twitter">
 						<FaTwitter />
 					</button>
-					<button className={`${styles.btnLink} ${styles.linkedin}`}>
+					<button className="btnLink linkedin">
 						<FaLinkedin />
 					</button>
 				</div>

@@ -1,4 +1,4 @@
-import styles from "../cartItem.module.css";
+import "./cartItem.css";
 
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { IoTrashOutline } from "react-icons/io5";
@@ -124,48 +124,46 @@ const CartItem: React.FC<{
 	};
 
 	return (
-		<div className={styles.cartItem}>
+		<div className="cartItem">
 			<Link
 				to={`/product/${cartItem.productId._id}`}
-				className={styles.productImg}
+				className="productImg"
 			>
 				<img
 					src={cartItem.productId.images[0].url}
 					alt={cartItem.productId.title}
 				/>
 			</Link>
-			<div className={styles.productInfo}>
-				<span className={styles.productBrand}>
-					{cartItem.productId.brand}
-				</span>
+			<div className="productInfo">
+				<span className="productBrand">{cartItem.productId.brand}</span>
 				<Link
 					to={`/product/${cartItem.productId._id}`}
-					className={styles.productTitle}
+					className="productTitle"
 				>
 					{cartItem.productId.title}
 				</Link>
-				<div className={styles.productDetails}>
+				<div className="productDetails">
 					{cartItem.productId.unit && (
-						<div className={styles.item}>
-							<span className={styles.key}>
+						<div className="item">
+							<span className="key">
 								{cartItem.productId.unit.name}:
 							</span>
-							<span className={styles.value}>
+							<span className="value">
 								{cartItem.productId.unit.value}
 							</span>
 						</div>
 					)}
-					<div className={styles.item}>
-						<span className={styles.key}>Category:</span>
-						<span className={styles.value}>
+					<div className="item">
+						<span className="key">Category:</span>
+						<span className="value">
 							{cartItem.productId.category.name}
 						</span>
 					</div>
 					{cartItem.productId.color && (
-						<div className={styles.item}>
-							<span className={styles.key}>Color:</span>
+						<div className="item">
+							<span className="key">Color:</span>
 							<div
-								className={styles.color}
+								className="color"
 								style={{
 									backgroundColor: `${cartItem.productId.color.value}`,
 								}}
@@ -173,9 +171,9 @@ const CartItem: React.FC<{
 						</div>
 					)}
 				</div>
-				<div className={styles.productPrice}>
+				<div className="productPrice">
 					{cartItem.productId.discount > 0 && (
-						<span className={styles.originalPrice}>
+						<span className="originalPrice">
 							{
 								currencyFormatter
 									.format(cartItem.productId.price)
@@ -183,7 +181,7 @@ const CartItem: React.FC<{
 							}
 						</span>
 					)}
-					<span className={styles.discountPrice}>
+					<span className="discountPrice">
 						{
 							currencyFormatter
 								.format(
@@ -195,11 +193,11 @@ const CartItem: React.FC<{
 						}
 					</span>
 					{cartItem.productId.discount > 0 && (
-						<span className={styles.discount}>
+						<span className="discount">
 							{cartItem.productId.discount}% Off
 						</span>
 					)}
-					<div className={styles.miniTotal}>
+					<div className="miniTotal">
 						<span>Total:</span>
 						<span style={{ fontWeight: "500" }}>
 							{
@@ -210,21 +208,21 @@ const CartItem: React.FC<{
 						</span>
 					</div>
 				</div>
-				<div className={styles.actions}>
-					<div className={styles.miniQuantity}>
-						<FaMinus className={styles.icon} />
+				<div className="actions">
+					<div className="miniQuantity">
+						<FaMinus className="icon" />
 						<span>{cartItem.quantity}</span>
-						<FaPlus className={styles.icon} />
+						<FaPlus className="icon" />
 					</div>
 					<div
-						className={styles.actionDelete}
+						className="actionDelete"
 						onClick={handleDeleteCartItem}
 					>
 						<IoTrashOutline />
 						<span>Delete</span>
 					</div>
 					<div
-						className={styles.actionWishlist}
+						className="actionWishlist"
 						onClick={handleSaveForLater}
 					>
 						<PiHeartStraightBold />
@@ -232,7 +230,7 @@ const CartItem: React.FC<{
 					</div>
 				</div>
 			</div>
-			<div className={styles.quantity}>
+			<div className="quantity">
 				<Button
 					backgroundColor="white"
 					backgroundColorCode="0"
@@ -266,9 +264,9 @@ const CartItem: React.FC<{
 					<FaPlus />
 				</Button>
 			</div>
-			<div className={styles.totalAmount}>
+			<div className="totalAmount">
 				<span>Total:</span>
-				<span className={styles.amount}>
+				<span className="amount">
 					{
 						currencyFormatter
 							.format(

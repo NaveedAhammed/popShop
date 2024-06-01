@@ -1,5 +1,5 @@
 // STYLES MODULE IMPORT
-import styles from "../search.module.css";
+import "./search.css";
 
 import { Link, useSearchParams } from "react-router-dom";
 
@@ -63,38 +63,26 @@ const Search = () => {
 	}, [debouncedSearch]);
 
 	const shimmerElements = Array.from({ length: 10 }).map((_, i) => (
-		<div className={styles.shimmerProductItem} key={i}>
-			<div className={styles.shimmerItemWrapper}>
-				<div
-					className={`${styles.shimmerProductImg} shimmer-animation`}
-				></div>
-				<div
-					className={`${styles.shimmerTextSmall} shimmer-animation`}
-				></div>
-				<div
-					className={`${styles.shimmerTextMedium} shimmer-animation`}
-				></div>
-				<div
-					className={`${styles.shimmerTextLarge} shimmer-animation`}
-				></div>
+		<div className="shimmerProductItem" key={i}>
+			<div className="shimmerItemWrapper">
+				<div className="shimmerProductImg shimmer-animation"></div>
+				<div className="shimmerTextSmall shimmer-animation"></div>
+				<div className="shimmerTextMedium shimmer-animation"></div>
+				<div className="shimmerTextLarge shimmer-animation"></div>
 			</div>
 		</div>
 	));
 
 	return (
-		<div className={styles.search}>
-			<header className={styles.header}>
+		<div className="search">
+			<header className="header">
 				<div className="container">
-					<div className={styles.wrapper}>
-						<Link to="/" className={styles.brand}>
-							<img
-								src={logo}
-								alt="Logo"
-								className={styles.brandLogo}
-							/>
-							<span className={styles.brandName}>popShop</span>
+					<div className="wrapper">
+						<Link to="/" className="brand">
+							<img src={logo} alt="Logo" className="brandLogo" />
+							<span className="brandName">popShop</span>
 						</Link>
-						<div className={styles.searchBar}>
+						<div className="searchBar">
 							<FormProvider {...methods}>
 								<form>
 									<Input
@@ -112,22 +100,22 @@ const Search = () => {
 					</div>
 				</div>
 			</header>
-			<main className={styles.main}>
+			<main className="main">
 				<div className="container">
 					{!debouncedSearch ? (
-						<div className={styles.searchGif}>
+						<div className="searchGif">
 							<img src={searchGif} alt="Search Products" />
-							<span className={styles.textInfo}>
+							<span className="textInfo">
 								Start searching for products...
 							</span>
 						</div>
 					) : debouncedSearch && products.length > 0 ? (
 						<>
-							<div className={styles.heading}>
+							<div className="heading">
 								{q && <h1>Search results for: {q}</h1>}
 							</div>
-							<div className={styles.wrapper}>
-								<div className={styles.searchItems}>
+							<div className="wrapper">
+								<div className="searchItems">
 									{isLoading
 										? shimmerElements
 										: products.map((product) => (
@@ -137,7 +125,7 @@ const Search = () => {
 							</div>
 						</>
 					) : (
-						<div className={styles.noresults}>
+						<div className="noresults">
 							<img src={noresults} alt="No results" />
 						</div>
 					)}

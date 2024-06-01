@@ -1,5 +1,5 @@
 // STYLES IMPORT
-import styles from "../redirect.module.css";
+import "./redirect.css";
 
 import { useEffect, useState } from "react";
 import Login from "../auth/Login";
@@ -27,9 +27,9 @@ const Redirect = () => {
 	}, [user, navigate, locationState]);
 
 	return (
-		<div className={`container ${styles.redirect}`}>
-			<div className={styles.wrapper}>
-				<div className={styles.authBody}>
+		<div className="container redirect">
+			<div className="wrapper">
+				<div className="authBody">
 					{formType === "login" ? (
 						<Login setFromType={setFromType} />
 					) : (

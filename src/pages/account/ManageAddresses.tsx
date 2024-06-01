@@ -1,4 +1,4 @@
-import styles from "../account.module.css";
+import "./account.css";
 
 import { GoPlus } from "react-icons/go";
 import AddAddressForm from "../../components/addAddressForm/AddAddressForm";
@@ -200,8 +200,8 @@ const ManageAddresses = () => {
 	}, [states]);
 
 	return (
-		<div className={styles.manageAddresses}>
-			<div className={styles.addressWrapper}>
+		<div className="manageAddresses">
+			<div className="addressWrapper">
 				{isFormOpen ? (
 					<AddAddressForm
 						onCancel={handleCancel}
@@ -210,15 +210,12 @@ const ManageAddresses = () => {
 						states={states}
 					/>
 				) : (
-					<div
-						className={styles.add}
-						onClick={() => setIsFormOpen(true)}
-					>
+					<div className="add" onClick={() => setIsFormOpen(true)}>
 						<GoPlus size={20} />
 						<span>Add New Address</span>
 					</div>
 				)}
-				<div className={styles.addresses}>
+				<div className="addresses">
 					{user?.shippingAddresses.map((item) => (
 						<AddressItem
 							shippingInfo={item}

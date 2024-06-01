@@ -1,5 +1,5 @@
 // STYLES MODULE IMPORT
-import styles from "../modal.module.css";
+import "./modal.css";
 
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
@@ -42,25 +42,17 @@ const Modal: React.FC<ModalProps> = ({
 	if (!isOpen) return null;
 
 	return createPortal(
-		<div
-			className={`${styles.modal} ${
-				showModal ? "modal-open" : styles.close
-			}`}
-		>
-			<div className={styles.overlay}></div>
-			<div
-				className={`${styles.wrapper} ${
-					showModal ? styles.active : styles.inactive
-				}`}
-			>
-				<div className={styles.header}>
+		<div className={`modal ${showModal ? "modal-open" : "close"}`}>
+			<div className="overlay"></div>
+			<div className={`wrapper ${showModal ? "active" : "inactive"}`}>
+				<div className="header">
 					<HeaderIcon
-						className={styles.headerIcon}
+						className="headerIcon"
 						onClick={headerIconOnClick}
 					/>
-					<h2 className="">{title}</h2>
+					<h2>{title}</h2>
 				</div>
-				<div className={styles.body}>{body}</div>
+				<div className="body">{body}</div>
 			</div>
 		</div>,
 		document.getElementById("modal")!

@@ -1,5 +1,5 @@
 // STYLES MODULE IMPORT
-import styles from "../chipCarousel.module.css";
+import "./chipCarousel.css";
 
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
@@ -79,20 +79,17 @@ const ChipCarousel: React.FC<{
 	}, []);
 
 	const shimmerElements = Array.from({ length: 15 }).map((_, i) => (
-		<div
-			className={`${styles.shimmerChipItem} shimmer-animation`}
-			key={i}
-		></div>
+		<div className={`shimmerChipItem shimmer-animation`} key={i}></div>
 	));
 
 	return (
-		<div className={styles.chipCarousel}>
-			<div className={styles.wrapper}>
-				{heading && <div className={styles.heading}>{heading}</div>}
-				<div className={styles.links}>
+		<div className="chipCarousel">
+			<div className="wrapper">
+				{heading && <div className="heading">{heading}</div>}
+				<div className="links">
 					<div
-						className={`${styles.actionBtn} ${styles.btnLeft} ${
-							leftBtnVisible ? styles.active : styles.inactive
+						className={`actionBtn btnLeft ${
+							leftBtnVisible ? "active" : "inactive"
 						}`}
 					>
 						<Button
@@ -113,8 +110,8 @@ const ChipCarousel: React.FC<{
 						</Button>
 					</div>
 					<div
-						className={`${styles.slider} ${
-							dragging ? styles.dragging : styles.scrolling
+						className={`slider ${
+							dragging ? "dragging" : "scrolling"
 						}`}
 						ref={sliderRef}
 						onScroll={handleOnScroll}
@@ -129,8 +126,8 @@ const ChipCarousel: React.FC<{
 							  ))}
 					</div>
 					<div
-						className={`${styles.actionBtn} ${styles.btnRight} ${
-							rightBtnVisible ? styles.active : styles.inactive
+						className={`actionBtn btnRight ${
+							rightBtnVisible ? "active" : "inactive"
 						}`}
 					>
 						<Button

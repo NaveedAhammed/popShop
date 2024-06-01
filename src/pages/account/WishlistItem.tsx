@@ -1,4 +1,4 @@
-import styles from "../account.module.css";
+import "./account.css";
 
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { PiHeartFill, PiHeartStraightDuotone } from "react-icons/pi";
@@ -99,17 +99,17 @@ const WishlistItem: React.FC<{
 	};
 
 	return (
-		<div className={styles.productItem}>
-			<div className={styles.itemWrapper}>
-				<div className={styles.productImgs}>
-					<div className={styles.discountTag}>
+		<div className="productItem">
+			<div className="itemWrapper">
+				<div className="productImgs">
+					<div className="discountTag">
 						<span>{product.discount}</span>
-						<FaPercent className={styles.percentIcon} />
+						<FaPercent className="percentIcon" />
 					</div>
 					<div
-						className={`${styles.arrowIcon} ${
-							styles.arrowIconLeft
-						} ${prevBtnVisible ? styles.active : ""}`}
+						className={`arrowIcon arrowIconLeft ${
+							prevBtnVisible ? "active" : ""
+						}`}
 					>
 						<Button
 							backgroundColor="white"
@@ -133,9 +133,9 @@ const WishlistItem: React.FC<{
 						</Button>
 					</div>
 					<div
-						className={`${styles.arrowIcon} ${
-							styles.arrowIconRight
-						} ${nextBtnVisible ? styles.active : ""}`}
+						className={`arrowIcon arrowIconRight ${
+							nextBtnVisible ? "active" : ""
+						}`}
 					>
 						<Button
 							backgroundColor="white"
@@ -159,21 +159,21 @@ const WishlistItem: React.FC<{
 						</Button>
 					</div>
 					<div
-						className={styles.imgsSlider}
+						className="imgsSlider"
 						ref={sliderRef}
 						onScroll={handleOnScroll}
 					>
 						{product.images.map((img) => (
 							<Link
 								to={`/product/${product._id}`}
-								className={styles.img}
+								className="img"
 								key={img._id}
 							>
 								<img src={img.url} alt="" />
 							</Link>
 						))}
 					</div>
-					<div className={styles.heartIcon}>
+					<div className="heartIcon">
 						{wishlistLoading ? (
 							<Loader
 								color="black"
@@ -182,7 +182,7 @@ const WishlistItem: React.FC<{
 							/>
 						) : isAddedtoWishlist ? (
 							<PiHeartFill
-								className={styles.heartFill}
+								className="heartFill"
 								onClick={removeWishlistId}
 							/>
 						) : (
@@ -199,21 +199,18 @@ const WishlistItem: React.FC<{
 						textSize="1.1rem"
 					/>
 				)}
-				<div className={styles.productBrand}>
+				<div className="productBrand">
 					<span>{product.brand}</span>
-					<TbRosetteDiscountCheckFilled className={styles.icon} />
+					<TbRosetteDiscountCheckFilled className="icon" />
 				</div>
-				<Link
-					to={`/product/${product._id}`}
-					className={styles.productTitle}
-				>
+				<Link to={`/product/${product._id}`} className="productTitle">
 					{product.title}
 				</Link>
-				<div className={styles.productPrice}>
-					<span className={styles.originalPrice}>
+				<div className="productPrice">
+					<span className="originalPrice">
 						{currencyFormatter.format(product.price).split(".")[0]}
 					</span>
-					<span className={styles.discountPrice}>
+					<span className="discountPrice">
 						{
 							currencyFormatter
 								.format(

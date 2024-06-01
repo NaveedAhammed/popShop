@@ -1,16 +1,17 @@
+import "./account.css";
+
 import { NavLink, Outlet } from "react-router-dom";
-import styles from "../account.module.css";
 import { Suspense } from "react";
 import Loader from "../../components/loader/Loader";
 
 const activeLink = ({ isActive }: { isActive: boolean }) => {
-	return `${styles.link} ${isActive ? styles.active : styles.inActive}`;
+	return `link ${isActive ? "active" : "inActive"}`;
 };
 
 const Profile = () => {
 	return (
-		<section className={`container ${styles.account}`}>
-			<div className={styles.navbar}>
+		<section className="container account">
+			<div className="navbar">
 				<NavLink to="/account/myProfile" className={activeLink}>
 					My Profile
 				</NavLink>
@@ -27,10 +28,10 @@ const Profile = () => {
 					My Reviews
 				</NavLink>
 			</div>
-			<div className={styles.outlet}>
+			<div className="outlet">
 				<Suspense
 					fallback={
-						<div className={styles.lazyLoader}>
+						<div className="lazyLoader">
 							<Loader width="5rem" height="5rem" color="black" />
 						</div>
 					}

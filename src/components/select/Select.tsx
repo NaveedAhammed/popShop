@@ -1,4 +1,4 @@
-import styles from "../select.module.css";
+import "./select.css";
 
 import { useFormContext } from "react-hook-form";
 
@@ -31,7 +31,7 @@ const Select: React.FC<SelectProps> = ({
 			{...register(name, { required })}
 			onClick={onClick}
 			style={style}
-			className={styles.container}
+			className="select"
 		>
 			<option value="">select</option>
 			{options.map((option) => (

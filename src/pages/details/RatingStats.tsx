@@ -1,10 +1,11 @@
+import "./details.css";
+
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/button/Button";
 import Rating from "../../components/rating/Rating";
 import { useAuthModal } from "../../hooks/useAuthModal";
 import { useUserStore } from "../../hooks/useUserStore";
 import { ReviewType } from "../../types";
-import styles from "../details.module.css";
 
 const RatingStats: React.FC<{
 	numRating: number;
@@ -34,8 +35,8 @@ const RatingStats: React.FC<{
 	};
 
 	return (
-		<div className={styles.ratingAndReview}>
-			<div className={styles.header}>
+		<div className="ratingAndReview">
+			<div className="header">
 				<h2>Rating & Review</h2>
 				<Button
 					backgroundColor="gray"
@@ -49,11 +50,11 @@ const RatingStats: React.FC<{
 					Rate Product
 				</Button>
 			</div>
-			<div className={styles.ratingStats}>
-				<div className={styles.ratingInfo}>
-					<div className={styles.numRateAndType}>
-						<span className={styles.numRate}>{numRating}</span>
-						<span className={styles.type}>Very Good</span>
+			<div className="ratingStats">
+				<div className="ratingInfo">
+					<div className="numRateAndType">
+						<span className="numRate">{numRating}</span>
+						<span className="type">Very Good</span>
 					</div>
 					<Rating
 						iconSize="2rem"
@@ -61,22 +62,20 @@ const RatingStats: React.FC<{
 						textSize="1.6rem"
 						showNumRate={false}
 					/>
-					<span className={styles.numRatings}>
-						{reviews.length} ratings
-					</span>
+					<span className="numRatings">{reviews.length} ratings</span>
 				</div>
-				<div className={styles.ratingBars}>
-					<div className={styles.barItem}>
+				<div className="ratingBars">
+					<div className="barItem">
 						<Rating
 							iconSize="1.4rem"
 							textSize="1.2rem"
 							numRate={5}
 							showNumRate={false}
 						/>
-						<div className={styles.bars}>
-							<div className={styles.barNormal}>
+						<div className="bars">
+							<div className="barNormal">
 								<div
-									className={styles.barFill}
+									className="barFill"
 									style={{
 										width: `${
 											(ratings[4] / totalRatings) * 100
@@ -85,19 +84,19 @@ const RatingStats: React.FC<{
 								></div>
 							</div>
 						</div>
-						<div className={styles.numCount}>{ratings[4]}</div>
+						<div className="numCount">{ratings[4]}</div>
 					</div>
-					<div className={styles.barItem}>
+					<div className="barItem">
 						<Rating
 							iconSize="1.4rem"
 							textSize="1.2rem"
 							numRate={4}
 							showNumRate={false}
 						/>
-						<div className={styles.bars}>
-							<div className={styles.barNormal}>
+						<div className="bars">
+							<div className="barNormal">
 								<div
-									className={styles.barFill}
+									className="barFill"
 									style={{
 										width: `${
 											(ratings[3] / totalRatings) * 100
@@ -106,19 +105,19 @@ const RatingStats: React.FC<{
 								></div>
 							</div>
 						</div>
-						<div className={styles.numCount}>{ratings[3]}</div>
+						<div className="numCount">{ratings[3]}</div>
 					</div>
-					<div className={styles.barItem}>
+					<div className="barItem">
 						<Rating
 							iconSize="1.4rem"
 							textSize="1.2rem"
 							numRate={3}
 							showNumRate={false}
 						/>
-						<div className={styles.bars}>
-							<div className={styles.barNormal}>
+						<div className="bars">
+							<div className="barNormal">
 								<div
-									className={styles.barFill}
+									className="barFill"
 									style={{
 										width: `${
 											(ratings[2] / totalRatings) * 100
@@ -127,19 +126,19 @@ const RatingStats: React.FC<{
 								></div>
 							</div>
 						</div>
-						<div className={styles.numCount}>{ratings[2]}</div>
+						<div className="numCount">{ratings[2]}</div>
 					</div>
-					<div className={styles.barItem}>
+					<div className="barItem">
 						<Rating
 							iconSize="1.4rem"
 							textSize="1.2rem"
 							numRate={2}
 							showNumRate={false}
 						/>
-						<div className={styles.bars}>
-							<div className={styles.barNormal}>
+						<div className="bars">
+							<div className="barNormal">
 								<div
-									className={styles.barFill}
+									className="barFill"
 									style={{
 										width: `${
 											(ratings[1] / totalRatings) * 100
@@ -148,19 +147,19 @@ const RatingStats: React.FC<{
 								></div>
 							</div>
 						</div>
-						<div className={styles.numCount}>{ratings[1]}</div>
+						<div className="numCount">{ratings[1]}</div>
 					</div>
-					<div className={styles.barItem}>
+					<div className="barItem">
 						<Rating
 							iconSize="1.4rem"
 							textSize="1.2rem"
 							numRate={1}
 							showNumRate={false}
 						/>
-						<div className={styles.bars}>
-							<div className={styles.barNormal}>
+						<div className="bars">
+							<div className="barNormal">
 								<div
-									className={styles.barFill}
+									className="barFill"
 									style={{
 										width: `${
 											(ratings[0] / totalRatings) * 100
@@ -169,7 +168,7 @@ const RatingStats: React.FC<{
 								></div>
 							</div>
 						</div>
-						<div className={styles.numCount}>{ratings[0]}</div>
+						<div className="numCount">{ratings[0]}</div>
 					</div>
 				</div>
 			</div>

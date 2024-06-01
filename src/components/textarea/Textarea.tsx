@@ -1,4 +1,4 @@
-import styles from "../textarea.module.css";
+import "./textarea.css";
 
 import { useFormContext } from "react-hook-form";
 
@@ -28,7 +28,7 @@ const Textarea: React.FC<TextareaProps> = ({
 	const { register } = useFormContext();
 
 	return (
-		<div className={styles.container}>
+		<div className="textarea">
 			<textarea
 				id={id}
 				{...register(name, { required })}
@@ -37,7 +37,7 @@ const Textarea: React.FC<TextareaProps> = ({
 				required={required}
 				disabled={disabled}
 				defaultValue={defaultValue}
-				className={styles.textarea}
+				className="textareaEle"
 				cols={cols}
 				rows={rows}
 			></textarea>

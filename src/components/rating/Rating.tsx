@@ -1,4 +1,4 @@
-import styles from "../rating.module.css";
+import "./rating.css";
 
 import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 
@@ -10,7 +10,7 @@ const Rating: React.FC<{
 	reviewsCount?: number;
 }> = ({ numRate, iconSize, textSize, showNumRate = true, reviewsCount }) => {
 	return (
-		<div className={styles.rating} style={{ fontSize: `${iconSize}` }}>
+		<div className="rating" style={{ fontSize: `${iconSize}` }}>
 			{numRate >= 1 ? (
 				<Star type="full" />
 			) : numRate > 0 && numRate < 1 ? (
@@ -48,7 +48,7 @@ const Rating: React.FC<{
 			)}
 			{showNumRate && (
 				<span
-					className={styles.numReviews}
+					className="numReviews"
 					style={{ fontSize: `${textSize}` }}
 				>
 					({numRate})
@@ -56,7 +56,7 @@ const Rating: React.FC<{
 			)}
 			{reviewsCount && (
 				<span
-					className={styles.reviewsCount}
+					className="reviewsCount"
 					style={{ fontSize: `${textSize}` }}
 				>
 					{reviewsCount} reviews
@@ -70,11 +70,11 @@ const Star: React.FC<{ type: "full" | "half" | "reg" }> = ({ type }) => {
 	return (
 		<>
 			{type === "full" ? (
-				<FaStar className={styles.star} />
+				<FaStar className="star" />
 			) : type === "half" ? (
-				<FaStarHalfAlt className={styles.star} />
+				<FaStarHalfAlt className="star" />
 			) : (
-				<FaRegStar className={styles.star} />
+				<FaRegStar className="star" />
 			)}
 		</>
 	);

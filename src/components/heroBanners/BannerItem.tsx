@@ -1,6 +1,7 @@
 // STYLES MODULE IMPORT
+import "./heroBanners.css";
+
 import Button from "../button/Button";
-import styles from "../heroBanners.module.css";
 
 const BannerItem: React.FC<{
 	bannerImg: string;
@@ -8,12 +9,12 @@ const BannerItem: React.FC<{
 	heading: string;
 }> = ({ bannerImg, heading, subHeading }) => {
 	return (
-		<div className={styles.bannerItem}>
-			<img src={bannerImg} alt="" className={styles.bannerImg} />
-			<div className={styles.bannerContent}>
-				<div className={styles.bannerContentWrapper}>
-					<span className={styles.subHeading}>{subHeading}</span>
-					<span className={styles.heading}>{heading}</span>
+		<div className="bannerItem">
+			<img src={bannerImg} alt="" className="bannerImg" />
+			<div className="bannerContent">
+				<div className="bannerContentWrapper">
+					<span className="subHeading">{subHeading}</span>
+					<span className="heading">{heading}</span>
 					<Button
 						backgroundColor="white"
 						backgroundColorCode="0"

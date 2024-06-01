@@ -1,4 +1,4 @@
-import styles from "../account.module.css";
+import "./account.css";
 
 import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -48,22 +48,20 @@ const MyProfile = () => {
 	});
 
 	return (
-		<div className={styles.myProfile}>
-			<div className={styles.profileWrapper}>
-				<div className={styles.header}>
-					<div className={styles.profileImg}>
+		<div className="myProfile">
+			<div className="profileWrapper">
+				<div className="header">
+					<div className="profileImg">
 						<img src={user?.avatar || profilePic} alt="" />
 					</div>
-					<div className={styles.profileInfo}>
+					<div className="profileInfo">
 						<span style={{ fontSize: "1.2rem", fontWeight: "400" }}>
 							Hello,
 						</span>
-						<span className={styles.profileName}>
-							{user?.username}
-						</span>
+						<span className="profileName">{user?.username}</span>
 					</div>
 					{!editing && (
-						<div className={styles.btnEdit}>
+						<div className="btnEdit">
 							<Button
 								size="default"
 								onClick={() => setEditing(true)}
@@ -79,13 +77,13 @@ const MyProfile = () => {
 						</div>
 					)}
 				</div>
-				<div className={styles.personalInfo}>
-					<hr className={styles.separator} />
+				<div className="personalInfo">
+					<hr className="separator" />
 					<h2 style={{ fontSize: "1.8rem", fontWeight: "400" }}>
 						Personal Information
 					</h2>
 					<FormProvider {...methods}>
-						<form className={styles.profileForm}>
+						<form className="profileForm">
 							<Input
 								autoComplete="off"
 								id="username"
@@ -113,8 +111,8 @@ const MyProfile = () => {
 								leadingIcon={MdOutlinePhoneIphone}
 								disabled={!editing}
 							/>
-							<div className={styles.gender}>
-								<div className={styles.genderItem}>
+							<div className="gender">
+								<div className="genderItem">
 									<label htmlFor="male">Male</label>
 									<input
 										autoComplete="off"
@@ -125,7 +123,7 @@ const MyProfile = () => {
 										disabled={!editing}
 									/>
 								</div>
-								<div className={styles.genderItem}>
+								<div className="genderItem">
 									<label htmlFor="female">Female</label>
 									<input
 										autoComplete="off"
@@ -138,7 +136,7 @@ const MyProfile = () => {
 								</div>
 							</div>
 							{editing && (
-								<div className={styles.profileSubmit}>
+								<div className="profileSubmit">
 									<Button
 										size="md"
 										onClick={() => setEditing(false)}

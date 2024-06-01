@@ -1,4 +1,4 @@
-import styles from "../addressItem.module.css";
+import "./addressItem.css";
 
 import { useState } from "react";
 import { IoMdMore } from "react-icons/io";
@@ -12,9 +12,9 @@ const AddressItem: React.FC<{
 }> = ({ shippingInfo, setData, deleteAddress }) => {
 	const [isOpen, setIsOpen] = useState(false);
 	return (
-		<div className={styles.container}>
-			<div className={styles.heading}>
-				<span className={styles.type}>{shippingInfo.addressType}</span>
+		<div className="addressItem">
+			<div className="heading">
+				<span className="type">{shippingInfo.addressType}</span>
 				<Button
 					backgroundColor="white"
 					backgroundColorCode="0"
@@ -30,15 +30,15 @@ const AddressItem: React.FC<{
 				>
 					<IoMdMore />
 					{isOpen && (
-						<div className={styles.options}>
+						<div className="options">
 							<span
-								className={styles.option}
+								className="option"
 								onClick={() => setData(shippingInfo)}
 							>
 								Edit
 							</span>
 							<span
-								className={styles.option}
+								className="option"
 								onClick={() => deleteAddress(shippingInfo._id)}
 							>
 								Delete
@@ -47,11 +47,11 @@ const AddressItem: React.FC<{
 					)}
 				</Button>
 			</div>
-			<div className={styles.personInfo}>
-				<span className={styles.name}>{shippingInfo.name}</span>
-				<span className={styles.phone}>{shippingInfo.phone}</span>
+			<div className="personInfo">
+				<span className="name">{shippingInfo.name}</span>
+				<span className="phone">{shippingInfo.phone}</span>
 			</div>
-			<p className={styles.addressInfo}>
+			<p className="addressInfo">
 				{`${shippingInfo.address}, ${shippingInfo.locality}, ${shippingInfo.city}(City.), ${shippingInfo.state} - ${shippingInfo.pincode}`}
 			</p>
 		</div>

@@ -1,4 +1,4 @@
-import styles from "../details.module.css";
+import "./details.css";
 
 import { useEffect, useRef, useState } from "react";
 import Button from "../../components/button/Button";
@@ -174,45 +174,31 @@ const Details = () => {
 
 	if (isLoading || isSimilarLoading) {
 		return (
-			<div className={styles.details}>
+			<div className="details">
 				<div className="container">
-					<div className={styles.wrapper}>
-						<div className={styles.left}>
-							<div
-								className={`${styles.shimmerProductImg} shimmer-animation`}
-							></div>
+					<div className="wrapper">
+						<div className="left">
+							<div className="shimmerProductImg shimmer-animation"></div>
 						</div>
-						<div className={styles.right}>
+						<div className="right">
 							<div
-								className={`${styles.shimmerTextVerySmall} shimmer-animation`}
+								className="shimmerTextVerySmall shimmer-animation"
 								style={{ marginBottom: "2rem" }}
 							></div>
+							<div className="shimmerTextLarge shimmer-animation"></div>
 							<div
-								className={`${styles.shimmerTextLarge} shimmer-animation`}
-							></div>
-							<div
-								className={`${styles.shimmerTextLarge} shimmer-animation`}
+								className="shimmerTextLarge shimmer-animation"
 								style={{ marginBottom: "3rem" }}
 							></div>
+							<div className="shimmerTextVerySmall shimmer-animation"></div>
 							<div
-								className={`${styles.shimmerTextVerySmall} shimmer-animation`}
-							></div>
-							<div
-								className={`${styles.shimmerTextMedium} shimmer-animation`}
+								className="shimmerTextMedium shimmer-animation"
 								style={{ marginBottom: "3rem" }}
 							></div>
-							<div
-								className={`${styles.shimmerTextVerySmall} shimmer-animation`}
-							></div>
-							<div
-								className={`${styles.shimmerTextLarge} shimmer-animation`}
-							></div>
-							<div
-								className={`${styles.shimmerTextLarge} shimmer-animation`}
-							></div>
-							<div
-								className={`${styles.shimmerTextLarge} shimmer-animation`}
-							></div>
+							<div className="shimmerTextVerySmall shimmer-animation"></div>
+							<div className="shimmerTextLarge shimmer-animation"></div>
+							<div className="shimmerTextLarge shimmer-animation"></div>
+							<div className="shimmerTextLarge shimmer-animation"></div>
 						</div>
 					</div>
 					<Products
@@ -226,18 +212,14 @@ const Details = () => {
 	}
 
 	return (
-		<div className={`container ${styles.details}`}>
+		<div className="container details">
 			{product && (
-				<div className={styles.wrapper}>
-					<div className={styles.left}>
-						<div className={styles.productImgs}>
+				<div className="wrapper">
+					<div className="left">
+						<div className="productImgs">
 							<div
-								className={`${styles.arrowIcon} ${
-									styles.arrowIconLeft
-								} ${
-									prevBtnVisible
-										? styles.active
-										: styles.inactive
+								className={`arrowIcon arrowIconLeft ${
+									prevBtnVisible ? "active" : "inactive"
 								}`}
 							>
 								<Button
@@ -262,12 +244,8 @@ const Details = () => {
 								</Button>
 							</div>
 							<div
-								className={`${styles.arrowIcon} ${
-									styles.arrowIconRight
-								} ${
-									nextBtnVisible
-										? styles.active
-										: styles.inactive
+								className={`arrowIcon arrowIconRight ${
+									nextBtnVisible ? "active" : "inactive"
 								}`}
 							>
 								<Button
@@ -292,17 +270,17 @@ const Details = () => {
 								</Button>
 							</div>
 							<div
-								className={styles.imgsSlider}
+								className="imgsSlider"
 								ref={sliderRef}
 								onScroll={handleOnScroll}
 							>
 								{product.images.map((img) => (
-									<div className={styles.img} key={img._id}>
+									<div className="img" key={img._id}>
 										<img src={img.url} alt="" />
 									</div>
 								))}
 							</div>
-							<div className={styles.heartIcon}>
+							<div className="heartIcon">
 								{wishlistLoading ? (
 									<Loader
 										color="black"
@@ -311,7 +289,7 @@ const Details = () => {
 									/>
 								) : isAddedtoWishlist ? (
 									<PiHeartFill
-										className={styles.heartFill}
+										className="heartFill"
 										onClick={handleAddOrRemoveWishlistId}
 									/>
 								) : (
@@ -322,13 +300,9 @@ const Details = () => {
 							</div>
 						</div>
 					</div>
-					<div className={styles.right}>
-						<span className={styles.productBrand}>
-							{product.brand}
-						</span>
-						<div className={styles.productTitle}>
-							{product.title}
-						</div>
+					<div className="right">
+						<span className="productBrand">{product.brand}</span>
+						<div className="productTitle">{product.title}</div>
 						{product.numRating ? (
 							<Rating
 								iconSize="1.6rem"
@@ -337,15 +311,15 @@ const Details = () => {
 								reviewsCount={product.reviews.length}
 							/>
 						) : null}
-						<div className={styles.productPrice}>
-							<span className={styles.originalPrice}>
+						<div className="productPrice">
+							<span className="originalPrice">
 								{
 									currencyFormatter
 										.format(product.price)
 										.split(".")[0]
 								}
 							</span>
-							<span className={styles.discountPrice}>
+							<span className="discountPrice">
 								{
 									currencyFormatter
 										.format(
@@ -356,32 +330,32 @@ const Details = () => {
 										.split(".")[0]
 								}
 							</span>
-							<span className={styles.discount}>
+							<span className="discount">
 								{product.discount}% Off
 							</span>
 						</div>
-						<div className={styles.productInfo}>
+						<div className="productInfo">
 							{product.unit && (
-								<div className={styles.item}>
-									<span className={styles.key}>
+								<div className="item">
+									<span className="key">
 										{product.unit.name}:
 									</span>
-									<span className={styles.value}>
+									<span className="value">
 										{product.unit.value}
 									</span>
 								</div>
 							)}
-							<div className={styles.item}>
-								<span className={styles.key}>Category:</span>
-								<span className={styles.value}>
+							<div className="item">
+								<span className="key">Category:</span>
+								<span className="value">
 									{product.category.name}
 								</span>
 							</div>
 							{product.color && (
-								<div className={styles.item}>
-									<span className={styles.key}>Color:</span>
+								<div className="item">
+									<span className="key">Color:</span>
 									<div
-										className={styles.color}
+										className="color"
 										style={{
 											backgroundColor: `${product.color.value}`,
 										}}
@@ -389,12 +363,12 @@ const Details = () => {
 								</div>
 							)}
 						</div>
-						<div className={styles.productDesc}>
+						<div className="productDesc">
 							<span>Decription</span>
 							<p>{product.description}</p>
 						</div>
-						<div className={styles.stockStatus}>In stock</div>
-						<div className={styles.addToBag}>
+						<div className="stockStatus">In stock</div>
+						<div className="addToBag">
 							{!isInCart && (
 								<Button
 									backgroundColor="primary"
@@ -465,8 +439,8 @@ const Details = () => {
 				/>
 			)}
 			{product?.reviews && (
-				<div className={styles.customerReviews}>
-					<h2 className={styles.heading}>Customer Reviews</h2>
+				<div className="customerReviews">
+					<h2 className="heading">Customer Reviews</h2>
 					{product.reviews.map((review) => (
 						<CustomerReviewItem key={review._id} review={review} />
 					))}

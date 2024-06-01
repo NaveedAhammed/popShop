@@ -1,5 +1,6 @@
+import "./input.css";
+
 import { useFormContext } from "react-hook-form";
-import styles from "../input.module.css";
 import { IconType } from "react-icons";
 
 interface InputProps {
@@ -36,18 +37,14 @@ const Input: React.FC<InputProps> = ({
 	} = useFormContext();
 
 	return (
-		<div className={styles.input}>
+		<div className="input">
 			{label && (
-				<label htmlFor={id} className={styles.label}>
+				<label htmlFor={id} className="label">
 					{label}
 				</label>
 			)}
-			<div
-				className={`${styles.inputWrapper} ${
-					errors[name] ? styles.error : ""
-				}`}
-			>
-				{LeadingIcon && <LeadingIcon className={styles.leadingIcon} />}
+			<div className={`inputWrapper ${errors[name] ? "error" : ""}`}>
+				{LeadingIcon && <LeadingIcon className="leadingIcon" />}
 				<input
 					type={type}
 					id={id}
@@ -57,19 +54,17 @@ const Input: React.FC<InputProps> = ({
 					placeholder={placeholder}
 					disabled={disabled}
 					autoCapitalize={autoComplete}
-					className={styles.inputEle}
+					className="inputEle"
 				/>
 				{TralingIcon && (
 					<TralingIcon
-						className={styles.tralingIcon}
+						className="tralingIcon"
 						onClick={tralingIconOnClick}
 					/>
 				)}
 			</div>
 			{errors[name] && (
-				<span
-					className={styles.errorMsg}
-				>{`${errors[name]?.message}`}</span>
+				<span className="errorMsg">{`${errors[name]?.message}`}</span>
 			)}
 		</div>
 	);

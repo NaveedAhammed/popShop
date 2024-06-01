@@ -1,4 +1,4 @@
-import styles from "../customRating.module.css";
+import "./customRating.css";
 
 import { FaStar, FaRegStar } from "react-icons/fa";
 
@@ -12,9 +12,9 @@ const CustomRating: React.FC<{
 	const ratingMeanings = ["Awful", "Poor", "Average", "Good", "Amazing"];
 
 	return (
-		<div className={styles.customRating}>
+		<div className="customRating">
 			<span>Rate this product</span>
-			<div className={styles.stars}>
+			<div className="stars">
 				{Array.from({ length: 5 }, (_, i) => (
 					<Star
 						onRate={() => {
@@ -36,11 +36,9 @@ const CustomRating: React.FC<{
 						key={i}
 					/>
 				))}
-				<span className={styles.numRating}>
-					{tempRating || rating || ""}
-				</span>
+				<span className="numRating">{tempRating || rating || ""}</span>
 				{tempRating || rating ? (
-					<span className={styles.ratingMeaning}>
+					<span className="ratingMeaning">
 						{tempRating
 							? ratingMeanings[tempRating - 1]
 							: rating
@@ -64,7 +62,7 @@ const Star: React.FC<{
 			onMouseEnter={onHoverIn}
 			onMouseLeave={onHoverOut}
 			size={45}
-			className={styles.starFill}
+			className="starFill"
 			onClick={onRate}
 		/>
 	) : (
@@ -73,7 +71,7 @@ const Star: React.FC<{
 			onClick={onRate}
 			onMouseEnter={onHoverIn}
 			onMouseLeave={onHoverOut}
-			className={styles.starNormal}
+			className="starNormal"
 		/>
 	);
 };

@@ -1,6 +1,7 @@
+import "./account.css";
+
 import { useEffect, useState } from "react";
 import MyReviewItem from "../../components/myReviewItem/MyReviewItem";
-import styles from "../account.module.css";
 import { MyReviewType } from "../../types";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { errorHandler } from "../../utils/errorHandler";
@@ -12,24 +13,14 @@ const MyReviews = () => {
 	const axiosPrivate = useAxiosPrivate();
 
 	const shimmerElements = Array.from({ length: 4 }).map((_, i) => (
-		<div className={styles.shimmerReviewItem} key={i}>
-			<div
-				className={`${styles.shimmerProductImg} shimmer-animation`}
-			></div>
-			<div className={styles.info}>
-				<div
-					className={`${styles.shimmerBrand} shimmer-animation`}
-				></div>
-				<div
-					className={`${styles.shimmerTitle} shimmer-animation`}
-				></div>
-				<div className={styles.shimmerUserInfo}>
-					<div
-						className={`${styles.shimmerUsername} shimmer-animation`}
-					></div>
-					<div
-						className={`${styles.shimmerPostedAt} shimmer-animation`}
-					></div>
+		<div className="shimmerReviewItem" key={i}>
+			<div className="shimmerProductImg shimmer-animation"></div>
+			<div className="info">
+				<div className="shimmerBrand shimmer-animation"></div>
+				<div className="shimmerTitle shimmer-animation"></div>
+				<div className="shimmerUserInfo">
+					<div className="shimmerUsername shimmer-animation"></div>
+					<div className="shimmerPostedAt shimmer-animation"></div>
 				</div>
 			</div>
 		</div>
@@ -53,12 +44,10 @@ const MyReviews = () => {
 	}, [axiosPrivate]);
 
 	return (
-		<div className={styles.myReviews}>
-			<div className={styles.myReviewsWrapper}>
+		<div className="myReviews">
+			<div className="myReviewsWrapper">
 				{isLoading ? (
-					<div
-						className={`${styles.shimmerH1} shimmer-animation`}
-					></div>
+					<div className="shimmerH1 shimmer-animation"></div>
 				) : (
 					<h1>
 						My Reviews <span>({myReviews.length})</span>

@@ -1,4 +1,4 @@
-import styles from "../myReviewItem.module.css";
+import "./myReviewItem.css";
 
 import Button from "../button/Button";
 import { TbEdit } from "react-icons/tb";
@@ -14,21 +14,17 @@ const MyReviewItem: React.FC<{ review: MyReviewType }> = ({ review }) => {
 	const navigate = useNavigate();
 
 	return (
-		<div className={styles.myReviewItem}>
-			<div className={styles.productImg}>
+		<div className="myReviewItem">
+			<div className="productImg">
 				<img
 					src={review.productId.images[0].url}
 					alt={review.productId.title}
 				/>
 			</div>
-			<div className={styles.info}>
-				<span className={styles.productBrand}>
-					{review.productId.brand}
-				</span>
-				<div className={styles.productTitle}>
-					{review.productId.title}
-				</div>
-				<div className={styles.rating}>
+			<div className="info">
+				<span className="productBrand">{review.productId.brand}</span>
+				<div className="productTitle">{review.productId.title}</div>
+				<div className="rating">
 					<Rating
 						numRate={review.numRating}
 						iconSize="1.3rem"
@@ -36,14 +32,14 @@ const MyReviewItem: React.FC<{ review: MyReviewType }> = ({ review }) => {
 					/>
 					<p>{review.comment}</p>
 				</div>
-				<div className={styles.userInfo}>
-					<span className={styles.username}>{user?.username}</span>
-					<span className={styles.postedDate}>
+				<div className="userInfo">
+					<span className="username">{user?.username}</span>
+					<span className="postedDate">
 						{dayjs(review.postedAt?.split("T")[0]).format(
 							"MMM D, YYYY"
 						)}
 					</span>
-					<div className={styles.minActions}>
+					<div className="minActions">
 						<Button
 							backgroundColor="gray"
 							backgroundColorCode="100"
@@ -72,7 +68,7 @@ const MyReviewItem: React.FC<{ review: MyReviewType }> = ({ review }) => {
 					</div>
 				</div>
 			</div>
-			<div className={styles.actions}>
+			<div className="actions">
 				<Button
 					backgroundColor="gray"
 					backgroundColorCode="100"

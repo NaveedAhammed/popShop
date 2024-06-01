@@ -1,4 +1,4 @@
-import styles from "../loader.module.css";
+import "./loader.css";
 
 interface LoaderProps {
 	width: string;
@@ -9,7 +9,7 @@ interface LoaderProps {
 const Loader: React.FC<LoaderProps> = ({ width, height, color }) => {
 	return (
 		<div
-			className={`${styles.loader} ${styles[`loader-${color}`]}`}
+			className={`loader loader-${color}`}
 			style={{ width, height }}
 		></div>
 	);

@@ -1,5 +1,6 @@
+import "./header.css";
+
 import { Link } from "react-router-dom";
-import styles from "../header.module.css";
 
 const UserMenuItem: React.FC<{
 	label: string;
@@ -9,13 +10,13 @@ const UserMenuItem: React.FC<{
 }> = ({ label, isLink, path, onClick }) => {
 	if (isLink && path) {
 		return (
-			<Link className={styles.userMenuItem} to={path}>
+			<Link className="userMenuItem" to={path}>
 				{label}
 			</Link>
 		);
 	}
 	return (
-		<div className={styles.userMenuItem} onClick={onClick}>
+		<div className="userMenuItem" onClick={onClick}>
 			{label}
 		</div>
 	);

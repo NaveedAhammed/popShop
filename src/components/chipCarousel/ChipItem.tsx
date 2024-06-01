@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import styles from "../chipCarousel.module.css";
+import "./chipCarousel.css";
 
 const ChipItem: React.FC<{ chip: { path: string; label: string } }> = ({
 	chip,
 }) => {
 	return (
-		<Link to={chip.path} className={styles.chipItem}>
+		<Link to={chip.path} className="chipItem">
 			{chip.label}
 		</Link>
 	);

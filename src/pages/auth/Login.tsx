@@ -1,7 +1,8 @@
+import "./styles.css";
+
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import styles from "../styles.module.css";
 import Input from "../../components/input/Input";
 import Button from "../../components/button/Button";
 import { FcGoogle } from "react-icons/fc";
@@ -75,14 +76,14 @@ const Login: React.FC<{
 	}, [methods]);
 
 	return (
-		<div className={styles.registerForm}>
-			<div className={styles.heading}>
-				<h1 className={styles.title}>Welcome back!</h1>
+		<div className="registerForm">
+			<div className="heading">
+				<h1 className="title">Welcome back!</h1>
 				<span>Enter your account details to login</span>
 			</div>
 			<FormProvider {...methods}>
 				<form
-					className={styles.form}
+					className="form"
 					onSubmit={methods.handleSubmit(onSubmit)}
 				>
 					<Input
@@ -118,12 +119,10 @@ const Login: React.FC<{
 						)}
 						Continue
 					</Button>
-					<div className={styles.alternate}>
-						<span className={styles.sub}>
-							Don't have an account?
-						</span>
+					<div className="alternate">
+						<span className="sub">Don't have an account?</span>
 						<span
-							className={styles.main}
+							className="main"
 							onClick={() => setFromType("register")}
 						>
 							Register
@@ -131,10 +130,10 @@ const Login: React.FC<{
 					</div>
 				</form>
 			</FormProvider>
-			<div className={styles.seperator}>
+			<div className="seperator">
 				<span>or</span>
 			</div>
-			<div className={styles.socialAccounts}>
+			<div className="socialAccounts">
 				<Button
 					backgroundColor="white"
 					backgroundColorCode="0"

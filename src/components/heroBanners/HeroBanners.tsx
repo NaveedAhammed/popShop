@@ -1,5 +1,5 @@
 // STYLES MODULE IMPORT
-import styles from "../heroBanners.module.css";
+import "./heroBanners.css";
 
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
@@ -53,24 +53,19 @@ const HeroBanners: React.FC<{
 	};
 
 	const shimmerElements = Array.from({ length: 4 }).map((_, i) => (
-		<div
-			className={`${styles.shimmerBannerItem} shimmer-animation`}
-			key={i}
-		></div>
+		<div className="shimmerBannerItem shimmer-animation" key={i}></div>
 	));
 
 	return (
-		<div className={styles.heroBanners}>
-			<div className={styles.wrapper}>
-				<div className={styles.header}>
+		<div className="heroBanners">
+			<div className="wrapper">
+				<div className="header">
 					{isLoading ? (
-						<div
-							className={`${styles.shimmerH2} shimmer-animation`}
-						></div>
+						<div className="shimmerH2 shimmer-animation"></div>
 					) : (
 						<h2>{heading}</h2>
 					)}
-					<div className={styles.actionBtns}>
+					<div className="actionBtns">
 						<Button
 							backgroundColor="white"
 							backgroundColorCode="0"
@@ -84,7 +79,7 @@ const HeroBanners: React.FC<{
 							onClick={() => scroll("back")}
 							disabled={prevBtnDisabled}
 						>
-							<IoIosArrowBack className={styles.arrowIcon} />
+							<IoIosArrowBack className="arrowIcon" />
 						</Button>
 						<Button
 							backgroundColor="white"
@@ -99,13 +94,13 @@ const HeroBanners: React.FC<{
 							onClick={() => scroll("forward")}
 							disabled={nextBtnDisabled}
 						>
-							<IoIosArrowForward className={styles.arrowIcon} />
+							<IoIosArrowForward className="arrowIcon" />
 						</Button>
 					</div>
 				</div>
 				<div
 					ref={sliderRef}
-					className={styles.bannersSlider}
+					className="bannersSlider"
 					onScroll={handleOnScroll}
 				>
 					{isLoading
