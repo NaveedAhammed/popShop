@@ -3,7 +3,7 @@ import styles from "./account.module.css";
 import { GoPlus } from "react-icons/go";
 import AddAddressForm from "../../components/addAddressForm/AddAddressForm";
 import AddressItem from "../../components/addressItem/AddressItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useUserStore } from "../../hooks/useUserStore";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -65,17 +65,7 @@ const ManageAddresses = () => {
 
 	const axiosPrivate = useAxiosPrivate();
 
-	const getStates = () => {
-		const res = State.getStatesOfCountry("IN");
-		const states = res.map((item) => ({
-			id: item.name,
-			name: item.name,
-		}));
-		setStates(states);
-	};
-
 	const handlePopulateValues = (shippingInfo: ShippingInfoType) => {
-		getStates();
 		Object.entries(shippingInfo).forEach(([name, value]) => {
 			if (
 				name === "name" ||
@@ -88,7 +78,7 @@ const ManageAddresses = () => {
 				name === "addressType" ||
 				name === "alternatePhone"
 			) {
-				methods.setValue(name, value);
+				methods.setValue(name, `${value}`);
 			}
 			setIsEditing(true);
 			setIsFormOpen(true);
@@ -195,6 +185,19 @@ const ManageAddresses = () => {
 			},
 		});
 	};
+
+	useEffect(() => {
+		const getStates = () => {
+			const res = State.getStatesOfCountry("IN");
+			const states = res.map((item) => ({
+				id: item.name,
+				name: item.name,
+			}));
+			setStates(states);
+		};
+
+		states.length <= 0 && getStates();
+	}, [states]);
 
 	return (
 		<div className={styles.manageAddresses}>
