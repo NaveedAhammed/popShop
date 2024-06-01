@@ -266,7 +266,7 @@ const Products = () => {
 							className="closeIcon"
 							onClick={() => setIsFiltersOpen((prev) => !prev)}
 						/>
-						<div className="header">
+						<div className="productsHeader">
 							<div className="heading">
 								<span>Filters</span>
 								{(parentCategoryParam ||

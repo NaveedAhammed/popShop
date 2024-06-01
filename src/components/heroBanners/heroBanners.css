@@ -5,7 +5,7 @@
     width: 100%;
     padding-block: 2rem;
 
-    .header {
+    .heroBannersHeader {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -135,7 +135,7 @@
 @media (min-width: 440px) {
   .heroBanners {
     .wrapper {
-      .header {
+      .heroBannersHeader {
         .actionBtns {
           display: flex;
         }
@@ -191,7 +191,7 @@
 @media (min-width: 1282px) {
   .heroBanners {
     .wrapper {
-      .header {
+      .heroBannersHeader {
         padding-inline: 0;
       }
 

@@ -75,7 +75,7 @@ const Search = () => {
 
 	return (
 		<div className="search">
-			<header className="header">
+			<header className="searchHeader">
 				<div className="container">
 					<div className="wrapper">
 						<Link to="/" className="brand">

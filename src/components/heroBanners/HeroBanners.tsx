@@ -59,7 +59,7 @@ const HeroBanners: React.FC<{
 	return (
 		<div className="heroBanners">
 			<div className="wrapper">
-				<div className="header">
+				<div className="heroBannersHeader">
 					{isLoading ? (
 						<div className="shimmerH2 shimmer-animation"></div>
 					) : (

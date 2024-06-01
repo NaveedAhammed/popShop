@@ -50,7 +50,7 @@ const MyProfile = () => {
 	return (
 		<div className="myProfile">
 			<div className="profileWrapper">
-				<div className="header">
+				<div className="profileHeader">
 					<div className="profileImg">
 						<img src={user?.avatar || profilePic} alt="" />
 					</div>

@@ -95,7 +95,7 @@ const MyOrders = () => {
 	return (
 		<div className="myOrders">
 			<div className="ordersWrapper">
-				<div className="header">
+				<div className="myOrdersHeader">
 					<FormProvider {...methods}>
 						<form className="searchBar">
 							<Input

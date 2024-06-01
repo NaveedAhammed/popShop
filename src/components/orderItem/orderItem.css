@@ -13,7 +13,7 @@
     box-shadow: var(--shadow-md);
   }
 
-  .header {
+  .orderItemHeader {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -229,7 +229,7 @@
 /* MEDIA QUERIES */
 @media (min-width: 460px) {
   .orderItem {
-    .header {
+    .orderItemHeader {
       .orderInfo {
         .orderDetails {
           .item {
@@ -245,7 +245,7 @@
 
 @media (min-width: 530px) {
   .orderItem {
-    .header {
+    .orderItemHeader {
       .orderInfo {
         .orderId {
           flex-direction: row;

@@ -2,7 +2,7 @@
   width: 100%;
   position: relative;
 
-  .header {
+  .searchHeader {
     width: 100%;
     background-color: var(--color-white-0);
     display: flex;
@@ -356,7 +356,7 @@
 
 @media (min-width: 340px) {
   .search {
-    .header {
+    .searchHeader {
       .wrapper {
         .brand {
           .brandName {
@@ -406,7 +406,7 @@
 
 @media (min-width: 1282px) {
   .search {
-    .header {
+    .searchHeader {
       padding-inline: 0;
     }
 

@@ -20,7 +20,7 @@ const OrderItem: React.FC<{
 
 	return (
 		<div className="orderItem">
-			<div className="header">
+			<div className="orderItemHeader">
 				<div className="orderInfo">
 					<div className="orderId">
 						<span className="orderIdHeading">Order ID:</span>
