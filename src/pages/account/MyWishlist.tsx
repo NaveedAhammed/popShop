@@ -1,4 +1,4 @@
-import styles from "./account.module.css";
+import styles from "../account.module.css";
 
 import { useEffect, useState } from "react";
 import { ProductType } from "../../types";

@@ -1,5 +1,5 @@
 // STYLES MODULE IMPORT
-import styles from "./heroBanners.module.css";
+import styles from "../heroBanners.module.css";
 
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 

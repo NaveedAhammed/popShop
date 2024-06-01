@@ -4,7 +4,7 @@ import Rating from "../../components/rating/Rating";
 import { useAuthModal } from "../../hooks/useAuthModal";
 import { useUserStore } from "../../hooks/useUserStore";
 import { ReviewType } from "../../types";
-import styles from "./details.module.css";
+import styles from "../details.module.css";
 
 const RatingStats: React.FC<{
 	numRating: number;

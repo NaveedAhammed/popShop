@@ -1,4 +1,4 @@
-import styles from "./account.module.css";
+import styles from "../account.module.css";
 
 import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";

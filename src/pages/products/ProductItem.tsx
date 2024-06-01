@@ -1,4 +1,4 @@
-import styles from "./products.module.css";
+import styles from "../products.module.css";
 
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { PiHeartFill, PiHeartStraightDuotone } from "react-icons/pi";

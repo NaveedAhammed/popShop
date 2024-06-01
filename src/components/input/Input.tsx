@@ -1,5 +1,5 @@
 import { useFormContext } from "react-hook-form";
-import styles from "./input.module.css";
+import styles from "../input.module.css";
 import { IconType } from "react-icons";
 
 interface InputProps {

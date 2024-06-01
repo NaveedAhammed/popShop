@@ -1,7 +1,7 @@
 import { GoPerson } from "react-icons/go";
 import Rating from "../../components/rating/Rating";
 import { ReviewType } from "../../types";
-import styles from "./details.module.css";
+import styles from "../details.module.css";
 import { formatDistance } from "date-fns";
 
 const CustomerReviewItem: React.FC<{ review: ReviewType }> = ({ review }) => {

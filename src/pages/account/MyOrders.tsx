@@ -4,7 +4,7 @@ import Input from "../../components/input/Input";
 import OrderItem from "../../components/orderItem/OrderItem";
 import Select from "../../components/select/Select";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
-import styles from "./account.module.css";
+import styles from "../account.module.css";
 
 import { FormProvider, useForm } from "react-hook-form";
 import { OrderType } from "../../types";

@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import { OrderItemType } from "../../types";
-import styles from "./orderItem.module.css";
+import styles from "../orderItem.module.css";
 import { currencyFormatter } from "../../utils/currencyFormat";
 import { PiStarFill } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";

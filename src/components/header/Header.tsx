@@ -1,5 +1,5 @@
 // STYLES MODULE IMPORT
-import styles from "./header.module.css";
+import styles from "../header.module.css";
 
 import { LuSearch } from "react-icons/lu";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";

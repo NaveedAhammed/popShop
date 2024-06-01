@@ -1,4 +1,4 @@
-import styles from "./styles.module.css";
+import styles from "../styles.module.css";
 
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { GoEye, GoEyeClosed } from "react-icons/go";

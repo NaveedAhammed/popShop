@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "./chipCarousel.module.css";
+import styles from "../chipCarousel.module.css";
 
 const ChipItem: React.FC<{ chip: { path: string; label: string } }> = ({
 	chip,

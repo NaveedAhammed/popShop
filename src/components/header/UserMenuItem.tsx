@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "./header.module.css";
+import styles from "../header.module.css";
 
 const UserMenuItem: React.FC<{
 	label: string;

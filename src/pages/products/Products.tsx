@@ -1,4 +1,4 @@
-import styles from "./products.module.css";
+import styles from "../products.module.css";
 
 import { RxCross2 } from "react-icons/rx";
 import { useEffect, useMemo, useState } from "react";

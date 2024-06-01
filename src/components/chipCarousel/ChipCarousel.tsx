@@ -1,5 +1,5 @@
 // STYLES MODULE IMPORT
-import styles from "./chipCarousel.module.css";
+import styles from "../chipCarousel.module.css";
 
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 

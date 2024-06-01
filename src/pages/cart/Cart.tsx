@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Button from "../../components/button/Button";
 import CartItem from "../../components/cartItem/CartItem";
 import { errorHandler } from "../../utils/errorHandler";
-import styles from "./cart.module.css";
+import styles from "../cart.module.css";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { CartItemType } from "../../types";
 import { currencyFormatter } from "../../utils/currencyFormat";

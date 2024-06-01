@@ -1,6 +1,6 @@
 // STYLES MODULE IMPORT
 import Button from "../button/Button";
-import styles from "./heroBanners.module.css";
+import styles from "../heroBanners.module.css";
 
 const BannerItem: React.FC<{
 	bannerImg: string;

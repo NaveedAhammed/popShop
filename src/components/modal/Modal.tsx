@@ -1,5 +1,5 @@
 // STYLES MODULE IMPORT
-import styles from "./modal.module.css";
+import styles from "../modal.module.css";
 
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";

@@ -1,4 +1,4 @@
-import styles from "./details.module.css";
+import styles from "../details.module.css";
 
 import { useEffect, useRef, useState } from "react";
 import Button from "../../components/button/Button";

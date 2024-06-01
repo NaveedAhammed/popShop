@@ -3,7 +3,7 @@ import { useAuthModal } from "../../hooks/useAuthModal";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { useUserStore } from "../../hooks/useUserStore";
 import UserMenuItem from "./UserMenuItem";
-import styles from "./header.module.css";
+import styles from "../header.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 

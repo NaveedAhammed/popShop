@@ -1,4 +1,4 @@
-import styles from "./rating.module.css";
+import styles from "../rating.module.css";
 
 import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 

@@ -1,4 +1,4 @@
-import styles from "./button.module.css";
+import styles from "../button.module.css";
 
 interface ButtonProps {
 	size: "default" | "sm" | "md" | "lg" | "icon";

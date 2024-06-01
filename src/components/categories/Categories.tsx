@@ -1,5 +1,5 @@
 // STYLES MODULE IMPORT
-import styles from "./categories.module.css";
+import styles from "../categories.module.css";
 
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 

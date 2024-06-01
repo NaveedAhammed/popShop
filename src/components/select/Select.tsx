@@ -1,4 +1,4 @@
-import styles from "./select.module.css";
+import styles from "../select.module.css";
 
 import { useFormContext } from "react-hook-form";
 

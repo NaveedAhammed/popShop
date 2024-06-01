@@ -1,5 +1,5 @@
 // STYLES IMPORT
-import styles from "./styles.module.css";
+import styles from "../styles.module.css";
 
 import { RxCross2 } from "react-icons/rx";
 import Modal from "../../components/modal/Modal";

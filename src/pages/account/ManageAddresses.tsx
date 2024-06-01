@@ -1,4 +1,4 @@
-import styles from "./account.module.css";
+import styles from "../account.module.css";
 
 import { GoPlus } from "react-icons/go";
 import AddAddressForm from "../../components/addAddressForm/AddAddressForm";

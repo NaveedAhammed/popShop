@@ -1,4 +1,4 @@
-import styles from "./customRating.module.css";
+import styles from "../customRating.module.css";
 
 import { FaStar, FaRegStar } from "react-icons/fa";
 

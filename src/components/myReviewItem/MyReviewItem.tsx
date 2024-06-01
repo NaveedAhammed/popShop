@@ -1,4 +1,4 @@
-import styles from "./myReviewItem.module.css";
+import styles from "../myReviewItem.module.css";
 
 import Button from "../button/Button";
 import { TbEdit } from "react-icons/tb";

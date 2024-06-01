@@ -1,4 +1,4 @@
-import styles from "./textarea.module.css";
+import styles from "../textarea.module.css";
 
 import { useFormContext } from "react-hook-form";
 

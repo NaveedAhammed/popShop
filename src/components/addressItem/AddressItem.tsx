@@ -1,4 +1,4 @@
-import styles from "./addressItem.module.css";
+import styles from "../addressItem.module.css";
 
 import { useState } from "react";
 import { IoMdMore } from "react-icons/io";

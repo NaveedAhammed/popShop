@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import styles from "./account.module.css";
+import styles from "../account.module.css";
 import { Suspense } from "react";
 import Loader from "../../components/loader/Loader";
 

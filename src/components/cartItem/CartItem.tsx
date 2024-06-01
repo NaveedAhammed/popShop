@@ -1,4 +1,4 @@
-import styles from "./cartItem.module.css";
+import styles from "../cartItem.module.css";
 
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { IoTrashOutline } from "react-icons/io5";

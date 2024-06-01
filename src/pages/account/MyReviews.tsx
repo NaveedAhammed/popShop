@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import MyReviewItem from "../../components/myReviewItem/MyReviewItem";
-import styles from "./account.module.css";
+import styles from "../account.module.css";
 import { MyReviewType } from "../../types";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { errorHandler } from "../../utils/errorHandler";

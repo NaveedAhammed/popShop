@@ -1,4 +1,4 @@
-import styles from "./account.module.css";
+import styles from "../account.module.css";
 
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { PiHeartFill, PiHeartStraightDuotone } from "react-icons/pi";

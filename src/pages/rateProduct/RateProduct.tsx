@@ -1,4 +1,4 @@
-import styles from "./rateProduct.module.css";
+import styles from "../rateProduct.module.css";
 
 import { useEffect, useState } from "react";
 

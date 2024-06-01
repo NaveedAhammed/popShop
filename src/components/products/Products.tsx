@@ -1,6 +1,6 @@
 // STYLES MODULE IMPORT
 import { useRef, useState } from "react";
-import styles from "./products.module.css";
+import styles from "../products.module.css";
 
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Button from "../button/Button";

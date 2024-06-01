@@ -1,4 +1,4 @@
-import styles from "./addAddressForm.module.css";
+import styles from "../addAddressForm.module.css";
 
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import Input from "../input/Input";

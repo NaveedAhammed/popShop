@@ -1,5 +1,5 @@
 // STYLES IMPORT
-import styles from "./redirect.module.css";
+import styles from "../redirect.module.css";
 
 import { useEffect, useState } from "react";
 import Login from "../auth/Login";

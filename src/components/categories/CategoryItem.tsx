@@ -1,4 +1,4 @@
-import styles from "./categories.module.css";
+import styles from "../categories.module.css";
 
 const CategoryItem: React.FC<{ categoryImg: string; label: string }> = ({
 	categoryImg,

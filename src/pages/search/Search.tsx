@@ -1,5 +1,5 @@
 // STYLES MODULE IMPORT
-import styles from "./search.module.css";
+import styles from "../search.module.css";
 
 import { Link, useSearchParams } from "react-router-dom";
 
