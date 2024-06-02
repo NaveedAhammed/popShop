@@ -4,13 +4,59 @@ import { useEffect, useState } from "react";
 import Button from "../../components/button/Button";
 import Input from "../../components/input/Input";
 import OrderItem from "../../components/orderItem/OrderItem";
-import Select from "../../components/select/Select";
+import Select, { OptionsType } from "../../components/select/Select";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 
 import { FormProvider, useForm } from "react-hook-form";
 import { OrderType } from "../../types";
 import { errorHandler } from "../../utils/errorHandler";
 import { useSearchParams } from "react-router-dom";
+
+const orderStatusOptions: OptionsType[] = [
+	{
+		id: "1",
+		name: "Processing",
+	},
+	{
+		id: "2",
+		name: "Shipped",
+	},
+	{
+		id: "3",
+		name: "Delivered",
+	},
+	{
+		id: "4",
+		name: "Not Placed",
+	},
+];
+
+const orderTimeOptions: OptionsType[] = [
+	{
+		id: "1",
+		name: "Last 30 days",
+	},
+	{
+		id: "2",
+		name: "2023",
+	},
+	{
+		id: "3",
+		name: "2022",
+	},
+	{
+		id: "4",
+		name: "2021",
+	},
+	{
+		id: "5",
+		name: "2020",
+	},
+	{
+		id: "6",
+		name: "Older",
+	},
+];
 
 const MyOrders = () => {
 	const [isLoading, setIsLoading] = useState(false);
@@ -22,8 +68,6 @@ const MyOrders = () => {
 	const pageNum = searchParams.get("page") || "1";
 
 	const methods = useForm();
-
-	console.log(isLoading, orders);
 
 	const axiosPrivate = useAxiosPrivate();
 
@@ -111,7 +155,7 @@ const MyOrders = () => {
 								color="white"
 								colorCode="0"
 								rounded="md"
-								size="md"
+								size="lg"
 							>
 								Search
 							</Button>
@@ -121,7 +165,7 @@ const MyOrders = () => {
 								<Select
 									id="type"
 									name="type"
-									options={[]}
+									options={orderStatusOptions}
 									defaultOption="order status"
 								/>
 							</form>
@@ -129,7 +173,7 @@ const MyOrders = () => {
 								<Select
 									id="type"
 									name="type"
-									options={[]}
+									options={orderTimeOptions}
 									defaultOption="order time"
 								/>
 							</form>
@@ -145,6 +189,7 @@ const MyOrders = () => {
 									orderItems={order.orderItems}
 									orderStatus={order.orderStatus}
 									orderedDate={order.orderedAt}
+									key={order._id}
 								/>
 						  ))}
 				</div>

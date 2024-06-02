@@ -9,7 +9,10 @@ import { useUserStore } from "../../hooks/useUserStore";
 import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
 
-const MyReviewItem: React.FC<{ review: MyReviewType }> = ({ review }) => {
+const MyReviewItem: React.FC<{
+	review: MyReviewType;
+	handleDelete: (productId: string) => void;
+}> = ({ review, handleDelete }) => {
 	const { user } = useUserStore();
 	const navigate = useNavigate();
 
@@ -62,6 +65,7 @@ const MyReviewItem: React.FC<{ review: MyReviewType }> = ({ review }) => {
 							colorCode="0"
 							rounded="md"
 							size="icon"
+							onClick={() => handleDelete(review.productId._id)}
 						>
 							<IoTrashOutline />
 						</Button>
@@ -89,6 +93,7 @@ const MyReviewItem: React.FC<{ review: MyReviewType }> = ({ review }) => {
 					colorCode="0"
 					rounded="md"
 					size="sm"
+					onClick={() => handleDelete(review.productId._id)}
 				>
 					Delete
 				</Button>

@@ -36,7 +36,7 @@ const RatingStats: React.FC<{
 
 	return (
 		<div className="ratingAndReview">
-			<div className="header">
+			<div className="ratingAndReviewHeader">
 				<h2>Rating & Review</h2>
 				<Button
 					backgroundColor="gray"

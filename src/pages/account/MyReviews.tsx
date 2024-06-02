@@ -5,6 +5,8 @@ import MyReviewItem from "../../components/myReviewItem/MyReviewItem";
 import { MyReviewType } from "../../types";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { errorHandler } from "../../utils/errorHandler";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 const MyReviews = () => {
 	const [isLoading, setIsLoading] = useState(false);
@@ -25,6 +27,26 @@ const MyReviews = () => {
 			</div>
 		</div>
 	));
+
+	const handleDeleteMyReview = (productId: string) => {
+		const res = axiosPrivate.delete(`/product/review/${productId}`);
+		toast.promise(res, {
+			loading: "Please wait...",
+			success: (res) => {
+				return res.data.message;
+			},
+			error: (err) => {
+				if (axios.isAxiosError<{ message: string }>(err)) {
+					if (!err?.response) {
+						return "Something went wrong";
+					} else {
+						return `${err.response?.data?.message}`;
+					}
+				}
+				return "Unexpected error!";
+			},
+		});
+	};
 
 	useEffect(() => {
 		const getMyReviews = () => {
@@ -59,6 +81,7 @@ const MyReviews = () => {
 							<MyReviewItem
 								review={review}
 								key={review.comment}
+								handleDelete={handleDeleteMyReview}
 							/>
 					  ))}
 			</div>

@@ -10,7 +10,7 @@
     padding-block: 3rem;
 
     .body {
-      width: 50%;
+      width: 90%;
       display: flex;
       flex-direction: column;
       gap: 2rem;
@@ -53,7 +53,7 @@
         gap: 2rem;
 
         .productImg {
-          width: 16rem;
+          width: 10rem;
           height: 10rem;
           border-radius: var(--rounded-lg);
           border: var(--border-100) solid var(--color-gray-100);
@@ -71,7 +71,7 @@
         }
       }
 
-      .form {
+      .ratingForm {
         display: flex;
         flex-direction: column;
         gap: 2rem;
@@ -91,6 +91,47 @@
             font-size: 1.2rem;
           }
         }
+      }
+    }
+  }
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 500px) {
+  .rateProduct {
+    .wrapper {
+      .body {
+        width: 80%;
+      }
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .rateProduct {
+    .wrapper {
+      .body {
+        width: 70%;
+      }
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .rateProduct {
+    .wrapper {
+      .body {
+        width: 60%;
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .rateProduct {
+    .wrapper {
+      .body {
+        width: 50%;
       }
     }
   }

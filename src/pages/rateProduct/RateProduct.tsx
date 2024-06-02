@@ -181,7 +181,7 @@ const RateProduct = () => {
 														onSubmit,
 														onInvalid
 													)}
-													className="form"
+													className="ratingForm"
 												>
 													<div className="rating">
 														<CustomRating

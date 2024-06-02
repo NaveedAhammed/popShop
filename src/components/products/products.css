@@ -1,9 +1,11 @@
 .products {
   width: 100%;
 
-  .wrapper {
+  .productsCarouselwrapper {
     width: 100%;
     padding-block: 2rem;
+    display: flex;
+    flex-direction: column;
 
     .shimmerHeading {
       width: 24.2rem;
@@ -275,7 +277,7 @@
 /* MEDIA QUERIES */
 @media (min-width: 260px) {
   .products {
-    .wrapper {
+    .productsCarouselwrapper {
       .items {
         .slider {
           grid-auto-columns: 49%;
@@ -287,7 +289,7 @@
 
 @media (min-width: 360px) {
   .products {
-    .wrapper {
+    .productsCarouselwrapper {
       .items {
         .slider {
           grid-auto-columns: 43%;
@@ -299,7 +301,7 @@
 
 @media (min-width: 440px) {
   .products {
-    .wrapper {
+    .productsCarouselwrapper {
       .items {
         .arrowBtn.active {
           display: flex;
@@ -311,7 +313,7 @@
 
 @media (min-width: 460px) {
   .products {
-    .wrapper {
+    .productsCarouselwrapper {
       .items {
         .slider {
           grid-auto-columns: 37%;
@@ -323,7 +325,7 @@
 
 @media (min-width: 580px) {
   .products {
-    .wrapper {
+    .productsCarouselwrapper {
       .items {
         .slider {
           grid-auto-columns: 31%;
@@ -335,7 +337,7 @@
 
 @media (min-width: 700px) {
   .products {
-    .wrapper {
+    .productsCarouselwrapper {
       .items {
         .slider {
           grid-auto-columns: 27%;
@@ -347,7 +349,7 @@
 
 @media (min-width: 890px) {
   .products {
-    .wrapper {
+    .productsCarouselwrapper {
       .items {
         .slider {
           grid-auto-columns: 21%;
@@ -359,7 +361,7 @@
 
 @media (min-width: 1120px) {
   .products {
-    .wrapper {
+    .productsCarouselwrapper {
       .items {
         .slider {
           grid-auto-columns: 18%;
@@ -371,7 +373,7 @@
 
 @media (min-width: 1282px) {
   .products {
-    .wrapper {
+    .productsCarouselwrapper {
       .heading {
         padding-inline: 0;
       }

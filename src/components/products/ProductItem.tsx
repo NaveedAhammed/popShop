@@ -93,29 +93,16 @@ const ProductItem: React.FC<{ product: ProductType }> = ({ product }) => {
 			});
 	};
 
-	// const scrollThrottle = (cb, delay = 15) => {
-	// 	let shouldWait = false;
-
-	// 	return (...args) => {
-	// 		if (shouldWait) return;
-
-	// 		cb(...args);
-	// 		shouldWait = true;
-
-	// 		setTimeout(() => {
-	// 			shouldWait = false;
-	// 		}, delay);
-	// 	};
-	// };
-
 	return (
 		<div className="productItem">
 			<div className="itemWrapper">
 				<div className="productImgs">
-					<div className="discountTag">
-						<span>{product.discount}</span>
-						<FaPercent className="percentIcon" />
-					</div>
+					{product.discount > 0 && (
+						<div className="discountTag">
+							<span>{product.discount}</span>
+							<FaPercent className="percentIcon" />
+						</div>
+					)}
 					<div
 						className={`arrowIcon arrowIconLeft ${
 							prevBtnVisible ? "active" : ""

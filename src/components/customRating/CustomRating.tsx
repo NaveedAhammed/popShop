@@ -62,7 +62,7 @@ const Star: React.FC<{
 			onMouseEnter={onHoverIn}
 			onMouseLeave={onHoverOut}
 			size={45}
-			className="starFill"
+			className="star starFill"
 			onClick={onRate}
 		/>
 	) : (
@@ -71,7 +71,7 @@ const Star: React.FC<{
 			onClick={onRate}
 			onMouseEnter={onHoverIn}
 			onMouseLeave={onHoverOut}
-			className="starNormal"
+			className="star starNormal"
 		/>
 	);
 };

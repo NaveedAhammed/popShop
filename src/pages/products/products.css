@@ -220,7 +220,8 @@
         align-items: center;
         justify-content: space-between;
         gap: 5rem;
-        height: 4rem;
+        height: fit-content;
+        margin-bottom: 2rem;
 
         .filtersBtn {
           display: inline-block;

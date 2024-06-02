@@ -50,13 +50,13 @@
 
     .rating {
       display: flex;
-      gap: 2rem;
 
       p {
         flex: 1;
         font-size: 1.4rem;
         font-weight: 400;
         color: var(--color-gray-600);
+        margin-left: 2rem;
       }
     }
 

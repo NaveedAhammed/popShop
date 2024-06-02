@@ -7,11 +7,16 @@
   span {
     font-size: 1.8rem;
     font-weight: 400;
+    color: var(--color-black-0);
   }
 
   .stars {
     display: flex;
     align-items: center;
+
+    .star {
+      width: 11%;
+    }
 
     .starFill {
       color: var(--color-gold);

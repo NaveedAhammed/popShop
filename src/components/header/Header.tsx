@@ -13,6 +13,7 @@ import UserMenu from "./UserMenu";
 import { useState } from "react";
 import { useUserStore } from "../../hooks/useUserStore";
 import { GoPerson } from "react-icons/go";
+import MobileMenu from "./MobileMenu";
 
 const activeLink = ({ isActive }: { isActive: boolean }) => {
 	return `navLink ${isActive ? "active" : "inactive"}`;
@@ -20,6 +21,7 @@ const activeLink = ({ isActive }: { isActive: boolean }) => {
 
 const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
 	const location = useLocation();
 
@@ -105,7 +107,12 @@ const Header = () => {
 								</div>
 								{isMenuOpen && <UserMenu />}
 							</div>
-							<div className="menu">
+							<div
+								className="menu"
+								onClick={() =>
+									setIsMobileMenuOpen((prev) => !prev)
+								}
+							>
 								<IoMenu className="menuIcon" />
 							</div>
 						</>
@@ -127,6 +134,10 @@ const Header = () => {
 						</div>
 					</div>
 				</div>
+				<MobileMenu
+					isMobileMenuShown={isMobileMenuOpen}
+					overlayClick={() => setIsMobileMenuOpen(false)}
+				/>
 			</div>
 		</header>
 	);

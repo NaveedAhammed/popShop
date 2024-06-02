@@ -833,7 +833,6 @@ const Products = () => {
 										id="sort-by"
 										name="sort-by"
 										options={sortOptions}
-										style={{ height: "100%" }}
 										defaultOption="sort by"
 									/>
 								</form>

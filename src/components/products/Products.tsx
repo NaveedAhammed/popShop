@@ -64,7 +64,7 @@ const Products: React.FC<{
 
 	return (
 		<div className="products">
-			<div className="wrapper">
+			<div className="productsCarouselwrapper">
 				{heading && (
 					<>
 						{isLoading ? (
