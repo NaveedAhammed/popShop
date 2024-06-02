@@ -118,10 +118,20 @@ const MyOrders = () => {
 						</form>
 						<div className="filters">
 							<form className="filterItem">
-								<Select id="type" name="type" options={[]} />
+								<Select
+									id="type"
+									name="type"
+									options={[]}
+									defaultOption="order status"
+								/>
 							</form>
 							<form className="filterItem">
-								<Select id="type" name="type" options={[]} />
+								<Select
+									id="type"
+									name="type"
+									options={[]}
+									defaultOption="order time"
+								/>
 							</form>
 						</div>
 					</FormProvider>
