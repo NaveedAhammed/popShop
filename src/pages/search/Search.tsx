@@ -40,6 +40,11 @@ const Search = () => {
 		setQ(e.target.value);
 	};
 
+	const handleClear = () => {
+		setQ("");
+		methods.setValue("searchQuery", "");
+	};
+
 	useEffect(() => {
 		methods.setFocus("searchQuery");
 	}, [methods]);
@@ -93,7 +98,7 @@ const Search = () => {
 										placeholder="Search for Products, Brands and More"
 										onChange={handleOnChange}
 										tralingIcon={q ? RxCross2 : undefined}
-										tralingIconOnClick={() => setQ("")}
+										tralingIconOnClick={handleClear}
 									/>
 								</form>
 							</FormProvider>
