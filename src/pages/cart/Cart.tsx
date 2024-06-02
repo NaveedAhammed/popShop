@@ -7,6 +7,7 @@ import { errorHandler } from "../../utils/errorHandler";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { CartItemType } from "../../types";
 import { currencyFormatter } from "../../utils/currencyFormat";
+import emptyBag from "../../assets/empty-bag.png";
 
 const Cart = () => {
 	const [isLoading, setIsLoading] = useState(false);
@@ -76,81 +77,93 @@ const Cart = () => {
 				</h1>
 			)}
 			<div className="wrapper">
-				<div className="left">
-					{isLoading
-						? shimmerElements
-						: cart.map((cartItem) => (
-								<CartItem
-									key={cartItem._id}
-									cartItem={cartItem}
-									setCart={setCart}
-								/>
-						  ))}
-				</div>
-				<div className="right">
-					{isLoading ? (
-						shimmerOrderSummary
-					) : (
-						<div className="rightWrapper">
-							<span className="heading">Order Summary</span>
-							<div className="item">
-								<span>Sub Total</span>
-								<span className="value">
-									{
-										currencyFormatter
-											.format(subTotal)
-											.split(".")[0]
-									}
-								</span>
-							</div>
-							<div className="item">
-								<span>Discount</span>
-								<span className="value">
-									{
-										currencyFormatter
-											.format(discount)
-											.split(".")[0]
-									}
-								</span>
-							</div>
-							<div className="item">
-								<span>Tax</span>
-								<span className="value">₹0</span>
-							</div>
-							<div className="item">
-								<span>Shipping</span>
-								<span className="value free">Free</span>
-							</div>
-							<div className="item">
-								<span>Total</span>
-								<span className="value">
-									{
-										currencyFormatter
-											.format(total)
-											.split(".")[0]
-									}
-								</span>
-							</div>
-							<div className="btnCheckout">
-								<Button
-									backgroundColor="primary"
-									backgroundColorCode="600"
-									color="white"
-									colorCode="0"
-									size="lg"
-									rounded="full"
-									style={{ width: "100%" }}
-								>
-									Proceed to Checkout
-								</Button>
-							</div>
-							<div className="delivery">
-								<span>Estimated Delivery by</span>
-								<span className="date">25 May, 2024</span>
-							</div>
+				{!isLoading && cart.length === 0 ? (
+					<div className="emptyBag">
+						<img src={emptyBag} alt="Empty Bag" />
+					</div>
+				) : (
+					<>
+						<div className="left">
+							{isLoading
+								? shimmerElements
+								: cart.map((cartItem) => (
+										<CartItem
+											key={cartItem._id}
+											cartItem={cartItem}
+											setCart={setCart}
+										/>
+								  ))}
 						</div>
-					)}
-				</div>
+						<div className="right">
+							{isLoading ? (
+								shimmerOrderSummary
+							) : (
+								<div className="rightWrapper">
+									<span className="heading">
+										Order Summary
+									</span>
+									<div className="item">
+										<span>Sub Total</span>
+										<span className="value">
+											{
+												currencyFormatter
+													.format(subTotal)
+													.split(".")[0]
+											}
+										</span>
+									</div>
+									<div className="item">
+										<span>Discount</span>
+										<span className="value">
+											{
+												currencyFormatter
+													.format(discount)
+													.split(".")[0]
+											}
+										</span>
+									</div>
+									<div className="item">
+										<span>Tax</span>
+										<span className="value">₹0</span>
+									</div>
+									<div className="item">
+										<span>Shipping</span>
+										<span className="value free">Free</span>
+									</div>
+									<div className="item">
+										<span>Total</span>
+										<span className="value">
+											{
+												currencyFormatter
+													.format(total)
+													.split(".")[0]
+											}
+										</span>
+									</div>
+									<div className="btnCheckout">
+										<Button
+											backgroundColor="primary"
+											backgroundColorCode="600"
+											color="white"
+											colorCode="0"
+											size="lg"
+											rounded="full"
+											style={{ width: "100%" }}
+										>
+											Proceed to Checkout
+										</Button>
+									</div>
+									<div className="delivery">
+										<span>Estimated Delivery by</span>
+										<span className="date">
+											25 May, 2024
+										</span>
+									</div>
+								</div>
+							)}
+						</div>
+					</>
+				)}
 			</div>
 		</div>
 	);

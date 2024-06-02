@@ -3,7 +3,7 @@ import "./account.css";
 import { GoPlus } from "react-icons/go";
 import AddAddressForm from "../../components/addAddressForm/AddAddressForm";
 import AddressItem from "../../components/addressItem/AddressItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useUserStore } from "../../hooks/useUserStore";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -13,6 +13,8 @@ import toast from "react-hot-toast";
 import { errorHandler } from "../../utils/errorHandler";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import axios from "axios";
+import { OptionsType } from "../../components/select/Select";
+import { State } from "country-state-city";
 
 export interface IAddressFormInput {
 	name: string;
@@ -42,8 +44,8 @@ const schema = yup.object().shape({
 	alternatePhone: yup
 		.number()
 		.nullable()
-		.typeError("Alternate phone must be a number")
-		.notRequired(),
+		.notRequired()
+		.typeError("Alternate phone must be a number"),
 });
 
 const ManageAddresses = () => {
@@ -52,6 +54,7 @@ const ManageAddresses = () => {
 	const [isEditing, setIsEditing] = useState(false);
 	const [id, setId] = useState<string | undefined>("");
 	const { user, setUser } = useUserStore();
+	const [states, setStates] = useState<OptionsType[]>([]);
 
 	const methods = useForm<IAddressFormInput>({
 		resolver: yupResolver(schema),
@@ -72,15 +75,19 @@ const ManageAddresses = () => {
 				name === "address" ||
 				name === "city" ||
 				name === "state" ||
-				name === "addressType" ||
-				name === "alternatePhone"
+				name === "addressType"
 			) {
 				methods.setValue(name, `${value}`);
 			}
-			setIsEditing(true);
-			setIsFormOpen(true);
-			setId(shippingInfo?._id);
+			if (name === "alternatePhone") {
+				if (value) {
+					methods.setValue(name, Number(value));
+				}
+			}
 		});
+		setIsEditing(true);
+		setIsFormOpen(true);
+		setId(shippingInfo._id);
 	};
 
 	const handleCancel = () => {
@@ -103,7 +110,7 @@ const ManageAddresses = () => {
 				if (user) {
 					const newUser: UserType = {
 						...user,
-						shippingAddresses: res.data.data.shippingAddresses,
+						shippingAddresses: res.data.data.user.shippingAddresses,
 					};
 					setUser(newUser);
 				}
@@ -118,6 +125,7 @@ const ManageAddresses = () => {
 	};
 
 	const handleAddNewAddress = (formData: IAddressFormInput) => {
+		console.log(formData);
 		setIsLoading(true);
 		axiosPrivate
 			.post("/user/shippingAddress/new", formData)
@@ -130,7 +138,7 @@ const ManageAddresses = () => {
 				if (user) {
 					const newUser: UserType = {
 						...user,
-						shippingAddresses: res.data.data.shippingAddresses,
+						shippingAddresses: res.data.data.user.shippingAddresses,
 					};
 					setUser(newUser);
 				}
@@ -184,6 +192,19 @@ const ManageAddresses = () => {
 		});
 	};
 
+	useEffect(() => {
+		const getStates = () => {
+			const res = State.getStatesOfCountry("IN");
+			const states: OptionsType[] = res.map((item) => ({
+				id: item.isoCode,
+				name: item.name,
+			}));
+			setStates(states);
+		};
+
+		states.length <= 0 && getStates();
+	}, [states]);
+
 	return (
 		<div className="manageAddresses">
 			<div className="addressWrapper">
@@ -192,6 +213,9 @@ const ManageAddresses = () => {
 						onCancel={handleCancel}
 						onSubmit={onSubmit}
 						isLoading={isLoading}
+						methods={methods}
+						states={states}
+						isEditing={isEditing}
 					/>
 				) : (
 					<div className="add" onClick={() => setIsFormOpen(true)}>

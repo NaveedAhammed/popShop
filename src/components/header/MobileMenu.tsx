@@ -8,7 +8,7 @@ const MobileMenu: React.FC<{
 	return (
 		<>
 			<div className={`mobileMenu ${isMobileMenuShown ? "show" : ""}`}>
-				<UserMenu />
+				<UserMenu isMobile />
 			</div>
 			<div
 				className={`mobileMenuOverlay ${

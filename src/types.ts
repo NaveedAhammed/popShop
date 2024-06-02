@@ -25,12 +25,12 @@ export interface MyReviewType {
 }
 
 export type ShippingInfoType = {
-	_id?: string;
+	_id: string;
 	name: string;
 	locality: string;
 	address: string;
 	city: string;
-	state: StateType;
+	state: string;
 	pincode: number;
 	phone: number;
 	alternatePhone?: number;

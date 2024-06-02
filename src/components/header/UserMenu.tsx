@@ -8,7 +8,7 @@ import UserMenuItem from "./UserMenuItem";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const UserMenu = () => {
+const UserMenu: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
 	const { onOpen } = useAuthModal();
 	const { user, setUser } = useUserStore();
 	const axiosPrivate = useAxiosPrivate();
@@ -40,6 +40,12 @@ const UserMenu = () => {
 
 	return (
 		<div className="usermenu">
+			{isMobile && (
+				<>
+					<UserMenuItem isLink label="Home" path="/" />
+					<UserMenuItem isLink label="Products" path="/products" />
+				</>
+			)}
 			{user ? (
 				<>
 					<UserMenuItem

@@ -1,36 +1,21 @@
 import "./addAddressForm.css";
 
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import { FormProvider, SubmitHandler, UseFormReturn } from "react-hook-form";
 import Input from "../input/Input";
 import Textarea from "../textarea/Textarea";
 import Select, { OptionsType } from "../select/Select";
 import Button from "../button/Button";
 import { IAddressFormInput } from "../../pages/account/ManageAddresses";
 import Loader from "../loader/Loader";
-import { useEffect, useState } from "react";
-import { State } from "country-state-city";
 
 const AddAddressForm: React.FC<{
 	onSubmit: SubmitHandler<IAddressFormInput>;
 	onCancel: () => void;
 	isLoading: boolean;
-}> = ({ onSubmit, onCancel, isLoading }) => {
-	const [states, setStates] = useState<OptionsType[]>([]);
-	const methods = useForm<IAddressFormInput>();
-
-	useEffect(() => {
-		const getStates = () => {
-			const res = State.getStatesOfCountry("IN");
-			const states: OptionsType[] = res.map((item) => ({
-				id: item.isoCode,
-				name: item.name,
-			}));
-			setStates(states);
-		};
-
-		states.length <= 0 && getStates();
-	}, [states]);
-
+	methods: UseFormReturn<IAddressFormInput, IAddressFormInput, undefined>;
+	states: OptionsType[];
+	isEditing: boolean;
+}> = ({ onSubmit, onCancel, isLoading, methods, states, isEditing }) => {
 	return (
 		<FormProvider {...methods}>
 			<form className="form" onSubmit={methods.handleSubmit(onSubmit)}>
@@ -40,28 +25,28 @@ const AddAddressForm: React.FC<{
 					id="name"
 					name="name"
 					type="text"
-					placeholder="Naveed"
+					placeholder="Receiver's Name"
 				/>
 				<Input
 					autoComplete="off"
 					id="phone"
 					name="phone"
 					type="number"
-					placeholder="919******6"
+					placeholder="Phone Number"
 				/>
 				<Input
 					autoComplete="off"
 					id="pincode"
 					name="pincode"
 					type="number"
-					placeholder="515**1"
+					placeholder="Pincode"
 				/>
 				<Input
 					autoComplete="off"
 					id="locality"
 					name="locality"
 					type="text"
-					placeholder="locality"
+					placeholder="Locality"
 				/>
 				<Textarea
 					autoComplete="off"
@@ -84,7 +69,7 @@ const AddAddressForm: React.FC<{
 					name="state"
 					required={true}
 					options={states}
-					defaultOption="select state"
+					defaultOption="Select State"
 				/>
 				<Input
 					autoComplete="off"
@@ -139,6 +124,7 @@ const AddAddressForm: React.FC<{
 						rounded="md"
 						size="md"
 						disabled={isLoading}
+						type="submit"
 					>
 						{isLoading && (
 							<Loader
@@ -147,7 +133,7 @@ const AddAddressForm: React.FC<{
 								color="white"
 							/>
 						)}
-						Add
+						{isEditing ? "Update" : "Add"}
 					</Button>
 				</div>
 			</form>

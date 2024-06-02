@@ -173,7 +173,7 @@ const WishlistItem: React.FC<{
 							</Link>
 						))}
 					</div>
-					<div className="heartIcon">
+					<div className="heartIcon" onClick={removeWishlistId}>
 						{wishlistLoading ? (
 							<Loader
 								color="black"
@@ -181,14 +181,9 @@ const WishlistItem: React.FC<{
 								width="1.6rem"
 							/>
 						) : isAddedtoWishlist ? (
-							<PiHeartFill
-								className="heartFill"
-								onClick={removeWishlistId}
-							/>
+							<PiHeartFill className="icon heartFill" />
 						) : (
-							<PiHeartStraightDuotone
-								onClick={removeWishlistId}
-							/>
+							<PiHeartStraightDuotone className="icon" />
 						)}
 					</div>
 				</div>

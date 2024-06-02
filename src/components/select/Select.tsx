@@ -37,11 +37,11 @@ const Select: React.FC<SelectProps> = ({
 			className="select"
 			defaultValue={defaultOption}
 		>
-			<option value="default" key="default">
+			<option value="default" key="x">
 				{defaultOption}
 			</option>
 			{options.map((option) => (
-				<option value={option.id} key={option.name}>
+				<option value={option.name} key={option.id}>
 					{option.name}
 				</option>
 			))}

@@ -1,14 +1,16 @@
+import { Link } from "react-router-dom";
 import "./categories.css";
 
-const CategoryItem: React.FC<{ categoryImg: string; label: string }> = ({
-	categoryImg,
-	label,
-}) => {
+const CategoryItem: React.FC<{
+	categoryImg: string;
+	label: string;
+	path: string;
+}> = ({ categoryImg, label, path }) => {
 	return (
-		<div className="categoryItem">
+		<Link to={path} className="categoryItem">
 			<img src={categoryImg} alt={label} className="categoryImg" />
 			<span className="categoryLabel">{label}</span>
-		</div>
+		</Link>
 	);
 };
 

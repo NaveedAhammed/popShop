@@ -74,9 +74,9 @@ const Header = () => {
 										alt="Shopping bag"
 										className="shoppingBagIcon"
 									/>
-									{user && (
+									{user && user.cart.length > 0 && (
 										<span className="numItems">
-											{user?.cart.length}
+											{user.cart.length}
 										</span>
 									)}
 								</Link>
@@ -105,7 +105,7 @@ const Header = () => {
 										</span>
 									)}
 								</div>
-								{isMenuOpen && <UserMenu />}
+								{isMenuOpen && <UserMenu isMobile={false} />}
 							</div>
 							<div
 								className="menu"

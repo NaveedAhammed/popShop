@@ -170,7 +170,10 @@ const ProductItem: React.FC<{ product: ProductType }> = ({ product }) => {
 							</Link>
 						))}
 					</div>
-					<div className="heartIcon">
+					<div
+						className="heartIcon"
+						onClick={handleAddOrRemoveWishlistId}
+					>
 						{wishlistLoading ? (
 							<Loader
 								color="black"
@@ -178,14 +181,9 @@ const ProductItem: React.FC<{ product: ProductType }> = ({ product }) => {
 								width="1.6rem"
 							/>
 						) : isAddedtoWishlist ? (
-							<PiHeartFill
-								className="heartFill"
-								onClick={handleAddOrRemoveWishlistId}
-							/>
+							<PiHeartFill className="heartFill" />
 						) : (
-							<PiHeartStraightDuotone
-								onClick={handleAddOrRemoveWishlistId}
-							/>
+							<PiHeartStraightDuotone />
 						)}
 					</div>
 				</div>

@@ -100,34 +100,56 @@ const Categories: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
 							shimmerElements
 						) : (
 							<>
-								<CategoryItem categoryImg={men} label="Men" />
+								<CategoryItem
+									categoryImg={men}
+									label="Men"
+									path="/products?parentCategory=Men"
+								/>
 								<CategoryItem
 									categoryImg={women}
 									label="Women"
+									path="/products?parentCategory=Women"
 								/>
-								<CategoryItem categoryImg={kids} label="Kids" />
+								<CategoryItem
+									categoryImg={kids}
+									label="Kids"
+									path="/products?parentCategory=Kids"
+								/>
 								<CategoryItem
 									categoryImg={elec}
 									label="Electronics"
+									path="/products?parentCategory=Electornics"
 								/>
 								<CategoryItem
 									categoryImg={fur}
 									label="Furniture"
+									path="/products?parentCategory=Furniture"
 								/>
-								<CategoryItem categoryImg={toys} label="Toys" />
+								<CategoryItem
+									categoryImg={toys}
+									label="Toys"
+									path="/products?parentCategory=Toys"
+								/>
 								<CategoryItem
 									categoryImg={kit}
 									label="Kitchen"
+									path="/products?parentCategory=Kitchen"
 								/>
-								<CategoryItem categoryImg={home} label="Home" />
+								<CategoryItem
+									categoryImg={home}
+									label="Home"
+									path="/products?parentCategory=Home"
+								/>
 								<CategoryItem
 									categoryImg={mobiles}
 									label="Mobiles"
+									path="/products?parentCategory=Electronics&childCategory=Mobiles"
 								/>
 								<CategoryItem
 									categoryImg={gro}
 									label="Grocery"
-								/>{" "}
+									path="/products?parentCategory=Grocery"
+								/>
 							</>
 						)}
 					</div>
