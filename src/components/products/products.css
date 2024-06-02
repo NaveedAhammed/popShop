@@ -217,6 +217,11 @@
                 box-shadow: var(--shadow-sm);
                 cursor: pointer;
 
+                .icon {
+                  width: 50%;
+                  height: 50%;
+                }
+
                 .heartFill {
                   color: var(--color-red-500);
                 }

@@ -181,9 +181,9 @@ const ProductItem: React.FC<{ product: ProductType }> = ({ product }) => {
 								width="1.6rem"
 							/>
 						) : isAddedtoWishlist ? (
-							<PiHeartFill className="heartFill" />
+							<PiHeartFill className="icon heartFill" />
 						) : (
-							<PiHeartStraightDuotone />
+							<PiHeartStraightDuotone className="icon" />
 						)}
 					</div>
 				</div>
