@@ -180,11 +180,12 @@ const ProductItem: React.FC<{
 							/>
 						) : isAddedtoWishlist ? (
 							<PiHeartFill
-								className="heartFill"
+								className="icon heartFill"
 								onClick={removeWishlistId}
 							/>
 						) : (
 							<PiHeartStraightDuotone
+								className="icon"
 								onClick={removeWishlistId}
 							/>
 						)}

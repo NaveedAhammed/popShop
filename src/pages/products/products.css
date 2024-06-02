@@ -8,6 +8,7 @@
     padding-block: 3rem;
     position: relative;
     padding-inline: 2rem;
+    height: fit-content;
 
     .left {
       width: 100%;
@@ -16,6 +17,7 @@
       position: fixed;
       height: 80vh;
       left: 0;
+      border: var(--border-100) solid var(--color-gray-100);
       bottom: 0;
       right: 0;
       z-index: 20;
@@ -23,20 +25,29 @@
       overflow-x: hidden;
       gap: 2rem;
       background-color: var(--color-white-0);
-      padding: 5rem;
-      border-top-left-radius: var(--rounded-lg);
-      border-top-right-radius: var(--rounded-xl);
+      border-top-left-radius: var(--rounded-3xl);
+      border-top-right-radius: var(--rounded-3xl);
       box-shadow: var(--shadow-lg);
       transition: all 0.5s ease-in-out;
 
       .closeIcon {
-        width: 4rem;
-        height: 4rem;
-        border-radius: var(--rounded-full);
-        padding: 1rem;
-        position: absolute;
-        top: 1rem;
-        right: 3rem;
+        width: 100%;
+        position: sticky;
+        top: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        padding: 2rem;
+        z-index: 20;
+        border-bottom: var(--border-100) solid var(--color-gray-100);
+        background-color: var(--color-white-0);
+
+        .icon {
+          width: 3rem;
+          height: 3rem;
+          border-radius: var(--rounded-full);
+          margin-left: auto;
+        }
       }
 
       .productsHeader {
@@ -44,6 +55,7 @@
         flex-direction: column;
         border-bottom: var(--border-100) solid var(--color-gray-100);
         padding-block-end: 2rem;
+        padding-inline: 4rem;
         gap: 1rem;
 
         .heading {
@@ -53,13 +65,13 @@
           gap: 2rem;
 
           span {
-            font-size: 2rem;
+            font-size: 3rem;
             font-weight: 500;
           }
         }
 
         .appliedFilterItems {
-          display: flex;
+          display: none;
           align-items: center;
           gap: 0.5rem;
           flex-wrap: wrap;
@@ -71,13 +83,14 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.5rem 0.8rem;
+            padding: 0.6rem 1.2rem;
             cursor: pointer;
 
             .filterName {
               display: flex;
               align-items: center;
               gap: 0.5rem;
+              font-size: 1rem;
             }
 
             &:hover {
@@ -99,6 +112,7 @@
           gap: 1rem;
           border-bottom: var(--border-100) solid var(--color-gray-100);
           padding-block-end: 2rem;
+          padding-inline: 4rem;
 
           &:last-child {
             border-bottom: none;
@@ -110,15 +124,15 @@
             align-items: center;
             justify-content: space-between;
             gap: 2rem;
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 500;
           }
 
           .list {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
-            font-size: 1.4rem;
+            gap: 1rem;
+            font-size: 1.7rem;
             font-weight: 400;
 
             .parentCategory.block {
@@ -198,22 +212,94 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      min-height: 80vh;
 
       .options {
         width: 100%;
-        padding-inline: 2rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 5rem;
+        height: 4rem;
+
+        .filtersBtn {
+          display: inline-block;
+        }
+
+        .sortForm {
+          height: 100%;
+          width: 15%;
+          margin-left: auto;
+          width: fit-content;
+        }
+      }
+
+      .minAppliedFilterItems {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding-block: 1rem;
+        overflow-x: scroll;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        .minFilterItem {
+          background-color: var(--color-black-0);
+          border-radius: var(--rounded-full);
+          padding: 0.8rem 1.6rem;
+          font-size: 1.4rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: var(--color-white-0);
+          overflow-x: scroll;
+          flex-shrink: 0;
+        }
       }
 
       .productItems {
         width: 100%;
+        height: 100%;
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         row-gap: 2rem;
         column-gap: 2rem;
+        position: relative;
+
+        .pagination {
+          grid-column: 1/-1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 2rem;
+
+          .pageNum {
+            font-size: 1.6rem;
+            font-weight: 600;
+          }
+        }
+
+        .no-products-found {
+          position: absolute;
+          width: 40%;
+          top: 50%;
+          left: 50%;
+          z-index: 10;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transform: translate(-50%, -60%);
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
 
         .shimmerProductItem {
           width: 100%;
@@ -259,6 +345,7 @@
           position: relative;
           padding: 1rem;
           border-radius: var(--rounded-lg);
+          height: fit-content;
 
           .itemWrapper {
             width: 100%;
@@ -361,12 +448,16 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 2rem;
                 bottom: 0;
                 right: 0;
                 transform: translateY(40%);
                 box-shadow: var(--shadow-sm);
                 cursor: pointer;
+
+                .icon {
+                  width: 50%;
+                  height: 50%;
+                }
 
                 .heartFill {
                   color: var(--color-red-500);
@@ -437,18 +528,6 @@
   }
 }
 
-@media (min-width: 420px) {
-  .products {
-    .wrapper {
-      .right {
-        .productItems {
-          grid-template-columns: repeat(3, 1fr);
-        }
-      }
-    }
-  }
-}
-
 @media (min-width: 530px) {
   .products {
     .wrapper {
@@ -469,6 +548,36 @@
         padding: 0;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
+        border: none;
+
+        .productsHeader {
+          padding-inline: 0;
+
+          .heading {
+            span {
+              font-size: 2rem;
+            }
+          }
+
+          .appliedFilterItems {
+            display: flex;
+          }
+        }
+
+        .filters {
+          .filter {
+            padding-inline: 0;
+
+            .filterHeading {
+              font-size: 1.6rem;
+            }
+
+            .list {
+              font-size: 1.3rem;
+              gap: 0.5rem;
+            }
+          }
+        }
 
         .closeIcon {
           display: none;
@@ -481,6 +590,16 @@
 
       .right {
         width: 70%;
+
+        .options {
+          .filtersBtn {
+            display: none;
+          }
+        }
+
+        .minAppliedFilterItems {
+          display: none;
+        }
 
         .productItems {
           grid-template-columns: repeat(2, 1fr);

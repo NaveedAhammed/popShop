@@ -7,7 +7,7 @@
   margin-bottom: 3rem;
 
   .productImg {
-    width: 9rem;
+    width: 11rem;
     height: 12rem;
     border: var(--border-100) solid var(--color-gray-100);
     border-radius: var(--rounded-lg);
@@ -198,14 +198,6 @@
 }
 
 /* MEDIA QUERIES */
-@media (min-width: 336px) {
-  .cartItem {
-    .productImg {
-      flex: 1;
-    }
-  }
-}
-
 @media (min-width: 480px) {
   .cartItem {
     .productInfo {

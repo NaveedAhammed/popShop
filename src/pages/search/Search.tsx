@@ -17,6 +17,7 @@ import { ProductType } from "../../types";
 import SearchItem from "./SearchItem";
 import searchGif from "../../assets/searching-last.gif";
 import noresults from "../../assets/no_result.gif";
+import { RxCross2 } from "react-icons/rx";
 
 const Search = () => {
 	const methods = useForm();
@@ -27,8 +28,6 @@ const Search = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
 
 	const debouncedSearch = useDebounce(q);
-
-	console.log(debouncedSearch);
 
 	const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const newSearchParams = new URLSearchParams(searchParams);
@@ -93,6 +92,8 @@ const Search = () => {
 										leadingIcon={LuSearch}
 										placeholder="Search for Products, Brands and More"
 										onChange={handleOnChange}
+										tralingIcon={q ? RxCross2 : undefined}
+										tralingIconOnClick={() => setQ("")}
 									/>
 								</form>
 							</FormProvider>

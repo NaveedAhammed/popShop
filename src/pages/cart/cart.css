@@ -15,6 +15,13 @@
     }
   }
 
+  .shimmerHeading {
+    height: 3rem;
+    width: 20rem;
+    margin-block: 2rem;
+    border-radius: var(--rounded-full);
+  }
+
   .wrapper {
     display: flex;
     gap: 2rem;

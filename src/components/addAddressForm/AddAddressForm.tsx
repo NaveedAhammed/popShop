@@ -3,18 +3,33 @@ import "./addAddressForm.css";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import Input from "../input/Input";
 import Textarea from "../textarea/Textarea";
-import Select, { IOption } from "../select/Select";
+import Select, { OptionsType } from "../select/Select";
 import Button from "../button/Button";
 import { IAddressFormInput } from "../../pages/account/ManageAddresses";
 import Loader from "../loader/Loader";
+import { useEffect, useState } from "react";
+import { State } from "country-state-city";
 
 const AddAddressForm: React.FC<{
 	onSubmit: SubmitHandler<IAddressFormInput>;
 	onCancel: () => void;
 	isLoading: boolean;
-	states: IOption[];
-}> = ({ onSubmit, onCancel, isLoading, states }) => {
+}> = ({ onSubmit, onCancel, isLoading }) => {
+	const [states, setStates] = useState<OptionsType[]>([]);
 	const methods = useForm<IAddressFormInput>();
+
+	useEffect(() => {
+		const getStates = () => {
+			const res = State.getStatesOfCountry("IN");
+			const states: OptionsType[] = res.map((item) => ({
+				id: item.isoCode,
+				name: item.name,
+			}));
+			setStates(states);
+		};
+
+		states.length <= 0 && getStates();
+	}, [states]);
 
 	return (
 		<FormProvider {...methods}>
@@ -69,6 +84,7 @@ const AddAddressForm: React.FC<{
 					name="state"
 					required={true}
 					options={states}
+					defaultOption="select state"
 				/>
 				<Input
 					autoComplete="off"

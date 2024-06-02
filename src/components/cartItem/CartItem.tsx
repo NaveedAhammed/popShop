@@ -202,7 +202,13 @@ const CartItem: React.FC<{
 						<span style={{ fontWeight: "500" }}>
 							{
 								currencyFormatter
-									.format(cartItem.productId.price)
+									.format(
+										((cartItem.productId.price *
+											(100 -
+												cartItem.productId.discount)) /
+											100) *
+											cartItem.quantity
+									)
 									.split(".")[0]
 							}
 						</span>
@@ -210,9 +216,15 @@ const CartItem: React.FC<{
 				</div>
 				<div className="actions">
 					<div className="miniQuantity">
-						<FaMinus className="icon" />
+						<FaMinus
+							className="icon"
+							onClick={() => handleCartItemQuantity("dec")}
+						/>
 						<span>{cartItem.quantity}</span>
-						<FaPlus className="icon" />
+						<FaPlus
+							className="icon"
+							onClick={() => handleCartItemQuantity("inc")}
+						/>
 					</div>
 					<div
 						className="actionDelete"

@@ -5,19 +5,24 @@
   align-items: center;
   overflow: hidden;
   position: relative;
-  height: 4.6rem;
   outline: none;
   border: none;
-  padding-left: 1rem;
-  flex: 1;
+  padding-inline: 1rem;
   width: 100%;
-  display: flex;
-  align-items: center;
   cursor: pointer;
   border: var(--border-100) solid var(--color-gray-200);
   border-radius: var(--rounded-lg);
+  font-size: 1.3rem;
+
+  &::placeholder {
+    font-size: 1.6rem;
+  }
 
   &:focus {
     border-color: var(--color-gray-500);
+  }
+
+  option {
+    font-size: 1.6rem;
   }
 }

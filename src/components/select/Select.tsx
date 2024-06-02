@@ -2,17 +2,19 @@ import "./select.css";
 
 import { useFormContext } from "react-hook-form";
 
-export interface IOption {
+export interface OptionsType {
+	id: string;
 	name: string;
 }
 
 interface SelectProps {
-	options: IOption[];
+	options: OptionsType[];
 	name: string;
 	id: string;
 	required?: boolean;
-	style?: object;
+	style?: React.CSSProperties;
 	onClick?: () => void;
+	defaultOption: string;
 }
 
 const Select: React.FC<SelectProps> = ({
@@ -22,6 +24,7 @@ const Select: React.FC<SelectProps> = ({
 	required,
 	style,
 	onClick,
+	defaultOption,
 }) => {
 	const { register } = useFormContext();
 
@@ -32,14 +35,13 @@ const Select: React.FC<SelectProps> = ({
 			onClick={onClick}
 			style={style}
 			className="select"
+			defaultValue={defaultOption}
 		>
-			<option value="">select</option>
+			<option value="default" key="default">
+				{defaultOption}
+			</option>
 			{options.map((option) => (
-				<option
-					className="text-base"
-					value={`${option.name}`}
-					key={option.name}
-				>
+				<option value={option.id} key={option.name}>
 					{option.name}
 				</option>
 			))}

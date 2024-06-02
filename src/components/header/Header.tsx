@@ -112,7 +112,10 @@ const Header = () => {
 					)}
 				</div>
 				<div className="secHeader">
-					<div className="searchBar">
+					<div
+						className="searchBar"
+						onClick={() => navigate("/search")}
+					>
 						<div className="searchWrapper">
 							<LuSearch className="searchIcon" />
 							<span className="searchPlaceholder">

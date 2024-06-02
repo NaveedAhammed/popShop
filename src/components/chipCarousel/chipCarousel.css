@@ -59,6 +59,7 @@
         .shimmerChipItem {
           height: 4rem;
           width: 12rem;
+          flex-shrink: 0;
           border-radius: var(--rounded-full);
         }
 

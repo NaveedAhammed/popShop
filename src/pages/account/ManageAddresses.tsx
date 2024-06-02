@@ -3,13 +3,11 @@ import "./account.css";
 import { GoPlus } from "react-icons/go";
 import AddAddressForm from "../../components/addAddressForm/AddAddressForm";
 import AddressItem from "../../components/addressItem/AddressItem";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useUserStore } from "../../hooks/useUserStore";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { IOption } from "../../components/select/Select";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { State } from "country-state-city";
 import { ShippingInfoType, UserType } from "../../types";
 import toast from "react-hot-toast";
 import { errorHandler } from "../../utils/errorHandler";
@@ -50,7 +48,6 @@ const schema = yup.object().shape({
 
 const ManageAddresses = () => {
 	const [isLoading, setIsLoading] = useState(false);
-	const [states, setStates] = useState<IOption[]>([]);
 	const [isFormOpen, setIsFormOpen] = useState(false);
 	const [isEditing, setIsEditing] = useState(false);
 	const [id, setId] = useState<string | undefined>("");
@@ -164,10 +161,11 @@ const ManageAddresses = () => {
 		toast.promise(res, {
 			loading: "Deleting the address...",
 			success: (res) => {
+				console.log(res.data);
 				if (user) {
 					const newUser: UserType = {
 						...user,
-						shippingAddresses: res.data.data.shippingAddresses,
+						shippingAddresses: res.data.data.user.shippingAddresses,
 					};
 					setUser(newUser);
 				}
@@ -186,19 +184,6 @@ const ManageAddresses = () => {
 		});
 	};
 
-	useEffect(() => {
-		const getStates = () => {
-			const res = State.getStatesOfCountry("IN");
-			const states = res.map((item) => ({
-				id: item.name,
-				name: item.name,
-			}));
-			setStates(states);
-		};
-
-		states.length <= 0 && getStates();
-	}, [states]);
-
 	return (
 		<div className="manageAddresses">
 			<div className="addressWrapper">
@@ -207,7 +192,6 @@ const ManageAddresses = () => {
 						onCancel={handleCancel}
 						onSubmit={onSubmit}
 						isLoading={isLoading}
-						states={states}
 					/>
 				) : (
 					<div className="add" onClick={() => setIsFormOpen(true)}>

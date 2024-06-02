@@ -1,58 +1,58 @@
 export const CHIP_ITEMS = [
 	{
-		path: "/products?parentCategory=men",
+		path: "/products?parentCategory=Men",
 		label: "Men",
 	},
 	{
-		path: "/products?parentCategory=women",
+		path: "/products?parentCategory=Women",
 		label: "Women",
 	},
 	{
-		path: "/products?parentCategory=kids",
+		path: "/products?parentCategory=Kids",
 		label: "Kids",
 	},
 	{
-		path: "/products?parentCategory=mobiles",
+		path: "/products?childCategory=Mobiles",
 		label: "Mobiles",
 	},
 	{
-		path: "/products?parentCategory=electronics",
+		path: "/products?parentCategory=Electronics",
 		label: "Electronics",
 	},
 	{
-		path: "/products?parentCategory=furniture",
+		path: "/products?parentCategory=Furniture",
 		label: "Furniture",
 	},
 	{
-		path: "/products?parentCategory=beauty&grooming",
+		path: "/products?parentCategory=Beauty&Grooming",
 		label: "Beauty & Grooming",
 	},
 	{
-		path: "/products?parentCategory=laptops",
+		path: "/products?childCategory=Laptops",
 		label: "Laptops",
 	},
 	{
-		path: "/products?parentCategory=shirts",
+		path: "/products?childCategory=Shirts",
 		label: "Shirts",
 	},
 	{
-		path: "/products?parentCategory=watches",
+		path: "/products?chilCategory=Watches",
 		label: "Watches",
 	},
 	{
-		path: "/products?parentCategory=jewlary",
+		path: "/products?parentCategory=Jewlary",
 		label: "Jewlary",
 	},
 	{
-		path: "/products?parentCategory=grocery",
+		path: "/products?parentCategory=Grocery",
 		label: "Grocery",
 	},
 	{
-		path: "/products?parentCategory=shoes",
+		path: "/products?childCategory=Shoes",
 		label: "Shoes",
 	},
 	{
-		path: "/products?parentCategory=toys",
+		path: "/products?parentCategory=Toys",
 		label: "Toys",
 	},
 ];

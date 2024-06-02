@@ -68,9 +68,13 @@ const Cart = () => {
 
 	return (
 		<div className="container cart">
-			<h1>
-				Shopping Bag <span>({cart.length})</span>
-			</h1>
+			{isLoading ? (
+				<div className="shimmerHeading shimmer-animation"></div>
+			) : (
+				<h1>
+					Shopping Bag <span>({cart.length})</span>
+				</h1>
+			)}
 			<div className="wrapper">
 				<div className="left">
 					{isLoading

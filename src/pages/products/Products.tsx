@@ -16,15 +16,39 @@ import { Slider } from "@mui/material";
 import { PiStarFill } from "react-icons/pi";
 import ProductItem from "./ProductItem";
 import { IoFilter } from "react-icons/io5";
-import Select from "../../components/select/Select";
-import { FormProvider, useForm } from "react-hook-form";
+import Select, { OptionsType } from "../../components/select/Select";
+import { FieldValues, FormProvider, useForm } from "react-hook-form";
+import noProductsFound from "../../assets/product-not-found.jpg";
 
 const minDistance = 1000;
+
+const sortOptions: OptionsType[] = [
+	{
+		id: "1",
+		name: "Price: Low to High",
+	},
+	{
+		id: "2",
+		name: "Price: High to Low",
+	},
+	{
+		id: "3",
+		name: "Rating: Low to High",
+	},
+	{
+		id: "4",
+		name: "Rating: High to Low",
+	},
+	{
+		id: "5",
+		name: "New Arrivals",
+	},
+];
 
 const Products = () => {
 	const [isFiltersOpen, setIsFiltersOpen] = useState(false);
 	const [searchParams, setSearchParams] = useSearchParams();
-
+	const [sortBy, setSortBy] = useState("");
 	const minPriceParam = searchParams.get("minPrice")
 		? Number(searchParams.get("minPrice"))
 		: 0;
@@ -33,6 +57,8 @@ const Products = () => {
 		: 50000;
 	const [price, setPrice] = useState([minPriceParam, maxPriceParam]);
 	const [filteredProducts, setFilteredProducts] = useState<ProductType[]>([]);
+	const [totalProducts, setTotalProducts] = useState(0);
+	const [productsPerPage, setProductsPerPage] = useState(0);
 	const [brands, setBrands] = useState<string[]>([]);
 	const [parentCategories, setParentCategories] = useState<
 		ParentCategoryType[]
@@ -40,7 +66,7 @@ const Products = () => {
 	const [childCategories, setChildCategories] = useState<ChildCategoryType[]>(
 		[]
 	);
-	const methods = useForm();
+	const methods = useForm<FieldValues>();
 	const [isLoading, setIsLoading] = useState(false);
 	const navigate = useNavigate();
 	const parentCategoryParam = searchParams.get("parentCategory");
@@ -51,9 +77,15 @@ const Products = () => {
 	const featured = searchParams.get("featured");
 	const newArrivals = searchParams.get("newArrivals");
 	const customerRatingParam = searchParams.get("customerRating");
+	const pageParam = searchParams.get("page") || 1;
+
+	console.log(isLoading, filteredProducts.length);
 
 	const updateSearchParams = (key: string, value: string) => {
 		const newSearchParams = new URLSearchParams(searchParams);
+		if (key !== "page") {
+			newSearchParams.set("page", "1");
+		}
 		if (!value || value === "[]") {
 			newSearchParams.delete(key);
 		} else {
@@ -174,6 +206,17 @@ const Products = () => {
 		setSearchParams(newSearchParams);
 	};
 
+	const onSortBy = (e: FieldValues) => {
+		setSortBy(e["sort-by"]);
+	};
+
+	useEffect(() => {
+		const subscription = methods.watch(() =>
+			methods.handleSubmit(onSortBy)()
+		);
+		return () => subscription.unsubscribe();
+	}, [methods]);
+
 	useEffect(() => {
 		let isMounted = true;
 		const controller = new AbortController();
@@ -188,13 +231,18 @@ const Products = () => {
 				discountParam ? discountParam : 0
 			}&featured=${featured}&newArrivals=${newArrivals}&minPrice=${minPriceParam}&maxPrice=${
 				maxPriceParam !== 50000 ? maxPriceParam : null
-			}&customerRating=${customerRatingParam ? customerRatingParam : 0}`;
+			}&customerRating=${
+				customerRatingParam ? customerRatingParam : 0
+			}&sortBy=${sortBy}&page=${pageParam}`;
 			publicAxios
 				.get(url, { signal: controller.signal })
 				.then((res) => {
 					isMounted &&
 						setFilteredProducts(res.data.data.filteredProducts);
 					isMounted && setBrands(res.data.data.brands);
+					isMounted && setTotalProducts(res.data.data.totalProducts);
+					isMounted &&
+						setProductsPerPage(res.data.data.productsPerPage);
 				})
 				.catch(errorHandler)
 				.finally(() => {
@@ -219,6 +267,8 @@ const Products = () => {
 		minPriceParam,
 		maxPriceParam,
 		customerRatingParam,
+		sortBy,
+		pageParam,
 	]);
 
 	useEffect(() => {
@@ -262,10 +312,14 @@ const Products = () => {
 			<div className="container">
 				<div className="wrapper">
 					<div className={`left ${isFiltersOpen ? "open" : "close"}`}>
-						<RxCross2
-							className="closeIcon"
-							onClick={() => setIsFiltersOpen((prev) => !prev)}
-						/>
+						<div className="closeIcon">
+							<RxCross2
+								className="icon"
+								onClick={() =>
+									setIsFiltersOpen((prev) => !prev)
+								}
+							/>
+						</div>
 						<div className="productsHeader">
 							<div className="heading">
 								<span>Filters</span>
@@ -753,36 +807,228 @@ const Products = () => {
 					</div>
 					<div className="right">
 						<div className="options">
-							<Button
-								backgroundColor="white"
-								backgroundColorCode="0"
-								color="black"
-								colorCode="0"
-								rounded="md"
-								size="lg"
-								onClick={() => setIsFiltersOpen(true)}
-							>
-								<IoFilter />
-								<span>Filters</span>
-							</Button>
+							<div className="filtersBtn">
+								<Button
+									backgroundColor="white"
+									backgroundColorCode="0"
+									color="black"
+									colorCode="0"
+									rounded="lg"
+									size="default"
+									borderColor="gray"
+									borderColorCode="200"
+									borderWidth="100"
+									onClick={() => setIsFiltersOpen(true)}
+								>
+									<IoFilter />
+									<span>Filters</span>
+								</Button>
+							</div>
 							<FormProvider {...methods}>
-								<Select
-									id="sort-by"
-									name="sort-by"
-									options={[]}
-								/>
+								<form
+									className="sortForm"
+									onSubmit={methods.handleSubmit(onSortBy)}
+								>
+									<Select
+										id="sort-by"
+										name="sort-by"
+										options={sortOptions}
+										style={{ height: "100%" }}
+										defaultOption="sort by"
+									/>
+								</form>
 							</FormProvider>
 						</div>
+						<div className="minAppliedFilterItems">
+							{parentCategoryParam && (
+								<div
+									className="minFilterItem"
+									onClick={handleCategoriesClear}
+								>
+									<span className="minFilterName">
+										{parentCategoryParam}
+									</span>
+									<RxCross2 />
+								</div>
+							)}
+							{childCategoryParam && (
+								<div
+									className="minFilterItem"
+									onClick={() =>
+										updateSearchParams("childCategory", "")
+									}
+								>
+									<span className="minFilterName">
+										{childCategoryParam}
+									</span>
+									<RxCross2 />
+								</div>
+							)}
+							{featured && (
+								<div
+									className="minFilterItem"
+									onClick={() =>
+										updateSearchParams("featured", "")
+									}
+								>
+									<span className="minFilterName">
+										Featured
+									</span>
+									<RxCross2 />
+								</div>
+							)}
+							{newArrivals && (
+								<div
+									className="minFilterItem"
+									onClick={() =>
+										updateSearchParams("newArrivals", "")
+									}
+								>
+									<span className="minFilterName">
+										New Arrivals
+									</span>
+									<RxCross2 />
+								</div>
+							)}
+							{brandsParam &&
+								JSON.parse(brandsParam).map((it: string) => (
+									<div
+										className="minFilterItem"
+										onClick={() => handleBrandAddition(it)}
+										key={it}
+									>
+										<span className="minFilterName">
+											{it}
+										</span>
+										<RxCross2 />
+									</div>
+								))}
+							{customerRatingParam && (
+								<div
+									className="minFilterItem"
+									onClick={() =>
+										updateSearchParams("customerRating", "")
+									}
+								>
+									<span className="minFilterName">
+										{customerRatingParam}{" "}
+										<PiStarFill className="starIcon" /> &
+										above
+									</span>
+									<RxCross2 />
+								</div>
+							)}
+							{discountParam && (
+								<div
+									className="minFilterItem"
+									onClick={() =>
+										updateSearchParams("discount", "")
+									}
+								>
+									<span className="minFilterName">
+										{discountParam}% or more
+									</span>
+									<RxCross2 />
+								</div>
+							)}
+							{minPriceParam > 0 && (
+								<div
+									className="minFilterItem"
+									onClick={() => {
+										updateSearchParams("minPrice", "");
+										setPrice((prev) => [0, prev[1]]);
+									}}
+								>
+									<span className="minFilterName">
+										Min Price: {minPriceParam}
+									</span>
+									<RxCross2 />
+								</div>
+							)}
+							{maxPriceParam < 50000 && (
+								<div
+									className="minFilterItem"
+									onClick={() => {
+										updateSearchParams("maxPrice", "");
+										setPrice((prev) => [prev[0], 50000]);
+									}}
+								>
+									<span className="minFilterName">
+										Max Price: {maxPriceParam}
+									</span>
+									<RxCross2 />
+								</div>
+							)}
+						</div>
 						<div className="productItems">
-							{isLoading
-								? shimmerElements
-								: filteredProducts.length > 0 &&
-								  filteredProducts.map((product) => (
-										<ProductItem
-											product={product}
-											key={product._id}
-										/>
-								  ))}
+							{isLoading ||
+							(isLoading && filteredProducts.length === 0) ? (
+								shimmerElements
+							) : !isLoading && filteredProducts.length === 0 ? (
+								<div className="no-products-found">
+									<img
+										src={noProductsFound}
+										alt="No Product Found"
+									/>
+								</div>
+							) : (
+								filteredProducts.map((product) => (
+									<ProductItem
+										product={product}
+										key={product._id}
+									/>
+								))
+							)}
+							<div className="pagination">
+								<Button
+									size="md"
+									rounded="lg"
+									backgroundColor="white"
+									backgroundColorCode="0"
+									color="black"
+									colorCode="0"
+									borderColor="gray"
+									borderColorCode="100"
+									borderWidth="100"
+									disabled={
+										Number(pageParam) === 1 || isLoading
+									}
+									onClick={() =>
+										updateSearchParams(
+											"page",
+											`${Number(pageParam) - 1}`
+										)
+									}
+								>
+									Prev
+								</Button>
+								<span className="pageNum">{pageParam}</span>
+								<Button
+									size="md"
+									rounded="lg"
+									backgroundColor="white"
+									backgroundColorCode="0"
+									color="black"
+									colorCode="0"
+									borderColor="gray"
+									borderColorCode="100"
+									borderWidth="100"
+									disabled={
+										Number(pageParam) ===
+											Math.ceil(
+												totalProducts / productsPerPage
+											) || isLoading
+									}
+									onClick={() =>
+										updateSearchParams(
+											"page",
+											`${Number(pageParam) + 1}`
+										)
+									}
+								>
+									Next
+								</Button>
+							</div>
 						</div>
 					</div>
 				</div>
