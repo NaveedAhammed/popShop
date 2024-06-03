@@ -1,6 +1,6 @@
 import "./account.css";
 
-import { FormProvider, useForm } from "react-hook-form";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
@@ -12,6 +12,11 @@ import { MdOutlinePhoneIphone } from "react-icons/md";
 import { useState } from "react";
 import profilePic from "../../assets/profile-pic.svg";
 import { useUserStore } from "../../hooks/useUserStore";
+import useAxiosPrivate from "../../hooks/useAxiosPrivate";
+import toast from "react-hot-toast";
+import { UserType } from "../../types";
+import { errorHandler } from "../../utils/errorHandler";
+import Loader from "../../components/loader/Loader";
 
 interface IMyProfileInput {
 	username: string;
@@ -34,8 +39,11 @@ const schema = yup.object().shape({
 
 const MyProfile = () => {
 	const [editing, setEditing] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 
-	const { user } = useUserStore();
+	const { user, setUser } = useUserStore();
+
+	const axiosPrivate = useAxiosPrivate();
 
 	const methods = useForm<IMyProfileInput>({
 		defaultValues: {
@@ -46,6 +54,37 @@ const MyProfile = () => {
 		},
 		resolver: yupResolver(schema),
 	});
+
+	const handleUpdatePersonalInfo: SubmitHandler<IMyProfileInput> = (
+		formData: IMyProfileInput
+	) => {
+		setIsLoading(true);
+		axiosPrivate
+			.put("/myProfile/update", formData)
+			.then((res) => {
+				if (!res.data.success) {
+					return toast.error(
+						"Profile update failed, Please try again"
+					);
+				}
+				const { user: userData } = res.data.data;
+				if (user) {
+					const newUser: UserType = {
+						...user,
+						username: userData?.username,
+						email: userData?.email,
+						phone: userData?.phone,
+						gender: userData?.gender,
+					};
+					setUser(newUser);
+				}
+				setEditing(false);
+			})
+			.catch(errorHandler)
+			.finally(() => {
+				setIsLoading(false);
+			});
+	};
 
 	return (
 		<div className="myProfile">
@@ -83,7 +122,12 @@ const MyProfile = () => {
 						Personal Information
 					</h2>
 					<FormProvider {...methods}>
-						<form className="profileForm">
+						<form
+							className="profileForm"
+							onSubmit={methods.handleSubmit(
+								handleUpdatePersonalInfo
+							)}
+						>
 							<Input
 								autoComplete="off"
 								id="username"
@@ -157,6 +201,13 @@ const MyProfile = () => {
 										colorCode="0"
 										rounded="lg"
 									>
+										{isLoading && (
+											<Loader
+												width="1rem"
+												height="1rem"
+												color="white"
+											/>
+										)}
 										Update
 									</Button>
 								</div>
