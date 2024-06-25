@@ -1,0 +1,114 @@
+.addressItem {
+  width: 100%;
+  border-bottom: var(--border-100) solid var(--color-gray-100);
+  background-color: var(--color-white);
+  display: flex;
+  gap: 1rem;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .address-option {
+    border-left: var(--border-800) solid var(--color-white-0);
+    border-radius: var(--rounded-md);
+
+    input {
+      font-size: 2rem;
+      visibility: hidden;
+    }
+  }
+
+  .address-option:has(input:checked) {
+    border-left: var(--border-800) solid var(--color-black-0);
+    border-radius: var(--rounded-md);
+  }
+
+  .address-option:has(input:checked)~.address-details .addressInfo .deliver-btn {
+    visibility: visible;
+    pointer-events: unset;
+    opacity: 1;
+  }
+
+  .address-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-block: 1rem;
+    cursor: pointer;
+
+    .heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .type {
+        padding: 0.5rem 1rem;
+        border-radius: var(--rounded-md);
+        background-color: var(--color-gray-200);
+        font-size: 1rem;
+        font-weight: 500;
+      }
+
+      .options {
+        display: flex;
+        flex-direction: column;
+        width: 8rem;
+        align-items: start;
+        border-radius: var(--rounded-md);
+        background-color: var(--color-white-0);
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 10;
+        box-shadow: var(--shadow-md);
+
+        .option {
+          padding: 1rem 2rem;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: start;
+
+          &:hover {
+            background-color: var(--color-gray-100);
+            color: var(--color-primary-500);
+          }
+        }
+      }
+    }
+
+    .personInfo {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      padding-inline-start: 0.5rem;
+
+      .phone {
+        font-weight: 400;
+      }
+
+      .name {
+        font-weight: 500;
+      }
+    }
+
+    .addressInfo {
+      font-size: 1.2rem;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      justify-content: space-between;
+      padding-inline-start: 0.5rem;
+
+      .deliver-btn {
+        visibility: hidden;
+        pointer-events: none;
+        opacity: 0;
+      }
+    }
+  }
+}

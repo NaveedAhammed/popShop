@@ -8,10 +8,13 @@ import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { CartItemType } from "../../types";
 import { currencyFormatter } from "../../utils/currencyFormat";
 import emptyBag from "../../assets/empty-bag.png";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [cart, setCart] = useState<CartItemType[]>([]);
+
+	const navigate = useNavigate();
 
 	const subTotal = cart
 		.map((item) => item.productId.price * item.quantity)
@@ -30,10 +33,10 @@ const Cart = () => {
 	const axiosPrivate = useAxiosPrivate();
 
 	useEffect(() => {
-		const getProductDetails = () => {
+		const getShoppingBagItems = () => {
 			setIsLoading(true);
 			axiosPrivate
-				.get("/products/cart")
+				.get("/shopping-bag")
 				.then((res) => {
 					console.log(res.data);
 					setCart(res.data.data.cart);
@@ -44,7 +47,7 @@ const Cart = () => {
 				});
 		};
 
-		getProductDetails();
+		getShoppingBagItems();
 	}, [axiosPrivate]);
 
 	const shimmerElements = Array.from({ length: 4 }).map((_, i) => (
@@ -149,6 +152,9 @@ const Cart = () => {
 											size="lg"
 											rounded="full"
 											style={{ width: "100%" }}
+											onClick={() =>
+												navigate("/checkout")
+											}
 										>
 											Proceed to Checkout
 										</Button>

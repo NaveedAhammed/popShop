@@ -13,7 +13,7 @@
   cursor: pointer;
   border: var(--border-100) solid var(--color-gray-200);
   border-radius: var(--rounded-lg);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 
   &::placeholder {
     font-size: 1.6rem;

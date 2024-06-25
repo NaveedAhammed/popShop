@@ -1,0 +1,202 @@
+.checkout {
+  width: 100%;
+  margin: 0 auto;
+  padding-inline: 3rem;
+
+  .progress-bar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    counter-reset: step;
+    margin-block: 3rem;
+    margin-bottom: 10rem;
+
+    .progress {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 4px;
+      z-index: -1;
+      background-color: var(--color-primary-500);
+      width: 0;
+      transition: .5s;
+    }
+
+    .progress.step-2 {
+      width: 50%;
+    }
+
+    .progress.step-3 {
+      width: 100%;
+    }
+
+    .progress-step {
+      width: 35px;
+      height: 35px;
+      background-color: var(--color-gray-100);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .progress-step::after {
+      content: attr(data-title);
+      position: absolute;
+      top: calc(100% + 0.20rem);
+      font-size: 1.2rem;
+      color: var(--color-black-0);
+    }
+
+    .progress-step.active {
+      background-color: var(--color-primary-500);
+      color: var(--color-white-0);
+    }
+  }
+
+  .progress-bar::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background-color: var(--color-gray-100);
+    z-index: -1;
+  }
+
+  .addresses-wrapper {
+    width: 100%;
+    padding-block: 2rem;
+
+    .add {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+      padding: 1rem;
+      border-radius: var(--rounded-md);
+      border: var(--border-100) solid var(--color-gray-200);
+      background-color: var(--color-gray-100);
+      font-size: 1.4rem;
+      font-weight: 400;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: var(--color-gray-200);
+      }
+    }
+
+    .addresses-form {
+      padding-block: 2rem;
+
+      h1 {
+        font-size: 1.8rem;
+        font-weight: 400;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  .order-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    .btnBack {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.4rem;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .btnContinue {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      margin-bottom: 4rem;
+      justify-content: end;
+    }
+  }
+
+  .payment {
+    display: flex;
+    flex-direction: column;
+
+    .heading {
+      font-size: 3rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1.6rem;
+      font-weight: 300;
+      margin-bottom: 2rem;
+
+      .value {
+        font-weight: 500;
+      }
+    }
+
+    .item.total {
+      font-size: 2.4rem;
+      margin-bottom: 2rem;
+    }
+
+    .partition {
+      border: none;
+      height: 2rem;
+      border-top: var(--border-200) dashed var(--color-gray-200);
+    }
+
+    .btnPayment {
+      margin-block: 3rem;
+    }
+
+    .delivery {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 5rem;
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+  }
+}
+
+@keyframes animate {
+  from {
+    transform: scale(1, 0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+
+@media (min-width: 700px) {
+  .checkout {
+    width: 80%;
+    padding-inline: 0;
+  }
+}
+
+@media (min-width: 1000px) {
+  .checkout {
+    width: 60%;
+  }
+}

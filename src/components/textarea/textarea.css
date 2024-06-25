@@ -22,6 +22,7 @@
     resize: none;
     overflow-y: scroll;
     font-family: inherit;
+    font-size: 1.4rem;
 
     &::placeholder {
       color: var(--color-gray-400);

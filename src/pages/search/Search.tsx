@@ -20,12 +20,11 @@ import noresults from "../../assets/no_result.gif";
 import { RxCross2 } from "react-icons/rx";
 
 const Search = () => {
+	const [searchParams, setSearchParams] = useSearchParams();
 	const methods = useForm();
 	const [q, setQ] = useState("");
 	const [isLoading, setIsLoading] = useState(false);
 	const [products, setProducts] = useState<ProductType[]>([]);
-
-	const [searchParams, setSearchParams] = useSearchParams();
 
 	const debouncedSearch = useDebounce(q);
 

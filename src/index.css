@@ -94,6 +94,10 @@
   --border-400: 4px;
   --border-500: 5px;
   --border-600: 6px;
+  --border-700: 7px;
+  --border-800: 8px;
+  --border-900: 9px;
+  --border-1000: 10px;
 
   /* BORDER RADIUS */
   --rounded-none: 0;

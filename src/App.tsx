@@ -19,9 +19,10 @@ const MyWishlist = lazy(() => import("./pages/account/MyWishlist"));
 const ManageAddresses = lazy(() => import("./pages/account/ManageAddresses"));
 const MyOrders = lazy(() => import("./pages/account/MyOrders"));
 const MyReviews = lazy(() => import("./pages/account/MyReviews"));
-const Redirect = lazy(() => import("./pages/redirect/Redirect"));
+const Redirect = lazy(() => import("./pages/util/Redirect"));
 const RateProduct = lazy(() => import("./pages/rateProduct/RateProduct"));
 const Products = lazy(() => import("./pages/products/Products"));
+const Checkout = lazy(() => import("./pages/checkout/Checkout"));
 
 const router = createBrowserRouter([
 	{
@@ -84,6 +85,10 @@ const router = createBrowserRouter([
 										element: <MyReviews />,
 									},
 								],
+							},
+							{
+								path: "checkout",
+								element: <Checkout />,
 							},
 						],
 					},
