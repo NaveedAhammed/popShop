@@ -17,6 +17,8 @@ const Checkout = () => {
 
 	const axiosPrivate = useAxiosPrivate();
 
+	console.log(isLoading, deliveryAddress);
+
 	useEffect(() => {
 		const getShoppingBagItems = () => {
 			setIsLoading(true);
