@@ -1,0 +1,32 @@
+.paymentStatus {
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .status {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .success-img {
+      width: 32rem;
+      height: auto;
+    }
+
+    .failed-img {
+      width: 20rem;
+      height: auto;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+    }
+
+    p {
+      font-size: 1.6rem;
+    }
+  }
+}

@@ -23,6 +23,7 @@ const Redirect = lazy(() => import("./pages/util/Redirect"));
 const RateProduct = lazy(() => import("./pages/rateProduct/RateProduct"));
 const Products = lazy(() => import("./pages/products/Products"));
 const Checkout = lazy(() => import("./pages/checkout/Checkout"));
+const PaymentStatus = lazy(() => import("./pages/util/PaymentStatus"));
 
 const router = createBrowserRouter([
 	{
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
 							{
 								path: "/rate-review/product/:id",
 								element: <RateProduct />,
+							},
+							{
+								path: "/payment",
+								element: <PaymentStatus />,
 							},
 							{
 								path: "account",

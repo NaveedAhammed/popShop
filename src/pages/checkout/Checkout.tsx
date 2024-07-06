@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Stripe, loadStripe } from "@stripe/stripe-js";
 import ProgressBar from "./ProgressBar";
 import "./checkout.css";
 import Addresses from "./Addresses";
@@ -37,6 +38,19 @@ const Checkout = () => {
 		getShoppingBagItems();
 	}, [axiosPrivate]);
 
+	const handleMakePayment = async () => {
+		const stripe: Stripe | null = await loadStripe(
+			import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY
+		);
+		const res = await axiosPrivate.post("/create-checkout-session", {
+			deliveryAddress,
+			cart,
+		});
+		await stripe?.redirectToCheckout({
+			sessionId: res.data.data.sessionId,
+		});
+	};
+
 	return (
 		<div className="checkout">
 			<div className="container">
@@ -49,7 +63,7 @@ const Checkout = () => {
 				) : step === 2 ? (
 					<OrderSummary items={cart} setStep={setStep} />
 				) : (
-					<Payment cart={cart} />
+					<Payment cart={cart} handlePayment={handleMakePayment} />
 				)}
 			</div>
 		</div>
